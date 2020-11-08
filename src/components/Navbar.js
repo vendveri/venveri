@@ -1,11 +1,12 @@
 import React from 'react';
 import logo from '../assets/images/logo.svg';
+import whiteLogo from '../assets/images/logo-white.svg';
 import { FaAlignRight } from 'react-icons/fa';
 import styled from 'styled-components';
 import PageLinks from '../constants/links';
 // import './Navbar.css';
 const StyledNav = styled.nav`
-  position: absolute;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
@@ -13,10 +14,10 @@ const StyledNav = styled.nav`
   display: flex;
   align-items: center;
   z-index: 200;
-  background: var(--clr-paradiso-blue);
+  background: ${({scrollPosition}) => scrollPosition === 0 ? 'transparent' : 'var(--clr-paradiso-blue)'};
   .nav-center {
-    width: 90vw;
-    max-width: 1170px;
+    width: 100%;
+    padding: 0 2rem;
     margin: 0 auto;
   }
   .nav-header {
@@ -24,7 +25,7 @@ const StyledNav = styled.nav`
     justify-content: space-between;
     align-items: center;
     img {
-      height: 35px;
+      height: 3.5rem;
       margin-bottom: 0.375rem;
     }
   }  
@@ -32,7 +33,7 @@ const StyledNav = styled.nav`
     font-size: 2rem;
     background: transparent;
     border-color: transparent;
-    color: var(--clr-codgray-black);
+    color: var(--clr-concrete-white);
     cursor: pointer;
     transition: var(--transition);
     &:hover {
@@ -59,30 +60,27 @@ const StyledNav = styled.nav`
       }
       a {
         text-transform: capitalize;
-        color: var(--clr-codgray-black);
+        color: var(--clr-concrete-white);
         font-weight: bold;
         letter-spacing: var(--spacing);
         transition: var(--transition);
         padding: 0.5rem 0;
         &:hover {
-          color: var(--clr-codgray-black);
-          box-shadow: 0px 2px var(--clr-codgray-black);
+          color: var(--clr-paradiso-blue);
+          box-shadow: 0px 2px var(--clr-paradiso-blue);
         }
       }
     }
   }
-  @media screen and (min-width: 992px) {
-    background: transparent;
-  }
 `;
 
 
-const Navbar = ({ toggleSidebar }) => {
+const Navbar = ({ toggleSidebar, scrollPosition }) => {
   return (
-    <StyledNav>
+    <StyledNav scrollPosition={scrollPosition}>
       <div className="nav-center">
         <div className="nav-header">
-          <img src={logo} alt="logo" />
+          <img src={scrollPosition === 0 ? whiteLogo : whiteLogo} alt="logo" />
           <button type="button" className="toggle-btn" onClick={toggleSidebar}>
             <FaAlignRight></FaAlignRight>
           </button>

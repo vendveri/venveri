@@ -132,22 +132,6 @@ p {
   background: var(--clr-concrete-white);
 }
 
-/* section */
-.section {
-  padding: 5rem 0;
-}
-
-.section-center {
-  width: 90vw;
-  margin: 0 auto;
-  max-width: 1170px;
-}
-
-.page-center {
-  width: 90vw;
-  margin: 0 auto;
-  max-width: var(--max-width);
-}
 /* button styles */
 .btn {
   text-transform: uppercase;

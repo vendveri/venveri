@@ -1,10 +1,26 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
+import styled from 'styled-components';
 // import SEO from '../components/SEO';
 import placeholder from '../assets/images/placeholders/image-placeholder.png';
 import theft from '../assets/images/theft.jpg';
 import Layout from '../components/Layout';
-import logo from '../assets/images/placeholders/logo-200x200-placeholder.png';
+
+const StyledContentBlock = styled.section`
+  &>div {
+    min-height: 40rem;
+    padding: 2rem;
+    margin: 0 auto;
+    text-align: center;
+  }
+  &:nth-of-type(1) {
+    margin-top: -12rem;
+    padding-top: 7rem;
+    /* background: url(${theft}); */
+    background: grey;
+    background-size: cover;
+  }
+`;
 
 const query = graphql`
   {
@@ -21,10 +37,13 @@ const IndexPage = () => {
   } = data;
   return (
     <Layout>
-      <h1>{title}</h1>
-      <img src={logo} alt={title} />
-      <section className="section">
-        <div className="section-center">
+      <StyledContentBlock>
+        <div>
+          <h1>{title}</h1>
+        </div>
+      </StyledContentBlock>
+      <StyledContentBlock>
+        <div>
           <h2>Option's Section</h2>
           <ul>
             <li>
@@ -43,10 +62,10 @@ const IndexPage = () => {
             See Your Exposures (click video) - scroll down and video is there
           </p>
         </div>
-      </section>
+      </StyledContentBlock>
       <hr />
-      <section className="section">
-        <div className="section-center">
+      <StyledContentBlock>
+        <div>
           <h2>How do we know these risks exist?</h2>
           <p>
             The founders of VerndVeri owned and operated a high risk vendor
@@ -55,10 +74,10 @@ const IndexPage = () => {
           </p>
           <p>Picture of Bryan & Jason</p>
         </div>
-      </section>
+      </StyledContentBlock>
       <hr />
-      <section className="section">
-        <div className="section-center">
+      <StyledContentBlock>
+        <div>
           <h2>Certificates of Insurance</h2>
           <p>
             Certificates of Insurance have been supplied. However, are workers
@@ -71,10 +90,10 @@ const IndexPage = () => {
             job before it takes place. Protect Your Liabilities Now (button)
           </p>
         </div>
-      </section>
+      </StyledContentBlock>
       <hr />
-      <section className="section">
-        <div className="section-center">
+      <StyledContentBlock>
+        <div>
           <h2>Have you checked</h2>
           <p>
             Have you checked to see if the certificate of insurance is real?
@@ -88,10 +107,10 @@ const IndexPage = () => {
           <img src={placeholder} alt="person at computer" />
           <p>COI- a fake Protect Your Liabilities Now (button) </p>
         </div>
-      </section>
+      </StyledContentBlock>
       <hr />
-      <section className="section">
-        <div className="section-center">
+      <StyledContentBlock>
+        <div>
           <h2>Protect your assets</h2>
           <p>Protect your assets and make sure no theft takes place.</p>
           <p>
@@ -107,10 +126,10 @@ const IndexPage = () => {
           </p>
           <h2>Protect Your Liabilities Now (button)</h2>
         </div>
-      </section>
+      </StyledContentBlock>
       <hr />
-      <section className="section">
-        <div className="section-center">
+      <StyledContentBlock>
+        <div>
           <h2>
             Make sure you keep employee and tenants health in their best
             interest.
@@ -153,11 +172,11 @@ const IndexPage = () => {
             How our services will protect you - Click to take to Service tab
           </h3>
         </div>
-      </section>
+      </StyledContentBlock>
       <hr />
       <hr />
-      <section className="section">
-        <div className="section-center">
+      <StyledContentBlock>
+        <div>
           <h3>Common “Hiring” Traits Among High Risk Vendors</h3>
           <ul>
             <li>
@@ -181,10 +200,10 @@ const IndexPage = () => {
             How our services will protect you - Click to take to Service tab
           </h3>
         </div>
-      </section>
+      </StyledContentBlock>
       <hr />
-      <section className="section">
-        <div className="section-center">
+      <StyledContentBlock>
+        <div>
           <h2>Common Traits of Under the table</h2>
           <ul>
             <li>Workers more likely to be monetarily challenged </li>
@@ -207,10 +226,10 @@ const IndexPage = () => {
 
           <p>Ready to Learn More - lLead Contact Sheet</p>
         </div>
-      </section>
+      </StyledContentBlock>
       <hr />
-      <section className="section">
-        <div className="section-center">
+      <StyledContentBlock>
+        <div>
           <h2>Subcontractors of High Risk Vendors</h2>
           <p>little bit sticking out big ice berg underneath </p>
           <p>
@@ -247,7 +266,7 @@ const IndexPage = () => {
           </p>
           <img
             src={placeholder}
-            alt="Picture Bryan And Jason Co Founders & Managing Partners"
+            alt="Bryan And Jason Co Founders & Managing Partners"
           />
           <p>
             We have created this service to close huge liability gaps that we
@@ -258,10 +277,10 @@ const IndexPage = () => {
           <p>What’s a HRV - takes to HRV tab</p>
           <p>Learn More (contact form button)</p>
         </div>
-      </section>
+      </StyledContentBlock>
       <hr />
-      <section className="section">
-        <div className="section-center">
+      <StyledContentBlock>
+        <div>
           Our Process is thorough but easy for all parties. Use process picture
           supplied by Bryan 5 Icon Pix Title of Each and bullets to be listed
           under each You Send us HRV Contact Information VendVeri Emails Quick
@@ -271,10 +290,10 @@ const IndexPage = () => {
           Audit Color Coded to show high, medium, moderate, low risk
           ________________________________Learn More (contact form button)
         </div>
-      </section>
+      </StyledContentBlock>
       <hr />
-      <section className="section">
-        <div className="section-center">
+      <StyledContentBlock>
+        <div>
           For a more indepth look at our protection services and rates call us
           at 1-800-Get-Safe or fill out the form below! A representative will be
           in touch shortly.
@@ -289,35 +308,35 @@ const IndexPage = () => {
             <li>Custom Message</li>
           </ul>
         </div>
-      </section>
+      </StyledContentBlock>
       <hr />
-      <section className="section">
-        <div className="section-center">
+      <StyledContentBlock>
+        <div>
           Industries Served - click drop down of industries Property Managers
           Schools & Universities Government Corporate America
         </div>
-      </section>
+      </StyledContentBlock>
       <hr />
-      <section className="section">
-        <div className="section-center">
+      <StyledContentBlock>
+        <div>
           Property Managers With Many Tenants in a building come many vendors.
           It is easy for details to get overlooked. Easy to be too busy and let
           liabilities slip by! Tracking high risk vendors is a necessity in
           types of environments. Liability Video - button Contact form button
         </div>
-      </section>
+      </StyledContentBlock>
       <hr />
-      <section className="section">
-        <div className="section-center">
+      <StyledContentBlock>
+        <div>
           Schools and Universities Sprawling campuses, many buildings, multiple
           facilities departments managing vendors on jobs. There isn’t a better
           place to streamline the accountability of high risk vendors with our
           services. Liability Video - button Contact form button
         </div>
-      </section>
+      </StyledContentBlock>
       <hr />
-      <section className="section">
-        <div className="section-center">
+      <StyledContentBlock>
+        <div>
           <h2>Government Entities</h2>
           The government has a big responsibility to set the guidelines for High
           Risk work being performed onsite. Without Vendveri services there are
@@ -325,10 +344,10 @@ const IndexPage = () => {
           fill those gaps. It will let vendors know that you demand a safe and
           organized environment at all times.
         </div>
-      </section>
+      </StyledContentBlock>
       <hr />
-      <section className="section">
-        <div className="section-center">
+      <StyledContentBlock>
+        <div>
           <h2>Corporate America</h2>
           While they do not have as many High Risk jobs onsite they are by the
           least educated on the liabilities that exist. Vendveri is going to
@@ -336,7 +355,7 @@ const IndexPage = () => {
           integrity of your business, employee health and safety. Liability
           Video - button Contact form button
         </div>
-      </section>
+      </StyledContentBlock>
     </Layout>
   );
 };
