@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import SEO from '../components/SEO';
+// import SEO from '../components/SEO';
 import placeholder from '../assets/images/placeholders/image-placeholder.png';
 import theft from '../assets/images/theft.jpg';
 import Layout from '../components/Layout';
