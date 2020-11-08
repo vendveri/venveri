@@ -1,24 +1,28 @@
-import React from "react"
-import PropTypes from "prop-types"
-// import { useStaticQuery, graphql } from "gatsby"
-
-import Header from "./Header"
-import Footer from "./Footer"
+import React from 'react';
+import PropTypes from 'prop-types';
+import Navbar from './Navbar';
+import Sidebar from './Sidebar';
+// import Header from './Header';
+import Footer from './Footer';
 
 const Layout = ({ children }) => {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <>
-      <Header />
-      <div>
-        <main>{children}</main>
-        <Footer />
-      </div>
+      <Navbar toggleSidebar={toggleSidebar} />
+      <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
+      <main>{children}</main>
+      <Footer />
     </>
-  )
-}
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
-export default Layout
+export default Layout;

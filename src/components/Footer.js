@@ -1,13 +1,16 @@
-import React from "react"
+import React from 'react';
+import SocialLinks from '../constants/socialLinks';
+import './Footer.css';
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className="footer">
       <div>
-        <p>&copy;{new Date().getFullYear()} VendVeri. All rights reserved</p>
+        <SocialLinks styleClass="footer-icons" />
+        <p>&copy;{new Date().getFullYear()} MDXBlog. All rights reserved</p>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
