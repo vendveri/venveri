@@ -1,3 +1,6 @@
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyles = createGlobalStyle`
 /*
 =============== 
 Variables
@@ -24,7 +27,7 @@ Variables
 
   /* animation */
   --transition: all 0.3s linear;
-
+  --delay-multiplier: .25;
   /* layout */
   --spacing: 0.1rem;
   --radius: 0.25rem;
@@ -173,3 +176,6 @@ p {
   margin: 0 auto;
   margin-top: 3rem;
 }
+`;
+
+export default GlobalStyles;
