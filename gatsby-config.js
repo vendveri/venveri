@@ -1,3 +1,4 @@
+
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
@@ -12,7 +13,7 @@ Decrease property and employee liabilities, theft, and health risk
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-stylelint`,
+    // `gatsby-plugin-stylelint`,
     {
       resolve: `gatsby-source-contentful`,
       options: {
@@ -23,8 +24,15 @@ Decrease property and employee liabilities, theft, and health risk
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/src/assets/images`,
+        name: `assets`,
+        path: `${__dirname}/src/assets/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/pages/`,
       },
     },
     {
@@ -41,7 +49,7 @@ Decrease property and employee liabilities, theft, and health risk
         ],
       },
     },
-    `gatsby-plugin-eslint`,
+    // `gatsby-plugin-eslint`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
