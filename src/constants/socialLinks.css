@@ -11,5 +11,5 @@
   transition: var(--transition);
 }
 .social-link:hover {
-  color: var(--clr-primary-5);
+  color: var(--clr-paradiso-blue);
 }
