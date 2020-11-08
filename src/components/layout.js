@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
-// import Header from './Header';
 import Footer from './Footer';
 
 const Layout = ({ children }) => {
