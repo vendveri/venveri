@@ -4,7 +4,7 @@ import { FaAlignRight } from 'react-icons/fa';
 import styled from 'styled-components';
 import PageLinks from '../constants/links';
 // import './Navbar.css';
-const NavStyles = styled.nav`
+const StyledNav = styled.nav`
   position: absolute;
   top: 0;
   left: 0;
@@ -79,7 +79,7 @@ const NavStyles = styled.nav`
 
 const Navbar = ({ toggleSidebar }) => {
   return (
-    <NavStyles>
+    <StyledNav>
       <div className="nav-center">
         <div className="nav-header">
           <img src={logo} alt="logo" />
@@ -89,7 +89,7 @@ const Navbar = ({ toggleSidebar }) => {
         </div>
         <PageLinks styleClass="nav-links"></PageLinks>
       </div>
-    </NavStyles>
+    </StyledNav>
   );
 };
 

@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import SocialLinks from '../constants/socialLinks';
-// import './Footer.css';
 
-const FooterStyles = styled.footer`
+const StyledFooter = styled.footer`
   height: 7rem;
   text-align: center;
   background: var(--clr-codgray-black);
@@ -37,10 +36,10 @@ const FooterStyles = styled.footer`
 
 const Footer = () => {
   return (
-    <FooterStyles>
+    <StyledFooter>
       <SocialLinks />
       <p>&copy;{new Date().getFullYear()} MDXBlog. All rights reserved</p>
-    </FooterStyles>
+    </StyledFooter>
   );
 };
 

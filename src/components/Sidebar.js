@@ -4,7 +4,7 @@ import SocialLinks from '../constants/socialLinks';
 import { FaTimes } from 'react-icons/fa';
 import styled from 'styled-components';
 
-const SidebarStyles = styled.aside`
+const StyledSidebar = styled.aside`
   background: var(--clr-concrete-white);
   position: fixed;
   top: 0;
@@ -117,7 +117,7 @@ const SidebarStyles = styled.aside`
 
 const Sidebar = ({ toggleSidebar, isOpen }) => {
   return (
-    <SidebarStyles className={`${isOpen ? 'show-sidebar' : ''} `}>
+    <StyledSidebar className={`${isOpen ? 'show-sidebar' : ''} `}>
       <button className="close-btn" onClick={toggleSidebar}>
         <FaTimes />
       </button>
@@ -125,7 +125,7 @@ const Sidebar = ({ toggleSidebar, isOpen }) => {
         <Links styleClass={`${isOpen ? 'sidebar-links' : ''}`} />
         <SocialLinks styleClass={`${isOpen ? 'sidebar-icons' : ''} `} />
       </div>
-    </SidebarStyles>
+    </StyledSidebar>
   );
 };
 
