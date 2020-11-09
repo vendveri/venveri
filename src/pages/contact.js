@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 
 const StyledContactPage = styled.section`
@@ -58,7 +57,7 @@ const StyledContactPage = styled.section`
 
 const contact = () => {
   return (
-    <Layout>
+    <>
       <SEO title="Contact" />
       <StyledContactPage className="page">
         <article>
@@ -92,7 +91,7 @@ const contact = () => {
       </StyledContactPage>
       {/* </div> */}
       {/* /.page */}
-    </Layout>
+    </>
   );
 };
 
