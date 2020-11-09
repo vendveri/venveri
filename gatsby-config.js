@@ -1,4 +1,3 @@
-
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
@@ -14,6 +13,12 @@ Decrease property and employee liabilities, theft, and health risk
   plugins: [
     `gatsby-plugin-react-helmet`,
     // `gatsby-plugin-stylelint`,
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        // add any options here
+      },
+    },
     {
       resolve: `gatsby-source-contentful`,
       options: {
