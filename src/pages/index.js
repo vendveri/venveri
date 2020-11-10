@@ -40,14 +40,12 @@ const StyledHeadingBlock = styled.div`
 export const query = graphql`
   {
     block1: contentfulBlock1 {
-      nodes {
-        id
-        title
-        subtitle
-        background {
-          fluid(maxWidth: 3000) {
-            src
-          }
+      id
+      title
+      subtitle
+      background {
+        fluid(maxWidth: 3000) {
+          src
         }
       }
     }
