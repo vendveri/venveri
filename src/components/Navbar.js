@@ -14,7 +14,7 @@ const StyledNav = styled.nav`
   display: flex;
   align-items: center;
   z-index: 200;
-  background: ${({scrollPosition}) => scrollPosition === 0 ? 'transparent' : 'var(--clr-paradiso-blue)'};
+  background: ${({scrollPosition}) => scrollPosition === 0 ? 'transparent' : 'var(--clr-primary)'};
   .nav-center {
     width: 100%;
     padding: 0 2rem;
@@ -66,8 +66,8 @@ const StyledNav = styled.nav`
         transition: var(--transition);
         padding: 0.5rem 0;
         &:hover {
-          color: var(--clr-paradiso-blue);
-          box-shadow: 0px 2px var(--clr-paradiso-blue);
+          color: var(--clr-primary);
+          box-shadow: 0px 2px var(--clr-primary);
         }
       }
     }

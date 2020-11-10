@@ -21,7 +21,7 @@ const StyledContactPage = styled.section`
 
     h3 {
       padding-top: 1.25rem;
-      color: var(--clr-paradiso-blue);
+      color: var(--clr-primary);
     }
     .form-group {
       padding: 1rem 1.5rem;

@@ -6,7 +6,7 @@ import styled from 'styled-components';
 const StyledErrorPage = styled.section`
   display: grid;
   place-items: center;
-  background: var(--clr-fountain-blue);
+  background: var(--clr-primary);
   text-align: center;
   h1 {
     text-transform: uppercase;

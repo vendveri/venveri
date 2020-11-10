@@ -16,8 +16,10 @@ Variables
   --clr-codgray-black: #0d0d0d;
   --clr-paradiso-blue: #377d8c;
   --clr-fountain-blue: #50abbf;
+  --clr-boston-blue: #4b9bb7;
   --clr-jungle-green: #26bf78;
   --clr-jewel-green: #168c49;
+  --clr-primary: var(--clr-boston-blue);
   --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 
