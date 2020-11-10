@@ -39,11 +39,9 @@ const StyledHeadingBlock = styled.div`
 `;
 export const query = graphql`
   {
-    blocks: allContentfulBlock(sort: {fields: position}) {
+    block1: ContentfulBlock1 {
       nodes {
         id
-        baseHeight
-        position
         title
         subtitle
         background {
@@ -57,20 +55,27 @@ export const query = graphql`
 `;
 
 const IndexPage = ({data}) => {
-  const blocks = data.blocks.nodes;
+  const {block1} = data;
+  const {background, title, subtitle} = block1;
   return (
     <>
-    { blocks.map(({id, title, subtitle, background, baseHeight}) => (
       <StyledContentBlock
-      key={id}
       background={background ? background.fluid.src : null}
       color="var(--clr-concrete-white)"
-      baseHeight={baseHeight}>
+      baseHeight={100}>
         <StyledHeadingBlock>
           <h2>{subtitle}</h2>
           <h1>{title}</h1>
         </StyledHeadingBlock>
-      </StyledContentBlock>))}
+      </StyledContentBlock>
+      <StyledContentBlock>
+        <div>
+          <h2>How do we know these risks exist?</h2>
+          <p>
+            The founders of VerndVeri owned and operated a high risk vendor service for 16 years. They know your liabilities firsthand. It’s time to protect your business!
+          </p>
+        </div>
+      </StyledContentBlock>
       <StyledContentBlock>
         <div>
           <h2>Certificates of Insurance</h2>
