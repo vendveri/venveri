@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import whiteLogo from '../assets/images/logo-white.svg';
+import logo from '../assets/images/logo.svg';
 import { FaAlignRight } from 'react-icons/fa';
 import styled from 'styled-components';
 import PageLinks from '../constants/links';
@@ -14,8 +14,7 @@ const StyledNav = styled.nav`
   display: flex;
   align-items: center;
   z-index: 200;
-  background: ${({ scrollPosition }) =>
-    scrollPosition === 0 ? 'transparent' : 'var(--clr-paradiso-blue)'};
+  background: var(--clr-concrete-white);
   .nav-center {
     width: 100%;
     padding: 0 2rem;
@@ -27,14 +26,13 @@ const StyledNav = styled.nav`
     align-items: center;
     img {
       height: 3.5rem;
-      margin-bottom: 0.375rem;
     }
   }
   .toggle-btn {
     font-size: 2rem;
     background: transparent;
     border-color: transparent;
-    color: var(--clr-concrete-white);
+    color: var(--clr-primary);
     cursor: pointer;
     transition: var(--transition);
     &:hover {
@@ -56,19 +54,33 @@ const StyledNav = styled.nav`
     .nav-links {
       display: flex;
       justify-content: flex-end;
-      li {
-        margin-right: 2rem;
-      }
+      gap: 1rem;
       a {
         text-transform: capitalize;
-        color: var(--clr-concrete-white);
+        color: var(--clr-primary);
         font-weight: bold;
         letter-spacing: var(--spacing);
         transition: var(--transition);
-        padding: 0.5rem 0;
+        padding: 1rem;
+        border-radius: 3px;
+        &[aria-current="page"] {
+          p {
+            border-bottom: 2px solid;
+          }
+        }
+        p {
+          display: unset;
+          margin: 0;
+          padding: 0;
+          color: inherit;
+          transition: var(--transition);
+          border-bottom: 2px solid rgba(0,0,0,0);
+        }
         &:hover {
-          color: var(--clr-paradiso-blue);
-          box-shadow: 0px 2px var(--clr-paradiso-blue);
+          color: var(--clr-codgray-black);
+          p {
+            border-bottom: 2px solid;
+          }
         }
       }
     }
@@ -82,7 +94,7 @@ const Navbar = ({ toggleSidebar, scrollPosition }, props) => {
         <div className="nav-header">
           <Link to="/">
             <img
-              src={scrollPosition === 0 ? whiteLogo : whiteLogo}
+              src={logo}
               alt="logo"
             />
           </Link>
