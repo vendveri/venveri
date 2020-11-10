@@ -23,10 +23,6 @@ const StyledContentBlock = styled.section`
     justify-content: center;
     flex-flow: column;
   }
-  &:nth-of-type(1) {
-    margin-top: -12rem;
-    padding-top: 7rem;
-  }
 `;
 
 const StyledHeadingBlock = styled.div`

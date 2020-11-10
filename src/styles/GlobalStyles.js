@@ -68,10 +68,6 @@ body {
   font-size: 1.4rem;
 }
 
-main {
-  margin-top: 7rem;
-}
-
 ul {
   list-style-type: none;
 }
