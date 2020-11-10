@@ -4,6 +4,8 @@ import GlobalStyles from '../styles/GlobalStyles';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
 import Footer from './Footer';
+import 'normalize.css';
+
 let timeout;
 const Layout = ({ children }) => {
   const [isOpen, setIsOpen] = React.useState(false);
