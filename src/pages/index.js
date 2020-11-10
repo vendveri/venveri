@@ -15,13 +15,20 @@ const StyledContentBlock = styled.section`
   & > div {
     display: flex;
     min-height: ${({baseHeight}) => {
-      return baseHeight || '50vh';
+      return baseHeight ? `${baseHeight}vh` : '50vh';
     }};
     padding: 2rem;
     margin: 0 auto;
     max-width: var(--max-width);
     justify-content: center;
     flex-flow: column;
+  }
+  &:first-of-type {
+    & > div {
+      min-height: ${({baseHeight}) => {
+        return `calc(${baseHeight || '50'}vh - 5rem)`;
+      }};
+    }
   }
 `;
 
@@ -32,12 +39,17 @@ const StyledHeadingBlock = styled.div`
 `;
 export const query = graphql`
   {
-    contentfulBlock1 {
-      title
-      subtitle
-      background {
-        fluid(maxWidth: 3000) {
-          src
+    blocks: allContentfulBlock(sort: {fields: position}) {
+      nodes {
+        id
+        baseHeight
+        position
+        title
+        subtitle
+        background {
+          fluid(maxWidth: 3000) {
+            src
+          }
         }
       }
     }
@@ -45,52 +57,20 @@ export const query = graphql`
 `;
 
 const IndexPage = ({data}) => {
-  const {
-    contentfulBlock1: { title, subtitle, background },
-  } = data;
+  const blocks = data.blocks.nodes;
   return (
     <>
+    { blocks.map(({id, title, subtitle, background, baseHeight}) => (
       <StyledContentBlock
-      background={background.fluid.src}
+      key={id}
+      background={background ? background.fluid.src : null}
       color="var(--clr-concrete-white)"
-      baseHeight="calc(100vh - 5rem)">
+      baseHeight={baseHeight}>
         <StyledHeadingBlock>
           <h2>{subtitle}</h2>
           <h1>{title}</h1>
         </StyledHeadingBlock>
-      </StyledContentBlock>
-      <StyledContentBlock>
-        <div>
-          <h2>Option's Section</h2>
-          <ul>
-            <li>
-              <strong>Option 1</strong> It's time to take control of the high
-              risk vendor work being performed onsite Decrease property and
-              employee liabilities, theft, and health risk
-            </li>
-            <li>
-              <strong>Option 2</strong> Decrease Liability when High Risk Vendor
-              Work is Performed Onsite It's your responsibility that property
-              and employee liabilities, security, and health are protected at
-              all times.
-            </li>
-          </ul>
-          <p>
-            See Your Exposures (click video) - scroll down and video is there
-          </p>
-        </div>
-      </StyledContentBlock>
-      <StyledContentBlock>
-        <div>
-          <h2>How do we know these risks exist?</h2>
-          <p>
-            The founders of VerndVeri owned and operated a high risk vendor
-            service for 16 years. They know your liabilities firsthand. It's
-            time to protect your business!
-          </p>
-          <p>Picture of Bryan & Jason</p>
-        </div>
-      </StyledContentBlock>
+      </StyledContentBlock>))}
       <StyledContentBlock>
         <div>
           <h2>Certificates of Insurance</h2>
