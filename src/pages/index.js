@@ -14,8 +14,8 @@ const StyledContentBlock = styled.section`
   box-shadow: var(--dark-shadow);
   & > div {
     display: flex;
-    height: ${({height}) => {
-      return height || '50vh';
+    min-height: ${({baseHeight}) => {
+      return baseHeight || '50vh';
     }};
     padding: 2rem;
     margin: 0 auto;
@@ -53,7 +53,7 @@ const IndexPage = ({data}) => {
       <StyledContentBlock
       background={background.fluid.src}
       color="var(--clr-concrete-white)"
-      height="75vh">
+      baseHeight="calc(100vh - 5rem)">
         <StyledHeadingBlock>
           <h2>{subtitle}</h2>
           <h1>{title}</h1>
