@@ -5,7 +5,7 @@ import placeholder from '../assets/images/placeholders/image-placeholder.png';
 
 const StyledContentBlock = styled.section`
   background: ${({background}) => {
-    return `url("${background}")` || 'grey';
+    return background ? `url("${background}")` : 'var(--clr-concrete-white)';
   }};
   background-size: cover;
   color: ${({color}) => {
@@ -79,7 +79,6 @@ const IndexPage = ({data}) => {
           </p>
         </div>
       </StyledContentBlock>
-      <hr />
       <StyledContentBlock>
         <div>
           <h2>How do we know these risks exist?</h2>
@@ -91,7 +90,6 @@ const IndexPage = ({data}) => {
           <p>Picture of Bryan & Jason</p>
         </div>
       </StyledContentBlock>
-      <hr />
       <StyledContentBlock>
         <div>
           <h2>Certificates of Insurance</h2>
@@ -107,7 +105,6 @@ const IndexPage = ({data}) => {
           </p>
         </div>
       </StyledContentBlock>
-      <hr />
       <StyledContentBlock>
         <div>
           <h2>Have you checked</h2>
@@ -124,7 +121,6 @@ const IndexPage = ({data}) => {
           <p>COI- a fake Protect Your Liabilities Now (button) </p>
         </div>
       </StyledContentBlock>
-      <hr />
       <StyledContentBlock>
         <div>
           <h2>Protect your assets</h2>
@@ -143,7 +139,6 @@ const IndexPage = ({data}) => {
           <h2>Protect Your Liabilities Now (button)</h2>
         </div>
       </StyledContentBlock>
-      <hr />
       <StyledContentBlock>
         <div>
           <h2>
@@ -189,8 +184,6 @@ const IndexPage = ({data}) => {
           </h3>
         </div>
       </StyledContentBlock>
-      <hr />
-      <hr />
       <StyledContentBlock>
         <div>
           <h3>Common “Hiring” Traits Among High Risk Vendors</h3>
@@ -217,7 +210,6 @@ const IndexPage = ({data}) => {
           </h3>
         </div>
       </StyledContentBlock>
-      <hr />
       <StyledContentBlock>
         <div>
           <h2>Common Traits of Under the table</h2>
@@ -243,7 +235,6 @@ const IndexPage = ({data}) => {
           <p>Ready to Learn More - lLead Contact Sheet</p>
         </div>
       </StyledContentBlock>
-      <hr />
       <StyledContentBlock>
         <div>
           <h2>Subcontractors of High Risk Vendors</h2>
@@ -294,7 +285,6 @@ const IndexPage = ({data}) => {
           <p>Learn More (contact form button)</p>
         </div>
       </StyledContentBlock>
-      <hr />
       <StyledContentBlock>
         <div>
           Our Process is thorough but easy for all parties. Use process picture
@@ -307,7 +297,6 @@ const IndexPage = ({data}) => {
           ________________________________Learn More (contact form button)
         </div>
       </StyledContentBlock>
-      <hr />
       <StyledContentBlock>
         <div>
           For a more indepth look at our protection services and rates call us
@@ -325,14 +314,12 @@ const IndexPage = ({data}) => {
           </ul>
         </div>
       </StyledContentBlock>
-      <hr />
       <StyledContentBlock>
         <div>
           Industries Served - click drop down of industries Property Managers
           Schools & Universities Government Corporate America
         </div>
       </StyledContentBlock>
-      <hr />
       <StyledContentBlock>
         <div>
           Property Managers With Many Tenants in a building come many vendors.
@@ -341,7 +328,6 @@ const IndexPage = ({data}) => {
           types of environments. Liability Video - button Contact form button
         </div>
       </StyledContentBlock>
-      <hr />
       <StyledContentBlock>
         <div>
           Schools and Universities Sprawling campuses, many buildings, multiple
@@ -350,7 +336,6 @@ const IndexPage = ({data}) => {
           services. Liability Video - button Contact form button
         </div>
       </StyledContentBlock>
-      <hr />
       <StyledContentBlock>
         <div>
           <h2>Government Entities</h2>
@@ -361,7 +346,6 @@ const IndexPage = ({data}) => {
           organized environment at all times.
         </div>
       </StyledContentBlock>
-      <hr />
       <StyledContentBlock>
         <div>
           <h2>Corporate America</h2>
