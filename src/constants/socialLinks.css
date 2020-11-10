@@ -7,9 +7,9 @@
 }
 .social-link {
   font-size: 1.75rem;
-  color: var(--clr-paradiso-blue);
+  color: var(--clr-primary);
   transition: var(--transition);
 }
 .social-link:hover {
-  color: var(--clr-paradiso-blue);
+  color: var(--clr-primary);
 }

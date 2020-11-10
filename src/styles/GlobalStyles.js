@@ -13,13 +13,18 @@ Variables
   --clr-pewter-green: #8fa69b;
   --clr-bluesmoke-green: #798c83;
   --clr-concrete-white: #f2f2f2;
+  --clr-dark-grey: #adadad;
   --clr-codgray-black: #0d0d0d;
   --clr-paradiso-blue: #377d8c;
   --clr-fountain-blue: #50abbf;
+  --clr-boston-blue: #4b9bb7;
   --clr-jungle-green: #26bf78;
   --clr-jewel-green: #168c49;
-  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --clr-black-10: rgba(0, 0, 0, 0.1);
+  --clr-black-20: rgba(0, 0, 0, 0.2);
+  --clr-primary: var(--clr-boston-blue);
+  --light-shadow: 0 5px 15px var(--clr-black-10);
+  --dark-shadow: 0 5px 15px var(--clr-black-20);
 
   /* fonts */
   --ff-primary: 'Roboto', sans-serif;
@@ -128,7 +133,7 @@ p {
 /* global classes */
 
 .page {
-  min-height: calc(100vh - 2rem);
+  min-height: calc(100vh - 19rem);
   background: var(--clr-concrete-white);
 }
 

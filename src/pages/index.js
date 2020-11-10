@@ -1,44 +1,62 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import placeholder from '../assets/images/placeholders/image-placeholder.png';
-import theft from '../assets/images/theft.jpg';
 
 const StyledContentBlock = styled.section`
+  background: ${({background}) => {
+    return `url("${background}")` || 'grey';
+  }};
+  background-size: cover;
+  color: ${({color}) => {
+    return color || 'inherit';
+  }};
+  box-shadow: var(--dark-shadow);
   & > div {
-    min-height: 40rem;
+    display: flex;
+    min-height: 50vh;
     padding: 2rem;
     margin: 0 auto;
-    text-align: center;
+    max-width: var(--max-width);
+    justify-content: center;
+    flex-flow: column;
   }
   &:nth-of-type(1) {
     margin-top: -12rem;
     padding-top: 7rem;
-    /* background: url(${theft}); */
-    background: grey;
-    background-size: cover;
   }
 `;
 
-const query = graphql`
+const StyledHeadingBlock = styled.div`
+  h1, h2 {
+    text-shadow: 1px 1px 4px #000;
+  }
+`;
+export const query = graphql`
   {
-    contentfulHome {
+    contentfulBlock1 {
       title
+      subtitle
+      background {
+        fluid(maxWidth: 3000) {
+          src
+        }
+      }
     }
   }
 `;
 
-const IndexPage = () => {
-  const data = useStaticQuery(query);
+const IndexPage = ({data}) => {
   const {
-    contentfulHome: { title },
+    contentfulBlock1: { title, subtitle, background },
   } = data;
   return (
     <>
-      <StyledContentBlock>
-        <div>
+      <StyledContentBlock background={background.fluid.src} color="var(--clr-concrete-white)">
+        <StyledHeadingBlock>
+          <h2>{subtitle}</h2>
           <h1>{title}</h1>
-        </div>
+        </StyledHeadingBlock>
       </StyledContentBlock>
       <StyledContentBlock>
         <div>
