@@ -39,7 +39,7 @@ const StyledHeadingBlock = styled.div`
 `;
 export const query = graphql`
   {
-    block1: ContentfulBlock1 {
+    block1: contentfulBlock1 {
       nodes {
         id
         title
