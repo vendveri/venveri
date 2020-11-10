@@ -5,7 +5,7 @@ import SEO from '../components/SEO';
 const StyledContactPage = styled.section`
   display: grid;
   place-items: center;
-  padding: 5rem 0;
+  min-height: calc(100vh - 12rem);
   article {
     background: var(--clr-concrete-white);
     border-radius: var(--radius);
