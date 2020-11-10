@@ -1,10 +1,10 @@
 import React from 'react';
-import logo from '../assets/images/logo.svg';
+import { Link } from 'gatsby';
 import whiteLogo from '../assets/images/logo-white.svg';
 import { FaAlignRight } from 'react-icons/fa';
 import styled from 'styled-components';
 import PageLinks from '../constants/links';
-// import './Navbar.css';
+
 const StyledNav = styled.nav`
   position: sticky;
   top: 0;
@@ -14,7 +14,8 @@ const StyledNav = styled.nav`
   display: flex;
   align-items: center;
   z-index: 200;
-  background: ${({scrollPosition}) => scrollPosition === 0 ? 'transparent' : 'var(--clr-primary)'};
+  background: ${({ scrollPosition }) =>
+    scrollPosition === 0 ? 'transparent' : 'var(--clr-primary)'};
   .nav-center {
     width: 100%;
     padding: 0 2rem;
@@ -28,7 +29,7 @@ const StyledNav = styled.nav`
       height: 3.5rem;
       margin-bottom: 0.375rem;
     }
-  }  
+  }
   .toggle-btn {
     font-size: 2rem;
     background: transparent;
@@ -74,13 +75,17 @@ const StyledNav = styled.nav`
   }
 `;
 
-
-const Navbar = ({ toggleSidebar, scrollPosition }) => {
+const Navbar = ({ toggleSidebar, scrollPosition }, props) => {
   return (
     <StyledNav scrollPosition={scrollPosition}>
       <div className="nav-center">
         <div className="nav-header">
-          <img src={scrollPosition === 0 ? whiteLogo : whiteLogo} alt="logo" />
+          <Link to="/">
+            <img
+              src={scrollPosition === 0 ? whiteLogo : whiteLogo}
+              alt="logo"
+            />
+          </Link>
           <button type="button" className="toggle-btn" onClick={toggleSidebar}>
             <FaAlignRight></FaAlignRight>
           </button>

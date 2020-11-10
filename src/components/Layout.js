@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import GlobalStyles from '../styles/GlobalStyles';
 import Navbar from './Navbar';
@@ -11,14 +11,14 @@ const Layout = ({ children }) => {
     setIsOpen(!isOpen);
   };
   const [scrollPosition, setScrollPosition] = useState(0);
-  const scrollHandler = (e) => {
+  const scrollHandler = () => {
     if (timeout) {
       window.cancelAnimationFrame(timeout);
     }
     timeout = window.requestAnimationFrame(function () {
       setScrollPosition(window.scrollY);
     });
-  }
+  };
   useEffect(() => {
     setScrollPosition(window.scrollY);
     window.addEventListener('scroll', scrollHandler);
@@ -28,7 +28,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <GlobalStyles />
-      <Navbar toggleSidebar={toggleSidebar} scrollPosition={scrollPosition}/>
+      <Navbar toggleSidebar={toggleSidebar} scrollPosition={scrollPosition} />
       <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
       <main>{children}</main>
       <Footer />

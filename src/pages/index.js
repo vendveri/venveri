@@ -1,13 +1,11 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
-// import SEO from '../components/SEO';
 import placeholder from '../assets/images/placeholders/image-placeholder.png';
 import theft from '../assets/images/theft.jpg';
-import Layout from '../components/Layout';
 
 const StyledContentBlock = styled.section`
-  &>div {
+  & > div {
     min-height: 40rem;
     padding: 2rem;
     margin: 0 auto;
@@ -36,7 +34,7 @@ const IndexPage = () => {
     contentfulHome: { title },
   } = data;
   return (
-    <Layout>
+    <>
       <StyledContentBlock>
         <div>
           <h1>{title}</h1>
@@ -356,7 +354,7 @@ const IndexPage = () => {
           Video - button Contact form button
         </div>
       </StyledContentBlock>
-    </Layout>
+    </>
   );
 };
 

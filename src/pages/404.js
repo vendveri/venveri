@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import Layout from '../components/Layout';
 import styled from 'styled-components';
 
 const StyledErrorPage = styled.section`
@@ -16,7 +15,7 @@ const StyledErrorPage = styled.section`
 `;
 
 const NotFoundPage = () => (
-  <Layout>
+  <>
     <StyledErrorPage>
       <div className="page-center page">
         <span>404</span>
@@ -26,7 +25,7 @@ const NotFoundPage = () => (
         </Link>
       </div>
     </StyledErrorPage>
-  </Layout>
+  </>
 );
 
 export default NotFoundPage;
