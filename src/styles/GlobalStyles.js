@@ -68,10 +68,6 @@ body {
   font-size: 1.4rem;
 }
 
-main {
-  margin-top: 7rem;
-}
-
 ul {
   list-style-type: none;
 }
@@ -84,7 +80,6 @@ h2,
 h3,
 h4 {
   letter-spacing: var(--spacing);
-  text-transform: capitalize;
   line-height: 1.25;
   margin-bottom: 1.2rem;
   font-family: var(--ff-primary);

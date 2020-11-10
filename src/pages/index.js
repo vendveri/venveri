@@ -1,44 +1,63 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import placeholder from '../assets/images/placeholders/image-placeholder.png';
-import theft from '../assets/images/theft.jpg';
 
 const StyledContentBlock = styled.section`
+  background: ${({background}) => {
+    return background ? `url("${background}")` : 'var(--clr-concrete-white)';
+  }};
+  background-size: cover;
+  color: ${({color}) => {
+    return color || 'inherit';
+  }};
+  box-shadow: var(--dark-shadow);
   & > div {
-    min-height: 40rem;
+    display: flex;
+    min-height: ${({baseHeight}) => {
+      return baseHeight || '50vh';
+    }};
     padding: 2rem;
     margin: 0 auto;
-    text-align: center;
-  }
-  &:nth-of-type(1) {
-    margin-top: -12rem;
-    padding-top: 7rem;
-    /* background: url(${theft}); */
-    background: grey;
-    background-size: cover;
+    max-width: var(--max-width);
+    justify-content: center;
+    flex-flow: column;
   }
 `;
 
-const query = graphql`
+const StyledHeadingBlock = styled.div`
+  h1, h2 {
+    text-shadow: 1px 1px 4px #000;
+  }
+`;
+export const query = graphql`
   {
-    contentfulHome {
+    contentfulBlock1 {
       title
+      subtitle
+      background {
+        fluid(maxWidth: 3000) {
+          src
+        }
+      }
     }
   }
 `;
 
-const IndexPage = () => {
-  const data = useStaticQuery(query);
+const IndexPage = ({data}) => {
   const {
-    contentfulHome: { title },
+    contentfulBlock1: { title, subtitle, background },
   } = data;
   return (
     <>
-      <StyledContentBlock>
-        <div>
+      <StyledContentBlock
+      background={background.fluid.src}
+      color="var(--clr-concrete-white)"
+      baseHeight="calc(100vh - 5rem)">
+        <StyledHeadingBlock>
+          <h2>{subtitle}</h2>
           <h1>{title}</h1>
-        </div>
+        </StyledHeadingBlock>
       </StyledContentBlock>
       <StyledContentBlock>
         <div>
@@ -61,7 +80,6 @@ const IndexPage = () => {
           </p>
         </div>
       </StyledContentBlock>
-      <hr />
       <StyledContentBlock>
         <div>
           <h2>How do we know these risks exist?</h2>
@@ -73,7 +91,6 @@ const IndexPage = () => {
           <p>Picture of Bryan & Jason</p>
         </div>
       </StyledContentBlock>
-      <hr />
       <StyledContentBlock>
         <div>
           <h2>Certificates of Insurance</h2>
@@ -89,7 +106,6 @@ const IndexPage = () => {
           </p>
         </div>
       </StyledContentBlock>
-      <hr />
       <StyledContentBlock>
         <div>
           <h2>Have you checked</h2>
@@ -106,7 +122,6 @@ const IndexPage = () => {
           <p>COI- a fake Protect Your Liabilities Now (button) </p>
         </div>
       </StyledContentBlock>
-      <hr />
       <StyledContentBlock>
         <div>
           <h2>Protect your assets</h2>
@@ -125,7 +140,6 @@ const IndexPage = () => {
           <h2>Protect Your Liabilities Now (button)</h2>
         </div>
       </StyledContentBlock>
-      <hr />
       <StyledContentBlock>
         <div>
           <h2>
@@ -171,8 +185,6 @@ const IndexPage = () => {
           </h3>
         </div>
       </StyledContentBlock>
-      <hr />
-      <hr />
       <StyledContentBlock>
         <div>
           <h3>Common “Hiring” Traits Among High Risk Vendors</h3>
@@ -199,7 +211,6 @@ const IndexPage = () => {
           </h3>
         </div>
       </StyledContentBlock>
-      <hr />
       <StyledContentBlock>
         <div>
           <h2>Common Traits of Under the table</h2>
@@ -225,7 +236,6 @@ const IndexPage = () => {
           <p>Ready to Learn More - lLead Contact Sheet</p>
         </div>
       </StyledContentBlock>
-      <hr />
       <StyledContentBlock>
         <div>
           <h2>Subcontractors of High Risk Vendors</h2>
@@ -276,7 +286,6 @@ const IndexPage = () => {
           <p>Learn More (contact form button)</p>
         </div>
       </StyledContentBlock>
-      <hr />
       <StyledContentBlock>
         <div>
           Our Process is thorough but easy for all parties. Use process picture
@@ -289,7 +298,6 @@ const IndexPage = () => {
           ________________________________Learn More (contact form button)
         </div>
       </StyledContentBlock>
-      <hr />
       <StyledContentBlock>
         <div>
           For a more indepth look at our protection services and rates call us
@@ -307,14 +315,12 @@ const IndexPage = () => {
           </ul>
         </div>
       </StyledContentBlock>
-      <hr />
       <StyledContentBlock>
         <div>
           Industries Served - click drop down of industries Property Managers
           Schools & Universities Government Corporate America
         </div>
       </StyledContentBlock>
-      <hr />
       <StyledContentBlock>
         <div>
           Property Managers With Many Tenants in a building come many vendors.
@@ -323,7 +329,6 @@ const IndexPage = () => {
           types of environments. Liability Video - button Contact form button
         </div>
       </StyledContentBlock>
-      <hr />
       <StyledContentBlock>
         <div>
           Schools and Universities Sprawling campuses, many buildings, multiple
@@ -332,7 +337,6 @@ const IndexPage = () => {
           services. Liability Video - button Contact form button
         </div>
       </StyledContentBlock>
-      <hr />
       <StyledContentBlock>
         <div>
           <h2>Government Entities</h2>
@@ -343,7 +347,6 @@ const IndexPage = () => {
           organized environment at all times.
         </div>
       </StyledContentBlock>
-      <hr />
       <StyledContentBlock>
         <div>
           <h2>Corporate America</h2>
