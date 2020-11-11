@@ -9,10 +9,12 @@ module.exports = {
 Decrease property and employee liabilities, theft, and health risk
 `,
     author: `TJ and Phil`,
+    siteUrl: `https://vendveri.netlify.app`, // TODO: change to live site
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     // `gatsby-plugin-stylelint`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {
