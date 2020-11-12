@@ -66,7 +66,8 @@ const ContactPage = () => {
     message: '',
   });
 
-  // form-name=contact&firstName=a&lastName=b&jobTitle=a&companyName=a&phone=3&email=me%40you.com&message=tes
+  // encodes the captured form data in the format that Netlify's backend requires
+  // example: form-name=contact&firstName=a&lastName=b&jobTitle=a&companyName=a&phone=3&email=me%40you.com&message=tes
   const encode = (data) => {
     return Object.keys(data)
       .map(
@@ -88,7 +89,7 @@ const ContactPage = () => {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({ 'form-name': 'contact', ...formState }),
     })
-      .then(() => alert('Success!'))
+      .then(() => navigate('/thank-you/'))
       .catch((error) => alert(error));
 
     e.preventDefault();
