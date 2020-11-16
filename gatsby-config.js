@@ -12,7 +12,13 @@ Decrease property and employee liabilities, theft, and health risk
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    // `gatsby-plugin-stylelint`,
+    {
+      resolve: `gatsby-plugin-page-creator`,
+      options: {
+        path: `${__dirname}/src/pages`,
+        ignore: [`**/styled-components.js`, `**/styled-components.tsx`],
+      },
+    },
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {
