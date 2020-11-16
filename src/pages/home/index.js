@@ -1,13 +1,69 @@
 import React from 'react';
-// import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
-import placeholder from '../../assets/images/placeholders/image-placeholder.png';
 import { StyledContentBlock, StyledHeadingBlock } from './styles';
 
 export default function HomePage({ data }) {
-  console.log(data);
-  const { block1, health, highRisk, trait, cert, audit, founder } = data;
-  const { background, title, subtitle } = block1;
+  const {
+    hero,
+    founder,
+    audit,
+    cert,
+    protect,
+    health,
+    highRisk,
+    trait,
+    legal,
+    subcontractor,
+    liability,
+    process,
+    industry,
+    property,
+    school,
+    government,
+    corporate,
+  } = data;
+
+  // hero
+  const {
+    background: heroBackground,
+    title: heroTitle,
+    subtitle: heroSubtitle,
+  } = hero;
+
+  // founder
+  const {
+    question: founderQuestion,
+    buttonText: founderButtonText,
+    answer: founderAnswer,
+    image: founderImage,
+  } = founder;
+
+  // audit
+  const {
+    question: auditQuestion,
+    buttonText: auditButtonText,
+    answer: auditAnswer,
+    image: auditImage,
+  } = audit;
+
+  // cert
+  const {
+    question: certQuestion,
+    buttonText: certButtonText,
+    answer: certAnswer,
+    image: certImage,
+  } = cert;
+
+  // protect
+  const {
+    heading: protectHeading,
+    buttonText: protectButtonText,
+    // alternateButtonText: protectAlternateButtonText,
+    contentOne: protectContentOne,
+    contentTwo: protectContentTwo,
+    imageOne: protectImageOne,
+    imageTwo: protectImageTwo,
+  } = protect;
 
   // health
   const {
