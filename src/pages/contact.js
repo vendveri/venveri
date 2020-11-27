@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { navigate } from 'gatsby';
 import SEO from '../components/SEO';
 
 const StyledContactPage = styled.section`
