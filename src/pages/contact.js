@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { navigate } from 'gatsby';
 import SEO from '../components/SEO';
 
 const StyledContactPage = styled.section`
@@ -101,6 +102,11 @@ const ContactPage = () => {
       <StyledContactPage className="page">
         <article>
           <h3>get in touch</h3>
+          <p>
+            For a more indepth look at our protection services and rates call us
+            at 1-800-Get-Safe or fill out the form below! A representative will
+            be in touch shortly.
+          </p>
           <form
             onSubmit={handleSubmit}
             name="contact"
