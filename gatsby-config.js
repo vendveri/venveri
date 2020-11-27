@@ -46,20 +46,7 @@ Decrease property and employee liabilities, theft, and health risk
         path: `${__dirname}/src/pages/`,
       },
     },
-    {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
-      options: {
-        fonts: [
-          {
-            family: `Roboto`,
-            variants: [`400`, `500`, `700`],
-          },
-          {
-            family: `Open Sans`,
-          },
-        ],
-      },
-    },
+    `gatsby-plugin-preload-fonts`,
     // `gatsby-plugin-eslint`,
     `gatsby-transformer-sharp`,
     {
