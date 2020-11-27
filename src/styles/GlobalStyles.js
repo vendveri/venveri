@@ -168,6 +168,20 @@ p {
   margin: 0 auto;
   margin-top: 3rem;
 }
+
+/*
+=============== 
+Screen Readers (Accessibility)
+===============
+*/
+.sr-only {
+position:absolute;
+left:-10000px;
+top:auto;
+width:1px;
+height:1px;
+overflow:hidden;
+}
 `;
 
 export default GlobalStyles;
