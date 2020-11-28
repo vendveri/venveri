@@ -77,23 +77,26 @@ const ContactPage = () => {
       .join('&');
   };
 
-  const handleChange = (e) => {
+  const handleChange = (event) => {
     setFormState({
       ...formState,
-      [e.target.name]: e.target.value,
+      [event.target.name]: event.target.value,
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ 'form-name': 'contact', ...formState }),
+      body: encode({
+        'form-name': form.getAttribute('name'),
+        ...formState,
+      }),
     })
-      .then(() => navigate('/thank-you/'))
+      .then(() => navigate(form.getAttribute('action')))
       .catch((error) => alert(error));
-
-    e.preventDefault();
   };
 
   return (
@@ -108,12 +111,13 @@ const ContactPage = () => {
             be in touch shortly.
           </p>
           <form
-            onSubmit={handleSubmit}
             name="contact"
             method="post"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
             data-netlify-recaptcha="true"
+            action="/thank-you"
+            onSubmit={handleSubmit}
           >
             <input type="hidden" name="form-name" value="contact" />
             <div className="form-group">
