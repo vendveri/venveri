@@ -45,8 +45,8 @@ Variables
 Google Fonts
 ===============
 */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+/* removing imports here to do browser warning */
+/* https://i.imgur.com/Wm60cJY.png */
 
 /*
 =============== 
