@@ -115,7 +115,6 @@ const ContactPage = () => {
             method="POST"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
-            data-netlify-recaptcha="true"
             action="/thank-you"
             onSubmit={handleSubmit}
           >
@@ -210,7 +209,6 @@ const ContactPage = () => {
                 onChange={handleChange}
                 value={formState.message}
               ></textarea>
-              <div data-netlify-recaptcha="true"></div>
             </div>
             <button type="submit" className="submit-btn btn">
               submit here
