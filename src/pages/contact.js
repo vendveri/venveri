@@ -1,5 +1,6 @@
 import React, { useState, navigate } from 'react';
 import styled from 'styled-components';
+import { navigate } from 'gatsby';
 import SEO from '../components/SEO';
 
 const StyledContactPage = styled.section`
@@ -76,23 +77,26 @@ const ContactPage = () => {
       .join('&');
   };
 
-  const handleChange = (e) => {
+  const handleChange = (event) => {
     setFormState({
       ...formState,
-      [e.target.name]: e.target.value,
+      [event.target.name]: event.target.value,
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ 'form-name': 'contact', ...formState }),
+      body: encode({
+        'form-name': form.getAttribute('name'),
+        ...formState,
+      }),
     })
-      .then(() => navigate('/thank-you/'))
+      .then(() => navigate(form.getAttribute('action')))
       .catch((error) => alert(error));
-
-    e.preventDefault();
   };
 
   return (
@@ -101,13 +105,18 @@ const ContactPage = () => {
       <StyledContactPage className="page">
         <article>
           <h3>get in touch</h3>
+          <p>
+            For a more indepth look at our protection services and rates call us
+            at 1-800-Get-Safe or fill out the form below! A representative will
+            be in touch shortly.
+          </p>
           <form
-            onSubmit={handleSubmit}
             name="contact"
-            method="post"
+            method="POST"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
-            data-netlify-recaptcha="true"
+            action="/thank-you"
+            onSubmit={handleSubmit}
           >
             <input type="hidden" name="form-name" value="contact" />
             <div className="form-group">
@@ -201,7 +210,6 @@ const ContactPage = () => {
                 value={formState.message}
               ></textarea>
             </div>
-            <div data-netlify-recaptcha="true"></div>
             <button type="submit" className="submit-btn btn">
               submit here
             </button>
