@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, navigate } from 'react';
 import styled from 'styled-components';
 import SEO from '../components/SEO';
 

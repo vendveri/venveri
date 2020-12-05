@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import placeholder from '../assets/images/placeholders/image-placeholder.png';
+import ContentBlock from '../components/ContentBlock';
 
 const StyledContentBlock = styled.section`
   background: ${({background}) => {
@@ -33,13 +34,52 @@ const StyledContentBlock = styled.section`
 `;
 
 const StyledHeadingBlock = styled.div`
-  h1, h2 {
+  h1, h2, p {
     text-shadow: 1px 1px 4px #000;
   }
 `;
 export const query = graphql`
   {
-    block1: contentfulBlock1 {
+    questionBlock1: contentfulQuestionsBlock(contentful_id: {eq: "zdUwAEdmAhf7S64mUoTKh"}) {
+      id
+      question
+      answer {
+        answer
+      }
+      image {
+        fluid(maxWidth: 3000) {
+          src
+        }
+      }
+      buttonText
+    }
+    questionBlock2: contentfulQuestionsBlock(contentful_id: {eq: "5PsP6wRqDlyKbixR8gcI0Q"}) {
+      id
+      question
+      answer {
+        answer
+      }
+      image {
+        fluid(maxWidth: 3000) {
+          src
+        }
+      }
+      buttonText
+    }
+    questionBlock3: contentfulQuestionsBlock(contentful_id: {eq: "15NKOpvFO7soaszgN3BpgM"}) {
+      id
+      question
+      answer {
+        answer
+      }
+      image {
+        fluid(maxWidth: 3000) {
+          src
+        }
+      }
+      buttonText
+    }
+    hero: contentfulHero(contentful_id: {eq: "65AJ11hos5m4vMvzf1JUdK"}) {
       id
       title
       subtitle
@@ -49,61 +89,80 @@ export const query = graphql`
         }
       }
     }
+    twoPicsBlock: contentfulTwoPicsBlock(contentful_id: {eq: "33JQwiF5OZjsypbO6Ctcf1"}) {
+      id
+      buttonText
+      contentOne {
+        contentOne
+      }
+      contentTwo {
+        contentTwo
+      }
+      heading
+      imageOne {
+        fluid(maxWidth: 3000) {
+          src
+        }
+      }
+      imageTwo {
+        fluid(maxWidth: 3000) {
+          src
+        }
+      }
+      childContentfulTwoPicsBlockContentTwoTextNode {
+        contentTwo
+      }
+      childContentfulTwoPicsBlockContentOneTextNode {
+        contentOne
+      }
+    }
   }
 `;
 
 const IndexPage = ({data}) => {
-  const {block1} = data;
-  const {background, title, subtitle} = block1;
+  const {hero, questionBlock1, questionBlock2, questionBlock3, twoPicsBlock} = data;
   return (
     <>
+      <ContentBlock type="hero"
+      background={hero.background ? hero.background.fluid.src : null}
+      color="var(--clr-concrete-white)"
+      >
+        <div>
+          <h2>{hero.subtitle}</h2>
+          <h1>{hero.title}</h1>
+        </div>
+      </ContentBlock>
+      <ContentBlock type="question"
+      image={questionBlock1.image ? questionBlock1.image.fluid.src : null}
+      color="var(--clr-concrete-white)">
+        <StyledHeadingBlock>
+          <h2>{questionBlock1.question}</h2>
+          <p>
+            {questionBlock1.answer.answer}
+          </p>
+        </StyledHeadingBlock>
+      </ContentBlock>
       <StyledContentBlock
-      background={background ? background.fluid.src : null}
+      background={questionBlock2.image ? questionBlock2.image.fluid.src : null}
       color="var(--clr-concrete-white)"
       baseHeight={100}>
         <StyledHeadingBlock>
-          <h2>{subtitle}</h2>
-          <h1>{title}</h1>
+          <h2>{questionBlock2.question}</h2>
+          <p>
+            {questionBlock2.answer.answer}
+          </p>
         </StyledHeadingBlock>
       </StyledContentBlock>
-      <StyledContentBlock>
-        <div>
-          <h2>How do we know these risks exist?</h2>
+      <StyledContentBlock
+      background={questionBlock3.image ? questionBlock3.image.fluid.src : null}
+      color="var(--clr-concrete-white)"
+      baseHeight={100}>
+        <StyledHeadingBlock>
+          <h2>{questionBlock3.question}</h2>
           <p>
-            The founders of VerndVeri owned and operated a high risk vendor service for 16 years. They know your liabilities firsthand. It’s time to protect your business!
+            {questionBlock3.answer.answer}
           </p>
-        </div>
-      </StyledContentBlock>
-      <StyledContentBlock>
-        <div>
-          <h2>Certificates of Insurance</h2>
-          <p>
-            Certificates of Insurance have been supplied. However, are workers
-            on the job really employed and covered by the High Risk Vendor?
-          </p>
-          <h3>Bubble Graph (animation)</h3>
-          <p>
-            Our quick audit will organize and identify the risk level before the
-            job takes place. At a glance you will know the level of risk at each
-            job before it takes place. Protect Your Liabilities Now (button)
-          </p>
-        </div>
-      </StyledContentBlock>
-      <StyledContentBlock>
-        <div>
-          <h2>Have you checked</h2>
-          <p>
-            Have you checked to see if the certificate of insurance is real?
-          </p>
-          <p>What's needed to forge a certificate of insurance</p>
-          <ul>
-            <li>Acrobat Reader</li>
-            <li>15 minutes of time</li>
-          </ul>
-          minutes of time Picture
-          <img src={placeholder} alt="person at computer" />
-          <p>COI- a fake Protect Your Liabilities Now (button) </p>
-        </div>
+        </StyledHeadingBlock>
       </StyledContentBlock>
       <StyledContentBlock>
         <div>
