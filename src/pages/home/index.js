@@ -1,7 +1,24 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
-import { StyledContentBlock, StyledHeadingBlock } from './styled-components';
+import { 
+  StyledHeroBlock,
+  StyledFounderBlock,
+  StyledAuditBlock,
+  StyledCertBlock,
+  StyledCorporateBlock,
+  StyledGovernmentBlock,
+  StyledHealthBlock,
+  StyledHighRiskBlock,
+  StyledIndustryBlock,
+  StyledLegalBlock,
+  StyledLiabilityBlock,
+  StyledProcessBlock,
+  StyledPropertyManagerBlock,
+  StyledProtectBlock,
+  StyledSchoolBlock,
+  StyledSubcontractorsBlock,
+  StyledTraitBlock } from './styled-components';
 
 export default function HomePage({ data }) {
   const {
@@ -175,71 +192,82 @@ export default function HomePage({ data }) {
   return (
     <>
       {/* hero */}
-      <StyledContentBlock
-        background={heroBackground ? heroBackground.fluid.src : null}
+      <StyledHeroBlock
+        background={heroBackground ? `url(${heroBackground.fluid.src})` : null}
         color="var(--clr-concrete-white)"
         baseHeight={100}
       >
-        <StyledHeadingBlock>
+        <div>
           <h2>{heroSubtitle}</h2>
           <h1>{heroTitle}</h1>
-        </StyledHeadingBlock>
-      </StyledContentBlock>
-
+        </div>
+      </StyledHeroBlock>
+      
       {/* founder */}
-      <StyledContentBlock>
+      <StyledFounderBlock
+        background="var(--clr-dark-blue)"
+        color="var(--clr-concrete-white)">
         <div>
-          <h2>founder</h2>
-          <h2>{founderQuestion}</h2>
-          {founderAnswer !== null ? (
-            <div
-              dangerouslySetInnerHTML={{
-                __html: founderAnswer.childMarkdownRemark.html,
-              }}
-            />
-          ) : undefined}
-          <Img fixed={founderImage.fixed}></Img>
-          <button className="btn">{founderButtonText}</button>
+          <div className="content">
+            <h2>{founderQuestion}</h2>
+            {founderAnswer !== null ? (
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: founderAnswer.childMarkdownRemark.html,
+                }}
+              />
+            ) : undefined}
+          </div>
+          <div className="image">
+            <Img fluid={founderImage.fluid}></Img>
+          </div>
         </div>
-      </StyledContentBlock>
-
+      </StyledFounderBlock>
+      
       {/* audit */}
-      <StyledContentBlock>
+      <StyledAuditBlock
+        background="var(--clr-red-2)"
+        color="var(--clr-concrete-white)">
         <div>
-          <h2>Audit</h2>
-          <p>{auditQuestion}</p>
-          <h3>Bubble Graph (animation)</h3>
-          {auditAnswer !== null ? (
-            <div
-              dangerouslySetInnerHTML={{
-                __html: auditAnswer.childMarkdownRemark.html,
-              }}
-            />
-          ) : undefined}
-          <Img fixed={auditImage.fixed}></Img>
-          <button className="btn">{auditButtonText}</button>
+          <div className="content">
+            <h2>{auditQuestion}</h2>
+            {auditAnswer !== null ? (
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: auditAnswer.childMarkdownRemark.html,
+                }}
+              />
+            ) : undefined}
+            <button className="btn alt">{auditButtonText}</button>
+          </div>
+          <div className="image">
+            <Img fluid={auditImage.fluid}></Img>
+          </div>
         </div>
-      </StyledContentBlock>
+      </StyledAuditBlock>
 
       {/* cert */}
-      <StyledContentBlock>
+      <StyledCertBlock>
         <div>
-          <h2>Cert</h2>
-          <p>{certQuestion}</p>
-          {certAnswer !== null ? (
-            <div
-              dangerouslySetInnerHTML={{
-                __html: certAnswer.childMarkdownRemark.html,
-              }}
-            />
-          ) : undefined}
-          <Img fixed={certImage.fixed}></Img>
-          <button className="btn">{certButtonText}</button>
+          <div className="content">
+            <h2>{certQuestion}</h2>
+            {certAnswer !== null ? (
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: certAnswer.childMarkdownRemark.html,
+                }}
+              />
+            ) : undefined}
+            <button className="btn">{certButtonText}</button>
+          </div>
+          <div className="image">
+            <Img fluid={certImage.fluid}></Img>
+          </div>
         </div>
-      </StyledContentBlock>
+      </StyledCertBlock>
 
       {/* protect */}
-      <StyledContentBlock>
+      <StyledProtectBlock>
         <div>
           <h2>Protect Your Assets</h2>
           <p>{protectHeading}</p>
@@ -261,10 +289,10 @@ export default function HomePage({ data }) {
           ) : undefined}
           <button className="btn">{protectButtonText}</button>
         </div>
-      </StyledContentBlock>
+      </StyledProtectBlock>
 
       {/* health */}
-      <StyledContentBlock>
+      <StyledHealthBlock>
         <div>
           <h2>Health</h2>
           <h2>{healthHeading}</h2>
@@ -286,10 +314,10 @@ export default function HomePage({ data }) {
           <button className="btn">{healthButtonText}</button>
           <button className="btn">{healthAlternateText}</button>
         </div>
-      </StyledContentBlock>
+      </StyledHealthBlock>
 
       {/* highRisk */}
-      <StyledContentBlock>
+      <StyledHighRiskBlock>
         <div>
           <h2>High Risk</h2>
           <h2>{highRiskHeading}</h2>
@@ -315,10 +343,10 @@ export default function HomePage({ data }) {
           <button className="btn">{highRiskButtonText}</button>
           <button className="btn">{highRiskAlternateText}</button>
         </div>
-      </StyledContentBlock>
+      </StyledHighRiskBlock>
 
       {/* trait */}
-      <StyledContentBlock>
+      <StyledTraitBlock>
         <div>
           <h2>Trait</h2>
           <h2>{traitHeading}</h2>
@@ -344,10 +372,10 @@ export default function HomePage({ data }) {
           <button className="btn">{traitButtonText}</button>
           <button className="btn">{traitAlternateText}</button>
         </div>
-      </StyledContentBlock>
+      </StyledTraitBlock>
 
       {/* legal */}
-      <StyledContentBlock>
+      <StyledLegalBlock>
         <div>
           <h2>Legal</h2>
           <h2>{legalHeading}</h2>
@@ -363,10 +391,10 @@ export default function HomePage({ data }) {
           <button className="btn">{legalButtonText}</button>
           <button className="btn">{legalAlternateText}</button>
         </div>
-      </StyledContentBlock>
+      </StyledLegalBlock>
 
       {/* subcontractors */}
-      <StyledContentBlock>
+      <StyledSubcontractorsBlock>
         <div>
           <h2>Subcontractor</h2>
           <h2>{subcontractorHeading}</h2>
@@ -392,10 +420,10 @@ export default function HomePage({ data }) {
           <button className="btn">{subcontractorButtonText}</button>
           <button className="btn">{subcontractorAlternateText}</button>
         </div>
-      </StyledContentBlock>
+      </StyledSubcontractorsBlock>
 
       {/* liability */}
-      <StyledContentBlock>
+      <StyledLiabilityBlock>
         <div>
           <h2>Liability</h2>
           <h2>{liabilityHeading}</h2>
@@ -421,10 +449,10 @@ export default function HomePage({ data }) {
           <button className="btn">{liabilityButtonText}</button>
           <button className="btn">{liabilityAlternateText}</button>
         </div>
-      </StyledContentBlock>
+      </StyledLiabilityBlock>
 
       {/* process */}
-      <StyledContentBlock>
+      <StyledProcessBlock>
         <div>
           <h2>Process</h2>
           <h2>{processHeading}</h2>
@@ -438,10 +466,10 @@ export default function HomePage({ data }) {
           ) : undefined}
           <button className="btn">{processButtonText}</button>
         </div>
-      </StyledContentBlock>
+      </StyledProcessBlock>
 
       {/* industry   */}
-      <StyledContentBlock>
+      <StyledIndustryBlock>
         <div>
           <h2>Industry</h2>
           <h2>{industryHeading}</h2>
@@ -454,10 +482,10 @@ export default function HomePage({ data }) {
             />
           ) : undefined}
         </div>
-      </StyledContentBlock>
+      </StyledIndustryBlock>
 
       {/* propertyManager */}
-      <StyledContentBlock>
+      <StyledPropertyManagerBlock>
         <div>
           <h2>Property</h2>
           <h2>{propertyHeading}</h2>
@@ -473,10 +501,10 @@ export default function HomePage({ data }) {
           <button className="btn">{propertyButtonText}</button>
           <button className="btn">{propertyAlternateText}</button>
         </div>
-      </StyledContentBlock>
+      </StyledPropertyManagerBlock>
 
       {/* school */}
-      <StyledContentBlock>
+      <StyledSchoolBlock>
         <div>
           <h2>School</h2>
           <h2>{schoolHeading}</h2>
@@ -492,10 +520,10 @@ export default function HomePage({ data }) {
           <button className="btn">{schoolButtonText}</button>
           <button className="btn">{schoolAlternateText}</button>
         </div>
-      </StyledContentBlock>
+      </StyledSchoolBlock>
 
       {/* government */}
-      <StyledContentBlock>
+      <StyledGovernmentBlock>
         <div>
           <h2>Government</h2>
           <h2>{governmentHeading}</h2>
@@ -511,10 +539,10 @@ export default function HomePage({ data }) {
           <button className="btn">{governmentButtonText}</button>
           <button className="btn">{governmentAlternateText}</button>
         </div>
-      </StyledContentBlock>
+      </StyledGovernmentBlock>
 
       {/* corporate */}
-      <StyledContentBlock>
+      <StyledCorporateBlock>
         <div>
           <h2>Corporate</h2>
           <h2>{corporateHeading}</h2>
@@ -530,7 +558,7 @@ export default function HomePage({ data }) {
           <button className="btn">{corporateButtonText}</button>
           <button className="btn">{corporateAlternateText}</button>
         </div>
-      </StyledContentBlock>
+      </StyledCorporateBlock>
     </>
   );
 }

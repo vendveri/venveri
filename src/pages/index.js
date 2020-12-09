@@ -23,8 +23,8 @@ export const query = graphql`
       }
       buttonText
       image {
-        fixed(width: 400) {
-          ...GatsbyContentfulFixed_withWebp
+        fluid {
+          ...GatsbyContentfulFluid
         }
       }
       question
@@ -40,8 +40,8 @@ export const query = graphql`
       }
       buttonText
       image {
-        fixed(width: 400) {
-          ...GatsbyContentfulFixed_withWebp
+        fluid {
+          ...GatsbyContentfulFluid
         }
       }
       question
@@ -57,8 +57,8 @@ export const query = graphql`
       }
       buttonText
       image {
-        fixed(width: 400) {
-          ...GatsbyContentfulFixed_withWebp
+        fluid {
+          ...GatsbyContentfulFluid
         }
       }
       question

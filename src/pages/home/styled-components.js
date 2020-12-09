@@ -1,36 +1,135 @@
 import styled from 'styled-components';
-export const StyledContentBlock = styled.section`
-  background: ${({ background }) => {
-    return background ? `url("${background}")` : 'var(--clr-concrete-white)';
+
+const StyledBaseContentBlock = styled.section`
+background: ${({background}) => {
+  return background ? background : 'var(--clr-concrete-white)';
+}};
+background-size: cover;
+background-position: center;
+color: ${({color}) => {
+  return color || 'inherit';
+}};
+box-shadow: var(--dark-shadow);
+& > div {
+  min-height: ${({baseHeight}) => {
+    return baseHeight ? `${baseHeight}vh` : '10vh';
   }};
-  background-size: cover;
-  color: ${({ color }) => {
-    return color || 'inherit';
-  }};
-  box-shadow: var(--dark-shadow);
+  padding: 2rem;
+  margin: 0 auto;
+  max-width: var(--max-width);
+}
+&:first-of-type {
   & > div {
-    display: flex;
-    min-height: ${({ baseHeight }) => {
-      return baseHeight ? `${baseHeight}vh` : '50vh';
+    min-height: ${({baseHeight}) => {
+      return `calc(${baseHeight || '50'}vh - 5rem)`;
     }};
-    padding: 2rem;
-    margin: 0 auto;
-    max-width: var(--max-width);
-    justify-content: center;
-    flex-flow: column;
   }
-  &:first-of-type {
-    & > div {
-      min-height: ${({ baseHeight }) => {
-        return `calc(${baseHeight || '50'}vh - 5rem)`;
-      }};
-    }
-  }
+}
+img {
+  max-width: 100%;
+}
 `;
 
-export const StyledHeadingBlock = styled.div`
-  h1,
-  h2 {
-    text-shadow: 1px 1px 4px #000;
+const StyledQuestionBlock = styled(StyledBaseContentBlock)`
+&>div {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-flow: dense;
+}
+@media (max-width: 768px) {
+  &>div {
+    grid-template-columns: 1fr;
   }
+}
+.content {
+  display: flex;
+  flex-flow: column;
+  align-items: baseline;
+  justify-content: center;
+}
+`;
+
+export const StyledHeroBlock = styled(StyledBaseContentBlock)`
+& > div {
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+}
+h1, h2, p {
+  text-shadow: 1px 1px 4px #000;
+}
+`;
+
+export const StyledFounderBlock = styled(StyledQuestionBlock)`
+&>div {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr 450px;
+}
+@media (max-width: 1000px) {
+  &>div {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 768px) {
+  &>div {
+    grid-template-columns: 1fr;
+  }
+}
+`;
+export const StyledAuditBlock = styled(StyledQuestionBlock)`
+.content {
+  grid-column: 2/3;
+}
+.image {
+  grid-column: 1/2;
+}
+@media (max-width: 768px) {
+  .image, .content {
+    grid-column: 1/2;
+  }
+}
+`;
+export const StyledCertBlock = styled(StyledQuestionBlock)`
+
+`;
+export const StyledProtectBlock = styled(StyledBaseContentBlock)`
+
+`;
+export const StyledHealthBlock = styled(StyledBaseContentBlock)`
+
+`;
+export const StyledHighRiskBlock = styled(StyledBaseContentBlock)`
+
+`;
+export const StyledTraitBlock = styled(StyledBaseContentBlock)`
+
+`;
+export const StyledLegalBlock = styled(StyledBaseContentBlock)`
+
+`;
+export const StyledSubcontractorsBlock = styled(StyledBaseContentBlock)`
+
+`;
+export const StyledLiabilityBlock = styled(StyledBaseContentBlock)`
+
+`;
+export const StyledProcessBlock = styled(StyledBaseContentBlock)`
+
+`;
+export const StyledIndustryBlock = styled(StyledBaseContentBlock)`
+
+`;
+export const StyledPropertyManagerBlock = styled(StyledBaseContentBlock)`
+
+`;
+export const StyledSchoolBlock = styled(StyledBaseContentBlock)`
+
+`;
+export const StyledGovernmentBlock = styled(StyledBaseContentBlock)`
+
+`;
+export const StyledCorporateBlock = styled(StyledBaseContentBlock)`
+
 `;

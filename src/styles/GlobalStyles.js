@@ -20,6 +20,10 @@ Variables
   --clr-boston-blue: #4b9bb7;
   --clr-jungle-green: #26bf78;
   --clr-jewel-green: #168c49;
+  --clr-red-1: #f2536f;
+  --clr-red-2: #c42951;
+  --clr-red-3: #a51d35;
+  --clr-dark-blue: #1c3766;
   --clr-black-10: rgba(0, 0, 0, 0.1);
   --clr-black-20: rgba(0, 0, 0, 0.2);
   --clr-primary: var(--clr-boston-blue);
@@ -36,7 +40,7 @@ Variables
   /* layout */
   --spacing: 0.1rem;
   --radius: 0.25rem;
-  --max-width: 1170px;
+  --max-width: 1280px;
   --fixed-width: 700px;
 }
 
@@ -142,16 +146,16 @@ p {
 
 /* button styles */
 .btn {
-  text-transform: uppercase;
-  background: var(--clr-jewel-green);
+  /* text-transform: uppercase; */
+  background: var(--clr-red-2);
   color: var(--clr-concrete-white);
-  padding: 0.375rem 0.75rem;
+  padding: 0.5rem 0.75rem;
   letter-spacing: var(--spacing);
   display: inline-block;
   font-weight: 700;
   -webkit-transition: var(--transition);
   transition: var(--transition);
-  font-size: 0.875rem;
+  font-size: 1.4rem;
   border: 2px solid transparent;
   cursor: pointer;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
@@ -159,8 +163,15 @@ p {
 }
 .btn:hover {
   /* color: var(--clr-primary-1); */
-  background: var(--clr-bluesmoke-green);
+  background: var(--clr-red-1);
 }
+.btn.alt {
+  background: var(--clr-paradiso-blue);
+}
+.btn.alt:hover {
+  background: var(--clr-boston-blue);
+}
+
 .center-btn {
   display: block;
   width: 12rem;
