@@ -269,34 +269,46 @@ export default function HomePage({ data }) {
       </StyledCertBlock>
 
       {/* protect */}
-      <StyledProtectBlock>
+      <StyledProtectBlock
+        background="var(--clr-paradiso-blue)"
+        color="var(--clr-concrete-white)">
         <div>
-          <h2>Protect Your Assets</h2>
-          <p>{protectHeading}</p>
-          <Img fluid={protectImageOne.fluid}></Img>
-          {protectContentOne !== null ? (
-            <div
-              dangerouslySetInnerHTML={{
-                __html: protectContentOne.childMarkdownRemark.html,
-              }}
-            />
-          ) : undefined}
-          <Img fluid={protectImageTwo.fluid}></Img>
-          {protectContentTwo !== null ? (
-            <div
-              dangerouslySetInnerHTML={{
-                __html: protectContentTwo.childMarkdownRemark.html,
-              }}
-            />
-          ) : undefined}
-          <button className="btn">{protectButtonText}</button>
+          <h2>{protectHeading}</h2>
+          <div class="twoByTwoGrid">
+            <div className="box box1">
+              <Img fluid={protectImageOne.fluid}></Img>
+            </div>
+            <div className="box box2 content">
+              {protectContentOne !== null ? (
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: protectContentOne.childMarkdownRemark.html,
+                  }}
+                />
+              ) : undefined}
+            </div>
+            <div className="box box3">
+              <Img fluid={protectImageTwo.fluid}></Img>
+            </div>
+            <div className="box box4 content">
+              {protectContentTwo !== null ? (
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: protectContentTwo.childMarkdownRemark.html,
+                  }}
+                />
+              ) : undefined}
+            </div>
+          </div>
+          <div className="buttons">
+            <button className="btn">{protectButtonText}</button>
+          </div>
         </div>
       </StyledProtectBlock>
 
       {/* health */}
       <StyledHealthBlock>
         <div>
-          <h2>Health</h2>
           <h2>{healthHeading}</h2>
           {healthContentOne !== null ? (
             <div
@@ -321,7 +333,6 @@ export default function HomePage({ data }) {
       {/* highRisk */}
       <StyledHighRiskBlock>
         <div>
-          <h2>High Risk</h2>
           <h2>{highRiskHeading}</h2>
 
           {highRiskContentOne !== null ? (
@@ -350,7 +361,6 @@ export default function HomePage({ data }) {
       {/* trait */}
       <StyledTraitBlock>
         <div>
-          <h2>Trait</h2>
           <h2>{traitHeading}</h2>
 
           {traitContentOne !== null ? (

@@ -149,7 +149,7 @@ p {
   /* text-transform: uppercase; */
   background: var(--clr-red-2);
   color: var(--clr-concrete-white);
-  padding: 0.5rem 0.75rem;
+  padding: 1rem;
   letter-spacing: var(--spacing);
   display: inline-block;
   font-weight: 700;
@@ -159,7 +159,7 @@ p {
   border: 2px solid transparent;
   cursor: pointer;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  border-radius: var(--radius);
+  border-radius: calc(var(--radius) * 3);
 }
 .btn:hover {
   /* color: var(--clr-primary-1); */

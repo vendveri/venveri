@@ -50,6 +50,74 @@ const StyledQuestionBlock = styled(StyledBaseContentBlock)`
 }
 `;
 
+const StyledTwoImageBlock = styled(StyledBaseContentBlock)`
+  h2 {
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 2rem;
+  }
+  .buttons {
+    text-align: center;
+    margin-top: 2rem;
+  }
+  .twoByTwoGrid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-auto-flow: dense;
+  }
+  .content {
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    p {
+      text-align: center;
+    }
+  }
+  .box1 {
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+  }
+  .box2 {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+  }
+  .box3 {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
+  }
+  .box4 {
+    grid-column: 2 / span 1;
+    grid-row: 2 / span 1;
+  }
+  @media (max-width: 768px) {
+    .twoByTwoGrid {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(auto, 4);
+    }
+    .box1 {
+      grid-column: 1 / span 1;
+      grid-row: 1 / span 1;
+    }
+    .box2 {
+      grid-column: 1 / span 1;
+      grid-row: 2 / span 1;
+    }
+    .box3 {
+      grid-column: 1 / span 1;
+      grid-row: 3 / span 1;
+    }
+    .box4 {
+      grid-column: 1 / span 1;
+      grid-row: 4 / span 1;
+    }
+  }
+`;
+
 export const StyledHeroBlock = styled(StyledBaseContentBlock)`
 & > div {
   display: flex;
@@ -102,7 +170,7 @@ export const StyledAuditBlock = styled(StyledQuestionBlock)`
 export const StyledCertBlock = styled(StyledQuestionBlock)`
 
 `;
-export const StyledProtectBlock = styled(StyledBaseContentBlock)`
+export const StyledProtectBlock = styled(StyledTwoImageBlock)`
 
 `;
 export const StyledHealthBlock = styled(StyledBaseContentBlock)`
