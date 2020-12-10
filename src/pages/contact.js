@@ -101,7 +101,7 @@ const ContactPage = () => {
 
   return (
     <>
-      <SEO title="Contact" />
+      <SEO title="VendVeri - Contact" />
       <StyledContactPage className="page">
         <article>
           <h3>Get in Touch!</h3>

@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import PageLinks from '../constants/links';
 
 const StyledNav = styled.nav`
+font-family: var(--ff-primary);
   position: sticky;
   top: 0;
   left: 0;
@@ -57,12 +58,13 @@ const StyledNav = styled.nav`
       gap: 1rem;
       a {
         text-transform: capitalize;
-        color: var(--clr-primary);
-        font-weight: bold;
+        color: var(--clr-red-2);
+        font-weight: 900;
         letter-spacing: var(--spacing);
         transition: var(--transition);
-        padding: 1rem;
+        padding: 1.875rem 1rem;
         border-radius: 3px;
+        font-size: 1.25rem;
         &[aria-current="page"] {
           p {
             border-bottom: 2px solid;
@@ -75,12 +77,13 @@ const StyledNav = styled.nav`
           color: inherit;
           transition: var(--transition);
           border-bottom: 2px solid rgba(0,0,0,0);
+          text-transform: uppercase;
         }
         &:hover {
           color: var(--clr-codgray-black);
-          p {
+          /* p {
             border-bottom: 2px solid;
-          }
+          } */
         }
       }
     }

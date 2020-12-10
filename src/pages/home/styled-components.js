@@ -58,6 +58,14 @@ export const StyledHeroBlock = styled(StyledBaseContentBlock)`
 }
 h1, h2, p {
   text-shadow: 1px 1px 4px #000;
+  font-weight: 300;
+}
+h1 {
+  font-size: 6rem;
+  margin-top: 1rem;
+}
+h2 {
+  font-size: 3rem;
 }
 `;
 

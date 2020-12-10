@@ -19,6 +19,7 @@ import {
   StyledSchoolBlock,
   StyledSubcontractorsBlock,
   StyledTraitBlock } from './styled-components';
+import SEO from '../../components/SEO';
 
 export default function HomePage({ data }) {
   const {
@@ -191,6 +192,7 @@ export default function HomePage({ data }) {
 
   return (
     <>
+      <SEO title="VendVeri"></SEO>
       {/* hero */}
       <StyledHeroBlock
         background={heroBackground ? `url(${heroBackground.fluid.src})` : null}
@@ -198,8 +200,8 @@ export default function HomePage({ data }) {
         baseHeight={100}
       >
         <div>
-          <h2>{heroSubtitle}</h2>
           <h1>{heroTitle}</h1>
+          <h2>{heroSubtitle}</h2>
         </div>
       </StyledHeroBlock>
       
