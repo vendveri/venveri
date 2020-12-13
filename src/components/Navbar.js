@@ -78,6 +78,7 @@ font-family: var(--ff-primary);
           transition: var(--transition);
           border-bottom: 2px solid rgba(0,0,0,0);
           text-transform: uppercase;
+          font-size: 1.25rem;
         }
         &:hover {
           color: var(--clr-codgray-black);

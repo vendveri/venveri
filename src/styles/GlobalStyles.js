@@ -13,7 +13,7 @@ Variables
   --clr-pewter-green: #8fa69b;
   --clr-bluesmoke-green: #798c83;
   --clr-concrete-white: #f2f2f2;
-  --clr-dark-grey: #adadad;
+  --clr-dark-grey: #1d1d1d;
   --clr-codgray-black: #0d0d0d;
   --clr-paradiso-blue: #377d8c;
   --clr-fountain-blue: #50abbf;
@@ -72,12 +72,13 @@ html {
 }
 
 body {
-  font-family: var(--ff-secondary);
+  font-family: var(--ff-primary);
   background: var(--clr-concrete-white);
   color: var(--clr-codgray-black);
   line-height: 1.5;
   /* set base font size to 14px */
   font-size: 1.4rem;
+  font-weight: 300;
 }
 
 ul {
@@ -95,6 +96,7 @@ h4 {
   line-height: 1.25;
   margin-bottom: 1.2rem;
   font-family: var(--ff-primary);
+  font-weight: 500;
 }
 
 h1 {
@@ -112,19 +114,30 @@ h4 {
 p {
   margin-bottom: 1.25rem;
   color: var(--clr-grey-3);
+  font-weight: 300;
+}
+ul {
+  font-weight: 300;
+  font-size: 2rem;
 }
 @media screen and (min-width: 800px) {
   h1 {
-    font-size: 4rem;
+    font-size: 6rem;
   }
   h2 {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
   h3 {
-    font-size: 1.75rem;
+    font-size: 2rem;
   }
   h4 {
-    font-size: 1rem;
+    font-size: a.25rem;
+  }
+  p {
+    margin-bottom: 1.25rem;
+    color: var(--clr-grey-3);
+    font-weight: 300;
+    font-size: 2rem;
   }
   body {
     font-size: 1.4rem;
@@ -134,6 +147,7 @@ p {
   h3,
   h4 {
     line-height: 1;
+    font-weight: 300;
   }
 }
 

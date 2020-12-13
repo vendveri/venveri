@@ -28,6 +28,17 @@ box-shadow: var(--dark-shadow);
 img {
   max-width: 100%;
 }
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+ul li::before {
+  content: '✔';
+  margin-right: .5rem;
+}
 `;
 
 const StyledQuestionBlock = styled(StyledBaseContentBlock)`
@@ -52,14 +63,10 @@ const StyledQuestionBlock = styled(StyledBaseContentBlock)`
 
 const StyledTwoImageBlock = styled(StyledBaseContentBlock)`
   h2 {
-    font-size: 3rem;
+    /* font-size: 3rem; */
     text-align: center;
     margin-top: 0;
     margin-bottom: 2rem;
-  }
-  .buttons {
-    text-align: center;
-    margin-top: 2rem;
   }
   .twoByTwoGrid {
     display: grid;
@@ -73,9 +80,10 @@ const StyledTwoImageBlock = styled(StyledBaseContentBlock)`
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 900;
     p {
       text-align: center;
+      font-size: 2.5rem;
+      font-weight: 300;
     }
   }
   .box1 {
@@ -118,6 +126,89 @@ const StyledTwoImageBlock = styled(StyledBaseContentBlock)`
   }
 `;
 
+const StyledGenericInfoBlock = styled(StyledBaseContentBlock)`
+h2 {
+  text-align: center;
+}
+.twoByOneGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(auto, 1);
+  gap: 2rem;
+}
+.content {
+  font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  p {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 300;
+  }
+  ul {
+    font-size: 2.5rem;
+  }
+}
+.base {
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-flow: column;
+  p {
+    text-align: left;
+    font-size: 2.5rem;
+  }
+  ul {
+    font-size: 2.5rem;
+  }
+}
+.box1 {
+  grid-column: 1 / span 1;
+  grid-row: 1 / span 1;
+}
+.box2 {
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 1;
+}
+@media (max-width: 768px) {
+  .twoByOneGrid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(auto, 2);
+  }
+  .box1 {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+  }
+  .box2 {
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+  }
+}
+`;
+
+const StyledNoImageBlock = styled(StyledBaseContentBlock)`
+  .content {
+    img {
+      float: left;
+      max-width: calc(50% - 2rem);
+      margin-right: 2rem;
+    }
+    &::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+  }
+  @media (max-width: 768px) {
+    .content {
+      img {
+        float: none;
+        max-width: 100%;
+      }
+    }
+  }
+`;
+
 export const StyledHeroBlock = styled(StyledBaseContentBlock)`
 & > div {
   display: flex;
@@ -129,14 +220,12 @@ h1, h2, p {
   font-weight: 300;
 }
 h1 {
-  font-size: 6rem;
-  margin-top: 1rem;
+  /* font-size: 6rem; */
 }
 h2 {
-  font-size: 3rem;
+  /* font-size: 3rem; */
 }
 `;
-
 export const StyledFounderBlock = styled(StyledQuestionBlock)`
 &>div {
   display: grid;
@@ -173,39 +262,72 @@ export const StyledCertBlock = styled(StyledQuestionBlock)`
 export const StyledProtectBlock = styled(StyledTwoImageBlock)`
 
 `;
-export const StyledHealthBlock = styled(StyledBaseContentBlock)`
+export const StyledHealthBlock = styled(StyledGenericInfoBlock)`
+`;
+export const StyledHighRiskBlock = styled(StyledGenericInfoBlock)`
+.box1 {
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 1;
+}
+.box2 {
+  grid-column: 1 / span 1;
+  grid-row: 1 / span 1;
+}
+@media (max-width: 768px) {
+  .box1 {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+  }
+  .box2 {
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+  }
+}
+`;
+export const StyledTraitBlock = styled(StyledGenericInfoBlock)`
 
 `;
-export const StyledHighRiskBlock = styled(StyledBaseContentBlock)`
+export const StyledLegalBlock = styled(StyledNoImageBlock)`
 
 `;
-export const StyledTraitBlock = styled(StyledBaseContentBlock)`
+export const StyledSubcontractorsBlock = styled(StyledGenericInfoBlock)`
 
 `;
-export const StyledLegalBlock = styled(StyledBaseContentBlock)`
+export const StyledLiabilityBlock = styled(StyledGenericInfoBlock)`
+.box1 {
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 1;
+}
+.box2 {
+  grid-column: 1 / span 1;
+  grid-row: 1 / span 1;
+}
+@media (max-width: 768px) {
+  .box1 {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+  }
+  .box2 {
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+  }
+}
+`;
+export const StyledProcessBlock = styled(StyledNoImageBlock)`
 
 `;
-export const StyledSubcontractorsBlock = styled(StyledBaseContentBlock)`
+export const StyledIndustryBlock = styled(StyledNoImageBlock)`
 
 `;
-export const StyledLiabilityBlock = styled(StyledBaseContentBlock)`
+export const StyledPropertyManagerBlock = styled(StyledNoImageBlock)`
 
 `;
-export const StyledProcessBlock = styled(StyledBaseContentBlock)`
+export const StyledSchoolBlock = styled(StyledNoImageBlock)`
 
 `;
-export const StyledIndustryBlock = styled(StyledBaseContentBlock)`
+export const StyledGovernmentBlock = styled(StyledNoImageBlock)`
 
 `;
-export const StyledPropertyManagerBlock = styled(StyledBaseContentBlock)`
-
-`;
-export const StyledSchoolBlock = styled(StyledBaseContentBlock)`
-
-`;
-export const StyledGovernmentBlock = styled(StyledBaseContentBlock)`
-
-`;
-export const StyledCorporateBlock = styled(StyledBaseContentBlock)`
+export const StyledCorporateBlock = styled(StyledNoImageBlock)`
 
 `;

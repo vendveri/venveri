@@ -106,8 +106,8 @@ export const query = graphql`
         }
       }
       image {
-        fixed(width: 400) {
-          ...GatsbyContentfulFixed_withWebp
+        fluid {
+          ...GatsbyContentfulFluid
         }
       }
       buttonText
@@ -129,8 +129,8 @@ export const query = graphql`
         }
       }
       image {
-        fixed(width: 400) {
-          ...GatsbyContentfulFixed_withWebp
+        fluid {
+          ...GatsbyContentfulFluid
         }
       }
       buttonText
@@ -152,8 +152,8 @@ export const query = graphql`
         }
       }
       image {
-        fixed(width: 400) {
-          ...GatsbyContentfulFixed_withWebp
+        fluid {
+          ...GatsbyContentfulFluid
         }
       }
       buttonText
@@ -188,8 +188,8 @@ export const query = graphql`
         }
       }
       image {
-        fixed(width: 400) {
-          ...GatsbyContentfulFixed_withWebp
+        fluid {
+          ...GatsbyContentfulFluid
         }
       }
       buttonText
@@ -211,8 +211,8 @@ export const query = graphql`
         }
       }
       image {
-        fixed(width: 400) {
-          ...GatsbyContentfulFixed_withWebp
+        fluid {
+          ...GatsbyContentfulFluid
         }
       }
       buttonText
