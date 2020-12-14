@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import PageLinks from '../constants/links';
 
 const StyledNav = styled.nav`
-font-family: var(--ff-primary);
+  font-family: var(--ff-primary);
   position: sticky;
   top: 0;
   left: 0;
@@ -65,7 +65,7 @@ font-family: var(--ff-primary);
         padding: 1.875rem 1rem;
         border-radius: 3px;
         font-size: 1.25rem;
-        &[aria-current="page"] {
+        &[aria-current='page'] {
           p {
             border-bottom: 2px solid;
           }
@@ -76,7 +76,7 @@ font-family: var(--ff-primary);
           padding: 0;
           color: inherit;
           transition: var(--transition);
-          border-bottom: 2px solid rgba(0,0,0,0);
+          border-bottom: 2px solid rgba(0, 0, 0, 0);
           text-transform: uppercase;
           font-size: 1.25rem;
         }
@@ -97,10 +97,7 @@ const Navbar = ({ toggleSidebar, scrollPosition }, props) => {
       <div className="nav-center">
         <div className="nav-header">
           <Link to="/">
-            <img
-              src={logo}
-              alt="logo"
-            />
+            <img src={logo} alt="logo" />
           </Link>
           <button type="button" className="toggle-btn" onClick={toggleSidebar}>
             <FaAlignRight></FaAlignRight>
