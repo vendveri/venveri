@@ -33,7 +33,7 @@ Variables
   /* fonts */
   --ff-primary: 'Roboto', sans-serif;
   --ff-secondary: 'Open Sans', sans-serif;
-
+  
   /* animation */
   --transition: all 0.3s linear;
   --delay-multiplier: .25;
@@ -49,7 +49,7 @@ Variables
 Google Fonts
 ===============
 */
-/* removing imports here to do browser warning */
+/* removing imports here due to browser warning */
 /* https://i.imgur.com/Wm60cJY.png */
 
 /*
