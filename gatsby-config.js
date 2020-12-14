@@ -49,7 +49,6 @@ Decrease property and employee liabilities, theft, and health risk
       },
     },
     `gatsby-plugin-preload-fonts`,
-    // `gatsby-plugin-eslint`,
     `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-transformer-remark`,

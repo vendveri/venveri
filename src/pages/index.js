@@ -222,7 +222,9 @@ export default function HomePage({ data }) {
                 }}
               />
             ) : undefined}
-            <button className="btn">{founderButtonText}</button>
+            {founderButtonText && (
+              <button className="btn">{founderButtonText}</button>
+            )}
           </div>
           <div className="image">
             <Img fluid={founderImage.fluid}></Img>
@@ -245,7 +247,9 @@ export default function HomePage({ data }) {
                 }}
               />
             ) : undefined}
-            <button className="btn alt">{auditButtonText}</button>
+            {auditButtonText && (
+              <button className="btn alt">{auditButtonText}</button>
+            )}
           </div>
           <div className="image">
             <Img fluid={auditImage.fluid}></Img>
@@ -265,7 +269,9 @@ export default function HomePage({ data }) {
                 }}
               />
             ) : undefined}
-            <button className="btn">{certButtonText}</button>
+            {certButtonText && (
+              <button className="btn">{certButtonText}</button>
+            )}
           </div>
           <div className="image">
             <Img fluid={certImage.fluid}></Img>
@@ -307,7 +313,9 @@ export default function HomePage({ data }) {
             </div>
           </div>
           <div className="buttons">
-            <button className="btn">{protectButtonText}</button>
+            {protectButtonText && (
+              <button className="btn">{protectButtonText}</button>
+            )}
           </div>
         </div>
       </StyledProtectBlock>
@@ -342,8 +350,12 @@ export default function HomePage({ data }) {
             />
           ) : undefined}
           <div className="buttons">
-            <button className="btn">{healthButtonText}</button>
-            <button className="btn">{healthAlternateText}</button>
+            {healthButtonText && (
+              <button className="btn">{healthButtonText}</button>
+            )}
+            {healthAlternateText && (
+              <button className="btn">{healthAlternateText}</button>
+            )}
           </div>
         </div>
       </StyledHealthBlock>
@@ -379,8 +391,12 @@ export default function HomePage({ data }) {
             />
           ) : undefined}
           <div className="buttons">
-            <button className="btn alt">{highRiskButtonText}</button>
-            <button className="btn alt">{highRiskAlternateText}</button>
+            {highRiskButtonText && (
+              <button className="btn alt">{highRiskButtonText}</button>
+            )}
+            {highRiskAlternateText && (
+              <button className="btn alt">{highRiskAlternateText}</button>
+            )}
           </div>
         </div>
       </StyledHighRiskBlock>
@@ -412,8 +428,12 @@ export default function HomePage({ data }) {
             />
           ) : undefined}
           <div className="buttons">
-            <button className="btn">{traitButtonText}</button>
-            <button className="btn">{traitAlternateText}</button>
+            {traitButtonText && (
+              <button className="btn">{traitButtonText}</button>
+            )}
+            {traitAlternateText && (
+              <button className="btn">{traitAlternateText}</button>
+            )}
           </div>
         </div>
       </StyledTraitBlock>
@@ -434,8 +454,12 @@ export default function HomePage({ data }) {
             />
           ) : undefined}
           <div className="buttons">
-            <button className="btn">{legalButtonText}</button>
-            <button className="btn">{legalAlternateText}</button>
+            {legalButtonText && (
+              <button className="btn">{legalButtonText}</button>
+            )}
+            {legalAlternateText && (
+              <button className="btn">{legalAlternateText}</button>
+            )}
           </div>
         </div>
       </StyledLegalBlock>
@@ -470,8 +494,12 @@ export default function HomePage({ data }) {
             />
           ) : undefined}
           <div className="buttons">
-            <button className="btn">{subcontractorButtonText}</button>
-            <button className="btn">{subcontractorAlternateText}</button>
+            {subcontractorButtonText && (
+              <button className="btn">{subcontractorButtonText}</button>
+            )}
+            {subcontractorAlternateText && (
+              <button className="btn">{subcontractorAlternateText}</button>
+            )}
           </div>
         </div>
       </StyledSubcontractorsBlock>
@@ -507,8 +535,12 @@ export default function HomePage({ data }) {
             />
           ) : undefined}
           <div className="buttons">
-            <button className="btn alt">{liabilityButtonText}</button>
-            <button className="btn alt">{liabilityAlternateText}</button>
+            {liabilityButtonText && (
+              <button className="btn alt">{liabilityButtonText}</button>
+            )}
+            {liabilityAlternateText && (
+              <button className="btn alt">{liabilityAlternateText}</button>
+            )}
           </div>
         </div>
       </StyledLiabilityBlock>
@@ -527,7 +559,9 @@ export default function HomePage({ data }) {
             />
           ) : undefined}
           <div className="buttons">
-            <button className="btn">{processButtonText}</button>
+            {processButtonText && (
+              <button className="btn">{processButtonText}</button>
+            )}
           </div>
         </div>
       </StyledProcessBlock>
@@ -567,8 +601,12 @@ export default function HomePage({ data }) {
             />
           ) : undefined}
           <div className="buttons">
-            <button className="btn">{propertyButtonText}</button>
-            <button className="btn">{propertyAlternateText}</button>
+            {propertyButtonText && (
+              <button className="btn">{propertyButtonText}</button>
+            )}
+            {propertyAlternateText && (
+              <button className="btn">{propertyAlternateText}</button>
+            )}
           </div>
         </div>
       </StyledPropertyManagerBlock>
@@ -590,8 +628,12 @@ export default function HomePage({ data }) {
             />
           ) : undefined}
           <div className="buttons">
-            <button className="btn alt">{schoolButtonText}</button>
-            <button className="btn alt">{schoolAlternateText}</button>
+            {schoolButtonText && (
+              <button className="btn alt">{schoolButtonText}</button>
+            )}
+            {schoolAlternateText && (
+              <button className="btn alt">{schoolAlternateText}</button>
+            )}
           </div>
         </div>
       </StyledSchoolBlock>
@@ -610,8 +652,12 @@ export default function HomePage({ data }) {
             />
           ) : undefined}
           <div className="buttons">
-            <button className="btn">{governmentButtonText}</button>
-            <button className="btn">{governmentAlternateText}</button>
+            {governmentButtonText && (
+              <button className="btn">{governmentButtonText}</button>
+            )}
+            {governmentAlternateText && (
+              <button className="btn">{governmentAlternateText}</button>
+            )}
           </div>
         </div>
       </StyledGovernmentBlock>
@@ -633,8 +679,12 @@ export default function HomePage({ data }) {
             />
           ) : undefined}
           <div className="buttons">
-            <button className="btn">{corporateButtonText}</button>
-            <button className="btn">{corporateAlternateText}</button>
+            {corporateButtonText && (
+              <button className="btn">{corporateButtonText}</button>
+            )}
+            {corporateAlternateText && (
+              <button className="btn">{corporateAlternateText}</button>
+            )}
           </div>
         </div>
       </StyledCorporateBlock>

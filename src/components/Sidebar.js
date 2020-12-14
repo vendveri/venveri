@@ -1,6 +1,6 @@
 import React from 'react';
 import Links from '../constants/links';
-import SocialLinks from '../constants/socialLinks';
+// import SocialLinks from '../constants/socialLinks';
 import { FaTimes } from 'react-icons/fa';
 import styled from 'styled-components';
 
@@ -75,7 +75,6 @@ const StyledSidebar = styled.aside`
     }
   }
   .sidebar-icons a {
-    
   }
   .close-btn {
     position: absolute;
@@ -123,7 +122,7 @@ const Sidebar = ({ toggleSidebar, isOpen }) => {
       </button>
       <div className="side-container">
         <Links styleClass={`${isOpen ? 'sidebar-links' : ''}`} />
-        <SocialLinks styleClass={`${isOpen ? 'sidebar-icons' : ''} `} />
+        {/* <SocialLinks styleClass={`${isOpen ? 'sidebar-icons' : ''} `} /> */}
       </div>
     </StyledSidebar>
   );
