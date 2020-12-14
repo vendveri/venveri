@@ -280,7 +280,7 @@ export default function HomePage({ data }) {
       >
         <div>
           <h2>{protectHeading}</h2>
-          <div class="twoByTwoGrid">
+          <div className="twoByTwoGrid">
             <div className="box box1">
               <Img fluid={protectImageOne.fluid}></Img>
             </div>
@@ -320,7 +320,7 @@ export default function HomePage({ data }) {
         <div>
           <h2>{healthHeading}</h2>
           <div className="twoByOneGrid">
-            <div class="box box1 content">
+            <div className="box box1 content">
               {healthContentOne !== null ? (
                 <div
                   dangerouslySetInnerHTML={{
@@ -335,7 +335,7 @@ export default function HomePage({ data }) {
           </div>
           {healthContentTwo !== null ? (
             <div
-              class="base content"
+              className="base content"
               dangerouslySetInnerHTML={{
                 __html: healthContentTwo.childMarkdownRemark.html,
               }}
@@ -356,10 +356,10 @@ export default function HomePage({ data }) {
         <div>
           <h2>{highRiskHeading}</h2>
           <div className="twoByOneGrid">
-            <div class="box box1 content">
+            <div className="box box1 content">
               {highRiskContentOne !== null ? (
                 <div
-                  class="base content"
+                  className="base content"
                   dangerouslySetInnerHTML={{
                     __html: highRiskContentOne.childMarkdownRemark.html,
                   }}
@@ -372,7 +372,7 @@ export default function HomePage({ data }) {
           </div>
           {highRiskContentTwo !== null ? (
             <div
-              class="content base"
+              className="content base"
               dangerouslySetInnerHTML={{
                 __html: highRiskContentTwo.childMarkdownRemark.html,
               }}
@@ -390,7 +390,7 @@ export default function HomePage({ data }) {
         <div>
           <h2>{traitHeading}</h2>
           <div className="twoByOneGrid">
-            <div class="box box1 content">
+            <div className="box box1 content">
               {traitContentOne !== null ? (
                 <div
                   dangerouslySetInnerHTML={{
@@ -405,7 +405,7 @@ export default function HomePage({ data }) {
           </div>
           {traitContentTwo !== null ? (
             <div
-              class="content base"
+              className="content base"
               dangerouslySetInnerHTML={{
                 __html: traitContentTwo.childMarkdownRemark.html,
               }}
@@ -427,7 +427,7 @@ export default function HomePage({ data }) {
           <h2>{legalHeading}</h2>
           {legalContentOne !== null ? (
             <div
-              class="content"
+              className="content"
               dangerouslySetInnerHTML={{
                 __html: legalContentOne.childMarkdownRemark.html,
               }}
@@ -448,7 +448,7 @@ export default function HomePage({ data }) {
         <div>
           <h2>{subcontractorHeading}</h2>
           <div className="twoByOneGrid">
-            <div class="box box1 content">
+            <div className="box box1 content">
               {subcontractorContentOne !== null ? (
                 <div
                   dangerouslySetInnerHTML={{
@@ -463,7 +463,7 @@ export default function HomePage({ data }) {
           </div>
           {subcontractorContentTwo !== null ? (
             <div
-              class="content base"
+              className="content base"
               dangerouslySetInnerHTML={{
                 __html: subcontractorContentTwo.childMarkdownRemark.html,
               }}
@@ -484,7 +484,7 @@ export default function HomePage({ data }) {
         <div>
           <h2>{liabilityHeading}</h2>
           <div className="twoByOneGrid">
-            <div class="box box1 content">
+            <div className="box box1 content">
               {liabilityContentOne !== null ? (
                 <div
                   dangerouslySetInnerHTML={{
@@ -500,7 +500,7 @@ export default function HomePage({ data }) {
 
           {liabilityContentTwo !== null ? (
             <div
-              class="content base"
+              className="content base"
               dangerouslySetInnerHTML={{
                 __html: liabilityContentTwo.childMarkdownRemark.html,
               }}
@@ -520,7 +520,7 @@ export default function HomePage({ data }) {
 
           {processContentOne !== null ? (
             <div
-              class="content"
+              className="content"
               dangerouslySetInnerHTML={{
                 __html: processContentOne.childMarkdownRemark.html,
               }}
@@ -541,7 +541,7 @@ export default function HomePage({ data }) {
           <h2>{industryHeading}</h2>
           {industryContentOne !== null ? (
             <div
-              class="content"
+              className="content"
               dangerouslySetInnerHTML={{
                 __html: industryContentOne.childMarkdownRemark.html,
               }}
@@ -560,7 +560,7 @@ export default function HomePage({ data }) {
 
           {propertyContentOne !== null ? (
             <div
-              class="content"
+              className="content"
               dangerouslySetInnerHTML={{
                 __html: propertyContentOne.childMarkdownRemark.html,
               }}
@@ -583,7 +583,7 @@ export default function HomePage({ data }) {
 
           {schoolContentOne !== null ? (
             <div
-              class="content"
+              className="content"
               dangerouslySetInnerHTML={{
                 __html: schoolContentOne.childMarkdownRemark.html,
               }}
@@ -603,7 +603,7 @@ export default function HomePage({ data }) {
 
           {governmentContentOne !== null ? (
             <div
-              class="content"
+              className="content"
               dangerouslySetInnerHTML={{
                 __html: governmentContentOne.childMarkdownRemark.html,
               }}
@@ -626,7 +626,7 @@ export default function HomePage({ data }) {
 
           {corporateContentOne !== null ? (
             <div
-              class="content"
+              className="content"
               dangerouslySetInnerHTML={{
                 __html: corporateContentOne.childMarkdownRemark.html,
               }}
