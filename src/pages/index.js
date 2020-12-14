@@ -3,6 +3,15 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import {
+  FaRegLightbulb,
+  FaLongArrowAltRight,
+  FaCogs,
+  FaArrowsAlt,
+  FaWrench,
+  FaLifeRing,
+} from 'react-icons/fa';
+
+import {
   StyledHeroBlock,
   StyledFounderBlock,
   StyledAuditBlock,
@@ -20,6 +29,7 @@ import {
   StyledSchoolBlock,
   StyledSubcontractorsBlock,
   StyledTraitBlock,
+  WorkflowWrapper,
 } from './styled-components';
 import SEO from '../components/SEO';
 
@@ -688,6 +698,58 @@ export default function HomePage({ data }) {
           </div>
         </div>
       </StyledCorporateBlock>
+      <section id="section-one">
+        <div className="inner">
+          <h1>Process</h1>
+          <WorkflowWrapper>
+            {/* <li> */}
+            {/*   <i className={`fa ${iconOne} fa-5x`} aria-hidden="true" /> */}
+            {/*   <span>{iconOneText}</span> */}
+            {/* </li> */}
+            <li>
+              <span>(You)</span>
+              <FaRegLightbulb />
+              <span>Contact Us</span>
+            </li>
+            <li className="process_arrow">
+              <FaLongArrowAltRight />
+            </li>
+            <li>
+              <span>(VV)</span>
+              <FaCogs />
+              <span>Email Quick Audit</span>
+            </li>
+            <li className="process_arrow">
+              <FaLongArrowAltRight />
+            </li>
+            <li>
+              <span>(HRV)</span>
+              <FaArrowsAlt />
+              <span>Fill Out Quick Audit</span>
+            </li>
+            <li className="process_arrow">
+              <FaLongArrowAltRight />
+            </li>
+            <li>
+              <span>(VV)</span>
+              <FaWrench />
+              <div>Review Risk</div>
+              <div>Make Sure Complete</div>
+              <div>Validate Insurance Info</div>
+              <div>Send Back</div>
+              <div>Communicate Issues</div>
+            </li>
+            <li className="process_arrow">
+              <FaLongArrowAltRight />
+            </li>
+            <li>
+              <span>(You)</span>
+              <FaLifeRing />
+              <span>Color Code Risk Assessed</span>
+            </li>
+          </WorkflowWrapper>
+        </div>
+      </section>
     </>
   );
 }
