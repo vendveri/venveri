@@ -16,6 +16,10 @@ const StyledNav = styled.nav`
   align-items: center;
   z-index: 200;
   background: var(--clr-concrete-white);
+  /* override global img padding */
+  img {
+    padding: 0;
+  }
   .nav-center {
     width: 100%;
     padding: 0 2rem;
