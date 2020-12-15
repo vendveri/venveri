@@ -39,6 +39,8 @@ Variables
   --delay-multiplier: .25;
   /* layout */
   --spacing: 0.1rem;
+  --vertical-spacing: 4rem;
+  --horizontal-spacing: 2rem;
   --radius: 0.25rem;
   --max-width: 1280px;
   --fixed-width: 700px;
@@ -94,27 +96,28 @@ h3,
 h4 {
   letter-spacing: var(--spacing);
   line-height: 1.25;
-  margin-bottom: 1.2rem;
-  font-family: var(--ff-primary);
+  margin-bottom: var(--vertical-spacing);
+  font-family: var(--ff-secondary);
   font-weight: 500;
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 3.5rem;
 }
 h2 {
-  font-size: 2rem;
+  font-size: 3rem;
 }
 h3 {
-  font-size: 1.25rem;
+  font-size: 2.5rem;
 }
 h4 {
-  font-size: 0.875rem;
+  font-size: 2rem;
 }
 p {
   margin-bottom: 1.25rem;
   color: var(--clr-grey-3);
   font-weight: 300;
+  font-size: 2rem;
 }
 ul {
   font-weight: 300;
@@ -128,13 +131,13 @@ ul {
     font-size: 3rem;
   }
   h3 {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
   h4 {
-    font-size: a.25rem;
+    font-size: 2rem;
   }
   p {
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
     color: var(--clr-grey-3);
     font-weight: 300;
     font-size: 2rem;
@@ -147,7 +150,8 @@ ul {
   h3,
   h4 {
     line-height: 1;
-    font-weight: 300;
+    font-weight: 600;
+    font-family: var(--ff-secondary);
   }
 }
 

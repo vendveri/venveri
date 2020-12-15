@@ -1,7 +1,22 @@
-// export { default } from './home';
 import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
+import {
+  FaLongArrowAltRight,
+  FaLongArrowAltDown
+} from 'react-icons/fa';
+import {
+  BsBuilding
+} from 'react-icons/bs';
+import {
+  AiOutlineAudit,
+  AiOutlineFileSearch,
+  AiFillSafetyCertificate
+} from 'react-icons/ai';
+import {
+  BiMailSend
+} from 'react-icons/bi';
+
 import {
   StyledHeroBlock,
   StyledFounderBlock,
@@ -53,10 +68,12 @@ export default function HomePage({ data }) {
 
   // founder
   const {
-    question: founderQuestion,
-    buttonText: founderButtonText,
-    answer: founderAnswer,
-    image: founderImage,
+    header: founderQuestion,
+    content: founderAnswer,
+    image1: founderImage1,
+    image1Text: founderText1,
+    image2: founderImage2,
+    image2Text: founderText2
   } = founder;
 
   // audit
@@ -146,10 +163,12 @@ export default function HomePage({ data }) {
 
   // process
   const {
-    heading: processHeading,
-    buttonText: processButtonText,
-    // buttonTextAlternate: processAlternateText,
-    contentOne: processContentOne,
+    header: processHeading,
+    step1: processContentOne,
+    step2: processContentTwo,
+    step3: processContentThree,
+    step4: processContentFour,
+    step5: processContentFive,
   } = process;
 
   // industry
@@ -213,22 +232,40 @@ export default function HomePage({ data }) {
         color="var(--clr-concrete-white)"
       >
         <div>
-          <div className="content">
-            <h2>{founderQuestion}</h2>
-            {founderAnswer !== null ? (
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: founderAnswer.childMarkdownRemark.html,
-                }}
-              />
-            ) : undefined}
-            {founderButtonText && (
-              <button className="btn">{founderButtonText}</button>
-            )}
+          <h2>{founderQuestion}</h2>
+          <div className="twoByOneGrid">
+            <div class="founderDetails">
+              <div className="circle">
+                <Img fluid={founderImage1.fluid}></Img>
+              </div>
+              {founderText1 !== null ? (
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: founderText1.childMarkdownRemark.html,
+                  }}
+                />
+              ) : undefined}
+            </div>
+            <div class="founderDetails">
+              <div className="circle">
+                <Img fluid={founderImage2.fluid}></Img>
+              </div>
+              {founderText2 !== null ? (
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: founderText2.childMarkdownRemark.html,
+                  }}
+                />
+              ) : undefined}
+            </div>
           </div>
-          <div className="image">
-            <Img fluid={founderImage.fluid}></Img>
-          </div>
+          {founderAnswer !== null ? (
+            <div class="content"
+              dangerouslySetInnerHTML={{
+                __html: founderAnswer.childMarkdownRemark.html,
+              }}
+            />
+          ) : undefined}
         </div>
       </StyledFounderBlock>
 
@@ -238,21 +275,23 @@ export default function HomePage({ data }) {
         color="var(--clr-concrete-white)"
       >
         <div>
-          <div className="content">
-            <h2>{auditQuestion}</h2>
-            {auditAnswer !== null ? (
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: auditAnswer.childMarkdownRemark.html,
-                }}
-              />
-            ) : undefined}
-            {auditButtonText && (
-              <button className="btn alt">{auditButtonText}</button>
-            )}
-          </div>
-          <div className="image">
-            <Img fluid={auditImage.fluid}></Img>
+          <h2>{auditQuestion}</h2>
+          <div className="oneByTwoGrid">
+            <div className="content">
+              {auditAnswer !== null ? (
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: auditAnswer.childMarkdownRemark.html,
+                  }}
+                />
+              ) : undefined}
+              {auditButtonText && (
+                <button className="btn alt">{auditButtonText}</button>
+              )}
+            </div>
+            <div className="image">
+              <Img fluid={auditImage.fluid}></Img>
+            </div>
           </div>
         </div>
       </StyledAuditBlock>
@@ -260,21 +299,23 @@ export default function HomePage({ data }) {
       {/* cert */}
       <StyledCertBlock>
         <div>
-          <div className="content">
-            <h2>{certQuestion}</h2>
-            {certAnswer !== null ? (
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: certAnswer.childMarkdownRemark.html,
-                }}
-              />
-            ) : undefined}
-            {certButtonText && (
-              <button className="btn">{certButtonText}</button>
-            )}
-          </div>
-          <div className="image">
-            <Img fluid={certImage.fluid}></Img>
+          <h2>{certQuestion}</h2>
+          <div className="oneByTwoGrid">
+            <div className="content">
+              {certAnswer !== null ? (
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: certAnswer.childMarkdownRemark.html,
+                  }}
+                />
+              ) : undefined}
+              {certButtonText && (
+                <button className="btn">{certButtonText}</button>
+              )}
+            </div>
+            <div className="image">
+              <Img fluid={certImage.fluid}></Img>
+            </div>
           </div>
         </div>
       </StyledCertBlock>
@@ -549,19 +590,88 @@ export default function HomePage({ data }) {
       <StyledProcessBlock>
         <div>
           <h2>{processHeading}</h2>
-
-          {processContentOne !== null ? (
-            <div
-              className="content"
-              dangerouslySetInnerHTML={{
-                __html: processContentOne.childMarkdownRemark.html,
-              }}
-            />
-          ) : undefined}
-          <div className="buttons">
-            {processButtonText && (
-              <button className="btn">{processButtonText}</button>
-            )}
+          <div className="steps">
+            <div className="step">
+              <h3>You</h3>
+              <div className="icon">
+                <BsBuilding />
+              </div>
+              {processContentOne !== null ? (
+                <div class="content"
+                  dangerouslySetInnerHTML={{
+                    __html: processContentOne.childMarkdownRemark.html,
+                  }}
+                />
+              ) : undefined}
+            </div>
+            <div className="arrow">
+              <FaLongArrowAltRight className="horizontal"/>
+              <FaLongArrowAltDown className="vertical"/>
+            </div>
+            <div className="step">
+              <h3>VendVeri</h3>
+              <div className="icon">
+                  <BiMailSend />
+              </div>
+              {processContentTwo !== null ? (
+                <div class="content"
+                  dangerouslySetInnerHTML={{
+                    __html: processContentTwo.childMarkdownRemark.html,
+                  }}
+                />
+              ) : undefined}
+            </div>
+            <div className="arrow">
+              <FaLongArrowAltRight className="horizontal"/>
+              <FaLongArrowAltDown className="vertical"/>
+            </div>
+            <div className="step">
+              <h3>HRV</h3>
+              <div className="icon">
+                <AiOutlineAudit />
+              </div>
+              {processContentThree !== null ? (
+                <div class="content"
+                  dangerouslySetInnerHTML={{
+                    __html: processContentThree.childMarkdownRemark.html,
+                  }}
+                />
+              ) : undefined}
+            </div>
+            <div className="arrow">
+              <FaLongArrowAltRight className="horizontal"/>
+              <FaLongArrowAltDown className="vertical"/>
+            </div>
+            <div className="step">
+              <h3>VendVeri</h3>
+              <div className="icon">
+                <AiOutlineFileSearch />
+              </div>
+              {processContentFour !== null ? (
+                <div class="content"
+                  dangerouslySetInnerHTML={{
+                    __html: processContentFour.childMarkdownRemark.html,
+                  }}
+                />
+              ) : undefined}
+            </div>
+            <div className="arrow">
+              <FaLongArrowAltRight className="horizontal"/>
+              <FaLongArrowAltDown className="vertical"/>
+            </div>
+            <div className="step">
+              <h3>You</h3>
+              <div className="icon">
+                <AiFillSafetyCertificate />
+              </div>
+              {processContentFive !== null ? (
+                <div class="content"
+                  dangerouslySetInnerHTML={{
+                    __html: processContentFive.childMarkdownRemark.html,
+                  }}
+                />
+              ) : undefined}
+            </div>
           </div>
         </div>
       </StyledProcessBlock>
@@ -705,21 +815,35 @@ export const query = graphql`
       }
     }
 
-    founder: contentfulQuestionsBlock(
-      id: { eq: "1a6e5861-f8aa-574b-b6c2-a8146b719481" }
+    founder: contentfulFoundersBlock(
+      id: { eq: "828894f4-bbd2-5a31-a23f-1401f5b29196" }
     ) {
-      answer {
+      content {
         childMarkdownRemark {
           html
         }
       }
-      buttonText
-      image {
+      image1 {
         fluid {
           ...GatsbyContentfulFluid
         }
       }
-      question
+      image1Text {
+        childMarkdownRemark {
+          html
+        }
+      }
+      image2 {
+        fluid {
+          ...GatsbyContentfulFluid
+        }
+      }
+      image2Text {
+        childMarkdownRemark {
+          html
+        }
+      }
+      header
     }
 
     audit: contentfulQuestionsBlock(
@@ -911,17 +1035,35 @@ export const query = graphql`
       buttonTextAlternate
     }
 
-    process: contentfulNoImageBlock(
-      id: { eq: "b802c3ee-e2b9-5528-9851-d74f95fa154d" }
+    process: contentfulProcessBlock(
+      id: { eq: "71b3ce1f-dd41-5578-8606-a30c1727f1b0" }
     ) {
-      buttonText
-      contentOne {
+      step1 {
         childMarkdownRemark {
           html
         }
       }
-      buttonAlternateText
-      heading
+      step2 {
+        childMarkdownRemark {
+          html
+        }
+      }
+      step3 {
+        childMarkdownRemark {
+          html
+        }
+      }
+      step4 {
+        childMarkdownRemark {
+          html
+        }
+      }
+      step5 {
+        childMarkdownRemark {
+          html
+        }
+      }
+      header
     }
 
     industry: contentfulNoImageBlock(
