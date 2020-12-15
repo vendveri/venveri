@@ -123,6 +123,9 @@ ul {
   font-weight: 300;
   font-size: 2rem;
 }
+img {
+padding: 2rem 1rem
+}
 @media screen and (min-width: 800px) {
   h1 {
     font-size: 6rem;
