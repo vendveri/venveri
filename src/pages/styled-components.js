@@ -253,6 +253,10 @@ export const StyledFounderBlock = styled(StyledBaseContentBlock)`
     align-items: center;
     justify-content: flex-start;
     gap: 1rem;
+    /* override global image padding */
+    img {
+      padding: 0;
+    }
   }
 `;
 export const StyledAuditBlock = styled(StyledQuestionBlock)`
@@ -316,62 +320,62 @@ export const StyledLiabilityBlock = styled(StyledGenericInfoBlock)`
   }
 `;
 export const StyledProcessBlock = styled(StyledBaseContentBlock)`
-.steps {
-  display: flex;
-  flex-flow: row wrap;
-  gap: var(--horizontal-spacing);
-}
-.step {
-  width: calc(20% - calc(calc(calc(var(--horizontal-spacing) * 2) + 4rem) * 0.8));
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  justify-content: flex-start;
-  gap: var(--horizontal-spacing);
-  h3 {
-    padding: 0;
-    margin: 0;
-  }
-}
-.icon {
-  font-size: 10rem;
-  display: flex;
-}
-.arrow {
-  font-size: 4rem;
-  padding-top: 7rem;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  .horizontal {
-    display: block;
-  }
-  .vertical {
-    display: none;
-  }
-}
-@media (max-width: 768px) {
   .steps {
-    flex-flow: column;
+    display: flex;
+    flex-flow: row wrap;
+    gap: var(--horizontal-spacing);
   }
   .step {
-    width: 100%;
+    width: calc(
+      20% - calc(calc(calc(var(--horizontal-spacing) * 2) + 4rem) * 0.8)
+    );
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--horizontal-spacing);
+    h3 {
+      padding: 0;
+      margin: 0;
+    }
+  }
+  .icon {
+    font-size: 10rem;
+    display: flex;
   }
   .arrow {
-    padding-top: 0;
+    font-size: 4rem;
+    padding-top: 7rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
     .horizontal {
-      display: none;
-    }
-    .vertical {
       display: block;
     }
+    .vertical {
+      display: none;
+    }
   }
-}
+  @media (max-width: 768px) {
+    .steps {
+      flex-flow: column;
+    }
+    .step {
+      width: 100%;
+    }
+    .arrow {
+      padding-top: 0;
+      .horizontal {
+        display: none;
+      }
+      .vertical {
+        display: block;
+      }
+    }
+  }
 `;
 export const StyledIndustryBlock = styled(StyledNoImageBlock)``;
 export const StyledPropertyManagerBlock = styled(StyledNoImageBlock)``;
 export const StyledSchoolBlock = styled(StyledNoImageBlock)``;
 export const StyledGovernmentBlock = styled(StyledNoImageBlock)``;
 export const StyledCorporateBlock = styled(StyledNoImageBlock)``;
-
-
