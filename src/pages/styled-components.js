@@ -14,7 +14,7 @@ const StyledBaseContentBlock = styled.section`
     min-height: ${({ baseHeight }) => {
       return baseHeight ? `${baseHeight}vh` : '10vh';
     }};
-    padding: 2rem;
+    padding: var(--vertical-spacing) 2rem;
     margin: 0 auto;
     max-width: var(--max-width);
   }
@@ -32,24 +32,27 @@ const StyledBaseContentBlock = styled.section`
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
+    gap: var(--horizontal-spacing);
     margin-top: 2rem;
   }
   ul li::before {
     content: '✔';
     margin-right: 0.5rem;
   }
+  h2 {
+    text-align: center;
+  }
 `;
 
 const StyledQuestionBlock = styled(StyledBaseContentBlock)`
-  & > div {
+  .oneByTwoGrid {
     display: grid;
-    gap: 2rem;
+    gap: var(--horizontal-spacing);
     grid-template-columns: 1fr 1fr;
     grid-auto-flow: dense;
   }
   @media (max-width: 768px) {
-    & > div {
+    .oneByTwoGrid {
       grid-template-columns: 1fr;
     }
   }
@@ -70,7 +73,7 @@ const StyledTwoImageBlock = styled(StyledBaseContentBlock)`
   }
   .twoByTwoGrid {
     display: grid;
-    gap: 2rem;
+    gap: var(--horizontal-spacing);
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
     grid-auto-flow: dense;
@@ -134,7 +137,7 @@ const StyledGenericInfoBlock = styled(StyledBaseContentBlock)`
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(auto, 1);
-    gap: 2rem;
+    gap: var(--horizontal-spacing);
   }
   .content {
     font-size: 2.5rem;
@@ -220,6 +223,7 @@ export const StyledHeroBlock = styled(StyledBaseContentBlock)`
   p {
     text-shadow: 1px 1px 4px #000;
     font-weight: 300;
+    text-align: initial;
   }
   h1 {
     /* font-size: 6rem; */
@@ -228,21 +232,27 @@ export const StyledHeroBlock = styled(StyledBaseContentBlock)`
     /* font-size: 3rem; */
   }
 `;
-export const StyledFounderBlock = styled(StyledQuestionBlock)`
-  & > div {
-    display: grid;
-    gap: 2rem;
-    grid-template-columns: 1fr 450px;
+export const StyledFounderBlock = styled(StyledBaseContentBlock)`
+  .twoByOneGrid {
+    display: flex;
+    flex-flow: row wrap;
+    gap: var(--horizontal-spacing);
+    justify-content: center;
+    align-items: flex-start;
   }
-  @media (max-width: 1000px) {
-    & > div {
-      grid-template-columns: 1fr 1fr;
-    }
+  .circle {
+    height: 300px;
+    width: 300px;
+    overflow: hidden;
+    border-radius: 100%;
+    border: 1rem solid var(--clr-fountain-blue);
   }
-  @media (max-width: 768px) {
-    & > div {
-      grid-template-columns: 1fr;
-    }
+  .founderDetails {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
   }
 `;
 export const StyledAuditBlock = styled(StyledQuestionBlock)`
@@ -305,46 +315,63 @@ export const StyledLiabilityBlock = styled(StyledGenericInfoBlock)`
     }
   }
 `;
-export const StyledProcessBlock = styled(StyledNoImageBlock)``;
+export const StyledProcessBlock = styled(StyledBaseContentBlock)`
+.steps {
+  display: flex;
+  flex-flow: row wrap;
+  gap: var(--horizontal-spacing);
+}
+.step {
+  width: calc(20% - calc(calc(calc(var(--horizontal-spacing) * 2) + 4rem) * 0.8));
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--horizontal-spacing);
+  h3 {
+    padding: 0;
+    margin: 0;
+  }
+}
+.icon {
+  font-size: 10rem;
+  display: flex;
+}
+.arrow {
+  font-size: 4rem;
+  padding-top: 7rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  .horizontal {
+    display: block;
+  }
+  .vertical {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .steps {
+    flex-flow: column;
+  }
+  .step {
+    width: 100%;
+  }
+  .arrow {
+    padding-top: 0;
+    .horizontal {
+      display: none;
+    }
+    .vertical {
+      display: block;
+    }
+  }
+}
+`;
 export const StyledIndustryBlock = styled(StyledNoImageBlock)``;
 export const StyledPropertyManagerBlock = styled(StyledNoImageBlock)``;
 export const StyledSchoolBlock = styled(StyledNoImageBlock)``;
 export const StyledGovernmentBlock = styled(StyledNoImageBlock)``;
 export const StyledCorporateBlock = styled(StyledNoImageBlock)``;
 
-export const WorkflowWrapper = styled.ul`
-  margin: 0;
-  padding: 3rem 0;
-  text-align: center;
-  font-family: Ruda;
-
-  li {
-    float: none;
-    list-style: none;
-    display: inline-block;
-    padding: 0 1.5rem;
-
-    &.process_arrow {
-      position: relative;
-      bottom: 4rem;
-
-      /* don't show arrows on phone */
-      @media only screen and (max-width: 600px) {
-        display: none;
-      }
-    }
-
-    i {
-      vertical-align: middle;
-    }
-
-    span {
-      display: block;
-      text-align: center;
-      font-size: 17px;
-      line-height: 55px;
-      font-weight: 400;
-    }
-  }
-`;
 
