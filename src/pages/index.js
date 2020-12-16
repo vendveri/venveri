@@ -1,21 +1,15 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { AnchorLink } from 'gatsby-plugin-anchor-links';
+import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
-import {
-  FaLongArrowAltRight,
-  FaLongArrowAltDown
-} from 'react-icons/fa';
-import {
-  BsBuilding
-} from 'react-icons/bs';
+import { FaLongArrowAltRight, FaLongArrowAltDown } from 'react-icons/fa';
+import { BsBuilding } from 'react-icons/bs';
 import {
   AiOutlineAudit,
   AiOutlineFileSearch,
-  AiFillSafetyCertificate
+  AiFillSafetyCertificate,
 } from 'react-icons/ai';
-import {
-  BiMailSend
-} from 'react-icons/bi';
+import { BiMailSend } from 'react-icons/bi';
 
 import {
   StyledHeroBlock,
@@ -41,8 +35,8 @@ import SEO from '../components/SEO';
 export default function HomePage({ data }) {
   const {
     hero,
-    founder,
     audit,
+    founder,
     cert,
     protect,
     health,
@@ -66,16 +60,6 @@ export default function HomePage({ data }) {
     subtitle: heroSubtitle,
   } = hero;
 
-  // founder
-  const {
-    header: founderQuestion,
-    content: founderAnswer,
-    image1: founderImage1,
-    image1Text: founderText1,
-    image2: founderImage2,
-    image2Text: founderText2
-  } = founder;
-
   // audit
   const {
     question: auditQuestion,
@@ -83,6 +67,16 @@ export default function HomePage({ data }) {
     answer: auditAnswer,
     image: auditImage,
   } = audit;
+
+  // founder
+  const {
+    header: founderQuestion,
+    content: founderAnswer,
+    image1: founderImage1,
+    image1Text: founderText1,
+    image2: founderImage2,
+    image2Text: founderText2,
+  } = founder;
 
   // cert
   const {
@@ -226,6 +220,35 @@ export default function HomePage({ data }) {
         </div>
       </StyledHeroBlock>
 
+      {/* audit */}
+      <StyledAuditBlock
+        background="var(--clr-red-2)"
+        color="var(--clr-concrete-white)"
+      >
+        <div id="animation">
+          <h2>{auditQuestion}</h2>
+          <div className="oneByTwoGrid">
+            <div className="content">
+              {auditAnswer !== null ? (
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: auditAnswer.childMarkdownRemark.html,
+                  }}
+                />
+              ) : undefined}
+              {auditButtonText && (
+                <Link to="/contact" className="btn alt">
+                  {auditButtonText}
+                </Link>
+              )}
+            </div>
+            <div className="image">
+              <Img fluid={auditImage.fluid}></Img>
+            </div>
+          </div>
+        </div>
+      </StyledAuditBlock>
+
       {/* founder */}
       <StyledFounderBlock
         background="var(--clr-dark-blue)"
@@ -260,7 +283,8 @@ export default function HomePage({ data }) {
             </div>
           </div>
           {founderAnswer !== null ? (
-            <div class="content"
+            <div
+              class="content"
               dangerouslySetInnerHTML={{
                 __html: founderAnswer.childMarkdownRemark.html,
               }}
@@ -268,33 +292,6 @@ export default function HomePage({ data }) {
           ) : undefined}
         </div>
       </StyledFounderBlock>
-
-      {/* audit */}
-      <StyledAuditBlock
-        background="var(--clr-red-2)"
-        color="var(--clr-concrete-white)"
-      >
-        <div>
-          <h2>{auditQuestion}</h2>
-          <div className="oneByTwoGrid">
-            <div className="content">
-              {auditAnswer !== null ? (
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: auditAnswer.childMarkdownRemark.html,
-                  }}
-                />
-              ) : undefined}
-              {auditButtonText && (
-                <button className="btn alt">{auditButtonText}</button>
-              )}
-            </div>
-            <div className="image">
-              <Img fluid={auditImage.fluid}></Img>
-            </div>
-          </div>
-        </div>
-      </StyledAuditBlock>
 
       {/* cert */}
       <StyledCertBlock>
@@ -310,7 +307,9 @@ export default function HomePage({ data }) {
                 />
               ) : undefined}
               {certButtonText && (
-                <button className="btn">{certButtonText}</button>
+                <Link to="/contact" className="btn alt">
+                  {certButtonText}
+                </Link>
               )}
             </div>
             <div className="image">
@@ -355,7 +354,9 @@ export default function HomePage({ data }) {
           </div>
           <div className="buttons">
             {protectButtonText && (
-              <button className="btn">{protectButtonText}</button>
+              <Link to="/contact" className="btn">
+                {protectButtonText}
+              </Link>
             )}
           </div>
         </div>
@@ -392,10 +393,14 @@ export default function HomePage({ data }) {
           ) : undefined}
           <div className="buttons">
             {healthButtonText && (
-              <button className="btn">{healthButtonText}</button>
+              <Link to="/contact" className="btn alt">
+                {healthButtonText}
+              </Link>
             )}
             {healthAlternateText && (
-              <button className="btn">{healthAlternateText}</button>
+              <Link to="/contact" className="btn alt">
+                {healthAlternateText}
+              </Link>
             )}
           </div>
         </div>
@@ -433,10 +438,14 @@ export default function HomePage({ data }) {
           ) : undefined}
           <div className="buttons">
             {highRiskButtonText && (
-              <button className="btn alt">{highRiskButtonText}</button>
+              <AnchorLink className="btn alt" to="/#animation" title="Our team">
+                <span>{highRiskButtonText}</span>
+              </AnchorLink>
             )}
             {highRiskAlternateText && (
-              <button className="btn alt">{highRiskAlternateText}</button>
+              <AnchorLink className="btn alt" to="/#process" title="Our team">
+                <span>{highRiskAlternateText}</span>
+              </AnchorLink>
             )}
           </div>
         </div>
@@ -470,10 +479,14 @@ export default function HomePage({ data }) {
           ) : undefined}
           <div className="buttons">
             {traitButtonText && (
-              <button className="btn">{traitButtonText}</button>
+              <AnchorLink className="btn" to="/#animation" title="Our team">
+                <span>{traitButtonText}</span>
+              </AnchorLink>
             )}
             {traitAlternateText && (
-              <button className="btn">{traitAlternateText}</button>
+              <AnchorLink className="btn" to="/#process" title="Our team">
+                <span>{traitButtonText}</span>
+              </AnchorLink>
             )}
           </div>
         </div>
@@ -496,10 +509,14 @@ export default function HomePage({ data }) {
           ) : undefined}
           <div className="buttons">
             {legalButtonText && (
-              <button className="btn">{legalButtonText}</button>
+              <AnchorLink className="btn" to="/#process" title="Our team">
+                <span>{legalButtonText}</span>
+              </AnchorLink>
             )}
             {legalAlternateText && (
-              <button className="btn">{legalAlternateText}</button>
+              <AnchorLink className="btn" to="/#process" title="Our team">
+                <span>{legalAlternateText}</span>
+              </AnchorLink>
             )}
           </div>
         </div>
@@ -536,10 +553,14 @@ export default function HomePage({ data }) {
           ) : undefined}
           <div className="buttons">
             {subcontractorButtonText && (
-              <button className="btn">{subcontractorButtonText}</button>
+              <AnchorLink className="btn" to="/#risk" title="Our team">
+                <span>{subcontractorButtonText}</span>
+              </AnchorLink>
             )}
             {subcontractorAlternateText && (
-              <button className="btn">{subcontractorAlternateText}</button>
+              <Link to="/contact" className="btn alt">
+                {subcontractorAlternateText}
+              </Link>
             )}
           </div>
         </div>
@@ -550,7 +571,7 @@ export default function HomePage({ data }) {
         background="var(--clr-red-2)"
         color="var(--clr-concrete-white)"
       >
-        <div>
+        <div id="risk">
           <h2>{liabilityHeading}</h2>
           <div className="twoByOneGrid">
             <div className="box box1 content">
@@ -577,10 +598,14 @@ export default function HomePage({ data }) {
           ) : undefined}
           <div className="buttons">
             {liabilityButtonText && (
-              <button className="btn alt">{liabilityButtonText}</button>
+              <AnchorLink className="btn" to="/#animation" title="Our team">
+                <span>{liabilityButtonText}</span>
+              </AnchorLink>
             )}
             {liabilityAlternateText && (
-              <button className="btn alt">{liabilityAlternateText}</button>
+              <Link to="/contact" className="btn alt">
+                {liabilityAlternateText}
+              </Link>
             )}
           </div>
         </div>
@@ -588,7 +613,7 @@ export default function HomePage({ data }) {
 
       {/* process */}
       <StyledProcessBlock>
-        <div>
+        <div id="process">
           <h2>{processHeading}</h2>
           <div className="steps">
             <div className="step">
@@ -597,7 +622,8 @@ export default function HomePage({ data }) {
                 <BsBuilding />
               </div>
               {processContentOne !== null ? (
-                <div class="content"
+                <div
+                  class="content"
                   dangerouslySetInnerHTML={{
                     __html: processContentOne.childMarkdownRemark.html,
                   }}
@@ -605,16 +631,17 @@ export default function HomePage({ data }) {
               ) : undefined}
             </div>
             <div className="arrow">
-              <FaLongArrowAltRight className="horizontal"/>
-              <FaLongArrowAltDown className="vertical"/>
+              <FaLongArrowAltRight className="horizontal" />
+              <FaLongArrowAltDown className="vertical" />
             </div>
             <div className="step">
               <h3>VendVeri</h3>
               <div className="icon">
-                  <BiMailSend />
+                <BiMailSend />
               </div>
               {processContentTwo !== null ? (
-                <div class="content"
+                <div
+                  class="content"
                   dangerouslySetInnerHTML={{
                     __html: processContentTwo.childMarkdownRemark.html,
                   }}
@@ -622,8 +649,8 @@ export default function HomePage({ data }) {
               ) : undefined}
             </div>
             <div className="arrow">
-              <FaLongArrowAltRight className="horizontal"/>
-              <FaLongArrowAltDown className="vertical"/>
+              <FaLongArrowAltRight className="horizontal" />
+              <FaLongArrowAltDown className="vertical" />
             </div>
             <div className="step">
               <h3>HRV</h3>
@@ -631,7 +658,8 @@ export default function HomePage({ data }) {
                 <AiOutlineAudit />
               </div>
               {processContentThree !== null ? (
-                <div class="content"
+                <div
+                  class="content"
                   dangerouslySetInnerHTML={{
                     __html: processContentThree.childMarkdownRemark.html,
                   }}
@@ -639,8 +667,8 @@ export default function HomePage({ data }) {
               ) : undefined}
             </div>
             <div className="arrow">
-              <FaLongArrowAltRight className="horizontal"/>
-              <FaLongArrowAltDown className="vertical"/>
+              <FaLongArrowAltRight className="horizontal" />
+              <FaLongArrowAltDown className="vertical" />
             </div>
             <div className="step">
               <h3>VendVeri</h3>
@@ -648,7 +676,8 @@ export default function HomePage({ data }) {
                 <AiOutlineFileSearch />
               </div>
               {processContentFour !== null ? (
-                <div class="content"
+                <div
+                  class="content"
                   dangerouslySetInnerHTML={{
                     __html: processContentFour.childMarkdownRemark.html,
                   }}
@@ -656,8 +685,8 @@ export default function HomePage({ data }) {
               ) : undefined}
             </div>
             <div className="arrow">
-              <FaLongArrowAltRight className="horizontal"/>
-              <FaLongArrowAltDown className="vertical"/>
+              <FaLongArrowAltRight className="horizontal" />
+              <FaLongArrowAltDown className="vertical" />
             </div>
             <div className="step">
               <h3>You</h3>
@@ -665,7 +694,8 @@ export default function HomePage({ data }) {
                 <AiFillSafetyCertificate />
               </div>
               {processContentFive !== null ? (
-                <div class="content"
+                <div
+                  class="content"
                   dangerouslySetInnerHTML={{
                     __html: processContentFive.childMarkdownRemark.html,
                   }}
