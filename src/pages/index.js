@@ -1,21 +1,15 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+
+import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
-import {
-  FaLongArrowAltRight,
-  FaLongArrowAltDown
-} from 'react-icons/fa';
-import {
-  BsBuilding
-} from 'react-icons/bs';
+import { FaLongArrowAltRight, FaLongArrowAltDown } from 'react-icons/fa';
+import { BsBuilding } from 'react-icons/bs';
 import {
   AiOutlineAudit,
   AiOutlineFileSearch,
-  AiFillSafetyCertificate
+  AiFillSafetyCertificate,
 } from 'react-icons/ai';
-import {
-  BiMailSend
-} from 'react-icons/bi';
+import { BiMailSend } from 'react-icons/bi';
 
 import {
   StyledHeroBlock,
@@ -73,7 +67,7 @@ export default function HomePage({ data }) {
     image1: founderImage1,
     image1Text: founderText1,
     image2: founderImage2,
-    image2Text: founderText2
+    image2Text: founderText2,
   } = founder;
 
   // audit
@@ -260,7 +254,8 @@ export default function HomePage({ data }) {
             </div>
           </div>
           {founderAnswer !== null ? (
-            <div class="content"
+            <div
+              class="content"
               dangerouslySetInnerHTML={{
                 __html: founderAnswer.childMarkdownRemark.html,
               }}
@@ -286,7 +281,9 @@ export default function HomePage({ data }) {
                 />
               ) : undefined}
               {auditButtonText && (
-                <button className="btn alt">{auditButtonText}</button>
+                <Link to="/contact" className="btn alt">
+                  {auditButtonText}
+                </Link>
               )}
             </div>
             <div className="image">
@@ -597,7 +594,8 @@ export default function HomePage({ data }) {
                 <BsBuilding />
               </div>
               {processContentOne !== null ? (
-                <div class="content"
+                <div
+                  class="content"
                   dangerouslySetInnerHTML={{
                     __html: processContentOne.childMarkdownRemark.html,
                   }}
@@ -605,16 +603,17 @@ export default function HomePage({ data }) {
               ) : undefined}
             </div>
             <div className="arrow">
-              <FaLongArrowAltRight className="horizontal"/>
-              <FaLongArrowAltDown className="vertical"/>
+              <FaLongArrowAltRight className="horizontal" />
+              <FaLongArrowAltDown className="vertical" />
             </div>
             <div className="step">
               <h3>VendVeri</h3>
               <div className="icon">
-                  <BiMailSend />
+                <BiMailSend />
               </div>
               {processContentTwo !== null ? (
-                <div class="content"
+                <div
+                  class="content"
                   dangerouslySetInnerHTML={{
                     __html: processContentTwo.childMarkdownRemark.html,
                   }}
@@ -622,8 +621,8 @@ export default function HomePage({ data }) {
               ) : undefined}
             </div>
             <div className="arrow">
-              <FaLongArrowAltRight className="horizontal"/>
-              <FaLongArrowAltDown className="vertical"/>
+              <FaLongArrowAltRight className="horizontal" />
+              <FaLongArrowAltDown className="vertical" />
             </div>
             <div className="step">
               <h3>HRV</h3>
@@ -631,7 +630,8 @@ export default function HomePage({ data }) {
                 <AiOutlineAudit />
               </div>
               {processContentThree !== null ? (
-                <div class="content"
+                <div
+                  class="content"
                   dangerouslySetInnerHTML={{
                     __html: processContentThree.childMarkdownRemark.html,
                   }}
@@ -639,8 +639,8 @@ export default function HomePage({ data }) {
               ) : undefined}
             </div>
             <div className="arrow">
-              <FaLongArrowAltRight className="horizontal"/>
-              <FaLongArrowAltDown className="vertical"/>
+              <FaLongArrowAltRight className="horizontal" />
+              <FaLongArrowAltDown className="vertical" />
             </div>
             <div className="step">
               <h3>VendVeri</h3>
@@ -648,7 +648,8 @@ export default function HomePage({ data }) {
                 <AiOutlineFileSearch />
               </div>
               {processContentFour !== null ? (
-                <div class="content"
+                <div
+                  class="content"
                   dangerouslySetInnerHTML={{
                     __html: processContentFour.childMarkdownRemark.html,
                   }}
@@ -656,8 +657,8 @@ export default function HomePage({ data }) {
               ) : undefined}
             </div>
             <div className="arrow">
-              <FaLongArrowAltRight className="horizontal"/>
-              <FaLongArrowAltDown className="vertical"/>
+              <FaLongArrowAltRight className="horizontal" />
+              <FaLongArrowAltDown className="vertical" />
             </div>
             <div className="step">
               <h3>You</h3>
@@ -665,7 +666,8 @@ export default function HomePage({ data }) {
                 <AiFillSafetyCertificate />
               </div>
               {processContentFive !== null ? (
-                <div class="content"
+                <div
+                  class="content"
                   dangerouslySetInnerHTML={{
                     __html: processContentFive.childMarkdownRemark.html,
                   }}
