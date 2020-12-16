@@ -20,6 +20,12 @@ Decrease property and employee liabilities, theft, and health risk
         ignore: [`**/styled-components.js`, `**/styled-components.tsx`],
       },
     },
+    {
+      resolve: `gatsby-plugin-anchor-links`,
+      options: {
+        offset: -100,
+      },
+    },
     `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-styled-components`,
