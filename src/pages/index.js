@@ -354,7 +354,7 @@ export default function HomePage({ data }) {
           </div>
           <div className="buttons">
             {protectButtonText && (
-              <Link to="/contact" className="btn alt">
+              <Link to="/contact" className="btn">
                 {protectButtonText}
               </Link>
             )}
@@ -438,14 +438,14 @@ export default function HomePage({ data }) {
           ) : undefined}
           <div className="buttons">
             {highRiskButtonText && (
-              <Link to="/contact" className="btn alt">
-                {highRiskButtonText}
-              </Link>
+              <AnchorLink className="btn alt" to="/#animation" title="Our team">
+                <span>{highRiskButtonText}</span>
+              </AnchorLink>
             )}
             {highRiskAlternateText && (
-              <Link to="/contact" className="btn alt">
-                {highRiskAlternateText}
-              </Link>
+              <AnchorLink className="btn alt" to="/#process" title="Our team">
+                <span>{highRiskAlternateText}</span>
+              </AnchorLink>
             )}
           </div>
         </div>
@@ -478,14 +478,15 @@ export default function HomePage({ data }) {
             />
           ) : undefined}
           <div className="buttons">
-            <AnchorLink className="btn" to="/#animation" title="Our team">
-              <span>{traitButtonText}</span>
-            </AnchorLink>
             {traitButtonText && (
-              <button className="btn">{traitButtonText}</button>
+              <AnchorLink className="btn" to="/#animation" title="Our team">
+                <span>{traitButtonText}</span>
+              </AnchorLink>
             )}
             {traitAlternateText && (
-              <button className="btn">{traitAlternateText}</button>
+              <AnchorLink className="btn" to="/#process" title="Our team">
+                <span>{traitButtonText}</span>
+              </AnchorLink>
             )}
           </div>
         </div>
@@ -508,10 +509,14 @@ export default function HomePage({ data }) {
           ) : undefined}
           <div className="buttons">
             {legalButtonText && (
-              <button className="btn">{legalButtonText}</button>
+              <AnchorLink className="btn" to="/#process" title="Our team">
+                <span>{legalButtonText}</span>
+              </AnchorLink>
             )}
             {legalAlternateText && (
-              <button className="btn">{legalAlternateText}</button>
+              <AnchorLink className="btn" to="/#process" title="Our team">
+                <span>{legalAlternateText}</span>
+              </AnchorLink>
             )}
           </div>
         </div>
@@ -548,10 +553,14 @@ export default function HomePage({ data }) {
           ) : undefined}
           <div className="buttons">
             {subcontractorButtonText && (
-              <button className="btn">{subcontractorButtonText}</button>
+              <AnchorLink className="btn" to="/#risk" title="Our team">
+                <span>{subcontractorButtonText}</span>
+              </AnchorLink>
             )}
             {subcontractorAlternateText && (
-              <button className="btn">{subcontractorAlternateText}</button>
+              <Link to="/contact" className="btn alt">
+                {subcontractorAlternateText}
+              </Link>
             )}
           </div>
         </div>
@@ -562,7 +571,7 @@ export default function HomePage({ data }) {
         background="var(--clr-red-2)"
         color="var(--clr-concrete-white)"
       >
-        <div>
+        <div id="risk">
           <h2>{liabilityHeading}</h2>
           <div className="twoByOneGrid">
             <div className="box box1 content">
@@ -589,10 +598,14 @@ export default function HomePage({ data }) {
           ) : undefined}
           <div className="buttons">
             {liabilityButtonText && (
-              <button className="btn alt">{liabilityButtonText}</button>
+              <AnchorLink className="btn" to="/#animation" title="Our team">
+                <span>{liabilityButtonText}</span>
+              </AnchorLink>
             )}
             {liabilityAlternateText && (
-              <button className="btn alt">{liabilityAlternateText}</button>
+              <Link to="/contact" className="btn alt">
+                {liabilityAlternateText}
+              </Link>
             )}
           </div>
         </div>
@@ -600,7 +613,7 @@ export default function HomePage({ data }) {
 
       {/* process */}
       <StyledProcessBlock>
-        <div>
+        <div id="process">
           <h2>{processHeading}</h2>
           <div className="steps">
             <div className="step">
