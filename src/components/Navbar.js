@@ -60,6 +60,9 @@ const StyledNav = styled.nav`
       display: flex;
       justify-content: flex-end;
       gap: 1rem;
+      li {
+        display: contents;
+      }
       a {
         text-transform: capitalize;
         color: var(--clr-red-2);
@@ -69,14 +72,14 @@ const StyledNav = styled.nav`
         padding: 1.875rem 1rem;
         border-radius: 3px;
         font-size: 1.25rem;
-        &[aria-current='page'] {
+        /* &[aria-current='page'] {
           p {
             border-bottom: 2px solid;
           }
           p.accent {
             border: inherit;
           }
-        }
+        } */
         p {
           display: unset;
           margin: 0;
@@ -85,7 +88,7 @@ const StyledNav = styled.nav`
           transition: var(--transition);
           border-bottom: 2px solid rgba(0, 0, 0, 0);
           text-transform: uppercase;
-          font-size: 1.25rem;
+          font-size: 1.4rem;
           font-weight: 500;
         }
         p.accent {

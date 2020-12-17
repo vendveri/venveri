@@ -462,12 +462,20 @@ export default function HomePage({ data }) {
       <StyledSubcontractorsBlock>
         <div>
           <h2>{subcontractorHeading}</h2>
+          {subcontractorContentOne !== null ? (
+            <div
+              className="content base"
+              dangerouslySetInnerHTML={{
+                __html: subcontractorContentOne.childMarkdownRemark.html,
+              }}
+            />
+          ) : undefined}
           <div className="twoByOneGrid">
-            <div className="box box1 content">
-              {subcontractorContentOne !== null ? (
+            <div className="box box1 content">              
+              {subcontractorContentTwo !== null ? (
                 <div
                   dangerouslySetInnerHTML={{
-                    __html: subcontractorContentOne.childMarkdownRemark.html,
+                    __html: subcontractorContentTwo.childMarkdownRemark.html,
                   }}
                 />
               ) : undefined}
@@ -476,14 +484,6 @@ export default function HomePage({ data }) {
               <Img fluid={subcontractorImage.fluid}></Img>
             </div>
           </div>
-          {subcontractorContentTwo !== null ? (
-            <div
-              className="content base"
-              dangerouslySetInnerHTML={{
-                __html: subcontractorContentTwo.childMarkdownRemark.html,
-              }}
-            />
-          ) : undefined}
           <div className="buttons">
             {subcontractorButtonText && (
               <AnchorLink className="btn" to="/#risk" title="Our team">
@@ -638,7 +638,7 @@ export default function HomePage({ data }) {
 
       {/* industry   */}
       <StyledIndustryBlock>
-        <div>
+        <div id="industries">
           <h2>Industries Served</h2>
           <h3>
             <select value={industry} onChange={(e) => setIndustry(e.target.value)}>
