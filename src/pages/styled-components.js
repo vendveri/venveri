@@ -295,6 +295,9 @@ export const StyledFounderBlock = styled(StyledBaseContentBlock)`
     justify-content: flex-start;
     gap: 1rem;
     max-width: 350px;
+    p {
+      font-size: 1.3rem;
+    }
     /* override global image padding */
     img {
       padding: 0;
@@ -384,6 +387,7 @@ export const StyledProcessBlock = styled(StyledBaseContentBlock)`
   .icon {
     font-size: 10rem;
     display: flex;
+    color: var(--clr-primary);
   }
   .arrow {
     font-size: 4rem;
@@ -391,6 +395,7 @@ export const StyledProcessBlock = styled(StyledBaseContentBlock)`
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    color: var(--clr-primary);
     .horizontal {
       display: block;
     }
