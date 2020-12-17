@@ -5,7 +5,7 @@ import SocialLinks from '../constants/socialLinks';
 const StyledFooter = styled.footer`
   height: 7rem;
   text-align: center;
-  background: var(--clr-codgray-black);
+  background: var(--clr-dark-grey);
   display: grid;
   place-items: center;
 
@@ -22,12 +22,17 @@ const StyledFooter = styled.footer`
     }
   }
   a {
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin: 0 0.5rem;
     transition: var(--transition);
+    color: var(--clr-concrete-white);
+  }
+  a:hover {
+    color: var(--clr-red-1);
   }
   p {
-    margin-bottom: 0;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
     color: var(--clr-concrete-white);
     text-transform: uppercase;
     letter-spacing: var(--spacing);
@@ -38,7 +43,7 @@ const Footer = () => {
   return (
     <StyledFooter>
       <SocialLinks />
-      <p>&copy;{new Date().getFullYear()} MDXBlog. All rights reserved</p>
+      <p>&copy; {new Date().getFullYear()} VendVeri All rights reserved</p>
     </StyledFooter>
   );
 };

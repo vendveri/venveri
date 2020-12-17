@@ -11,7 +11,7 @@ const Links = ({ styleClass }) => {
       </li>
       <li>
         <Link to="/contact" className="page-link">
-          <p>Contact</p>
+          <p class="accent">Contact Us</p>
         </Link>
       </li>
     </ul>

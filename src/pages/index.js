@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
@@ -7,7 +7,7 @@ import { BsBuilding } from 'react-icons/bs';
 import {
   AiOutlineAudit,
   AiOutlineFileSearch,
-  AiFillSafetyCertificate,
+  AiOutlineSafetyCertificate,
 } from 'react-icons/ai';
 import { BiMailSend } from 'react-icons/bi';
 
@@ -16,17 +16,13 @@ import {
   StyledFounderBlock,
   StyledAuditBlock,
   StyledCertBlock,
-  StyledCorporateBlock,
-  StyledGovernmentBlock,
   StyledHealthBlock,
   StyledHighRiskBlock,
   StyledIndustryBlock,
   StyledLegalBlock,
   StyledLiabilityBlock,
   StyledProcessBlock,
-  StyledPropertyManagerBlock,
   StyledProtectBlock,
-  StyledSchoolBlock,
   StyledSubcontractorsBlock,
   StyledTraitBlock,
 } from './styled-components';
@@ -46,12 +42,10 @@ export default function HomePage({ data }) {
     subcontractor,
     liability,
     process,
-    industry,
-    property,
-    school,
-    government,
-    corporate,
+    industries: {nodes: industries},
   } = data;
+
+  const [industry, setIndustry] = useState(industries[0].id || '');
 
   // hero
   const {
@@ -165,46 +159,6 @@ export default function HomePage({ data }) {
     step5: processContentFive,
   } = process;
 
-  // industry
-  const {
-    heading: industryHeading,
-    // buttonText: industryButtonText,
-    // buttonTextAlternate: industryAlternateText,
-    contentOne: industryContentOne,
-  } = industry;
-
-  // property
-  const {
-    heading: propertyHeading,
-    buttonText: propertyButtonText,
-    buttonTextAlternate: propertyAlternateText,
-    contentOne: propertyContentOne,
-  } = property;
-
-  // school
-  const {
-    heading: schoolHeading,
-    buttonText: schoolButtonText,
-    buttonTextAlternate: schoolAlternateText,
-    contentOne: schoolContentOne,
-  } = school;
-
-  // government
-  const {
-    heading: governmentHeading,
-    buttonText: governmentButtonText,
-    buttonTextAlternate: governmentAlternateText,
-    contentOne: governmentContentOne,
-  } = government;
-
-  // corporate
-  const {
-    heading: corporateHeading,
-    buttonText: corporateButtonText,
-    buttonTextAlternate: corporateAlternateText,
-    contentOne: corporateContentOne,
-  } = corporate;
-
   return (
     <>
       <SEO title="VendVeri"></SEO>
@@ -221,10 +175,7 @@ export default function HomePage({ data }) {
       </StyledHeroBlock>
 
       {/* audit */}
-      <StyledAuditBlock
-        background="var(--clr-red-2)"
-        color="var(--clr-concrete-white)"
-      >
+      <StyledAuditBlock>
         <div id="animation">
           <h2>{auditQuestion}</h2>
           <div className="oneByTwoGrid">
@@ -237,7 +188,7 @@ export default function HomePage({ data }) {
                 />
               ) : undefined}
               {auditButtonText && (
-                <Link to="/contact" className="btn alt">
+                <Link to="/contact" className="btn">
                   {auditButtonText}
                 </Link>
               )}
@@ -250,10 +201,7 @@ export default function HomePage({ data }) {
       </StyledAuditBlock>
 
       {/* founder */}
-      <StyledFounderBlock
-        background="var(--clr-dark-blue)"
-        color="var(--clr-concrete-white)"
-      >
+      <StyledFounderBlock>
         <div>
           <h2>{founderQuestion}</h2>
           <div className="twoByOneGrid">
@@ -307,7 +255,7 @@ export default function HomePage({ data }) {
                 />
               ) : undefined}
               {certButtonText && (
-                <Link to="/contact" className="btn alt">
+                <Link to="/contact" className="btn">
                   {certButtonText}
                 </Link>
               )}
@@ -320,10 +268,7 @@ export default function HomePage({ data }) {
       </StyledCertBlock>
 
       {/* protect */}
-      <StyledProtectBlock
-        background="var(--clr-paradiso-blue)"
-        color="var(--clr-concrete-white)"
-      >
+      <StyledProtectBlock>
         <div>
           <h2>{protectHeading}</h2>
           <div className="twoByTwoGrid">
@@ -363,10 +308,7 @@ export default function HomePage({ data }) {
       </StyledProtectBlock>
 
       {/* health */}
-      <StyledHealthBlock
-        background="var(--clr-dark-blue)"
-        color="var(--clr-concrete-white)"
-      >
+      <StyledHealthBlock>
         <div>
           <h2>{healthHeading}</h2>
           <div className="twoByOneGrid">
@@ -393,12 +335,12 @@ export default function HomePage({ data }) {
           ) : undefined}
           <div className="buttons">
             {healthButtonText && (
-              <Link to="/contact" className="btn alt">
+              <Link to="/contact" className="btn">
                 {healthButtonText}
               </Link>
             )}
             {healthAlternateText && (
-              <Link to="/contact" className="btn alt">
+              <Link to="/contact" className="btn">
                 {healthAlternateText}
               </Link>
             )}
@@ -407,19 +349,24 @@ export default function HomePage({ data }) {
       </StyledHealthBlock>
 
       {/* highRisk */}
-      <StyledHighRiskBlock
-        background="var(--clr-red-2)"
-        color="var(--clr-concrete-white)"
-      >
+      <StyledHighRiskBlock>
         <div>
           <h2>{highRiskHeading}</h2>
-          <div className="twoByOneGrid">
-            <div className="box box1 content">
-              {highRiskContentOne !== null ? (
+          {highRiskContentOne !== null ? (
                 <div
                   className="base content"
                   dangerouslySetInnerHTML={{
                     __html: highRiskContentOne.childMarkdownRemark.html,
+                  }}
+                />
+              ) : undefined}
+          <div className="twoByOneGrid">
+            <div className="box box1 content">              
+              {highRiskContentTwo !== null ? (
+                <div
+                  className="content base"
+                  dangerouslySetInnerHTML={{
+                    __html: highRiskContentTwo.childMarkdownRemark.html,
                   }}
                 />
               ) : undefined}
@@ -428,22 +375,14 @@ export default function HomePage({ data }) {
               <Img fluid={highRiskImage.fluid}></Img>
             </div>
           </div>
-          {highRiskContentTwo !== null ? (
-            <div
-              className="content base"
-              dangerouslySetInnerHTML={{
-                __html: highRiskContentTwo.childMarkdownRemark.html,
-              }}
-            />
-          ) : undefined}
           <div className="buttons">
             {highRiskButtonText && (
-              <AnchorLink className="btn alt" to="/#animation" title="Our team">
+              <AnchorLink className="btn" to="/#animation" title="Our team">
                 <span>{highRiskButtonText}</span>
               </AnchorLink>
             )}
             {highRiskAlternateText && (
-              <AnchorLink className="btn alt" to="/#process" title="Our team">
+              <AnchorLink className="btn" to="/#process" title="Our team">
                 <span>{highRiskAlternateText}</span>
               </AnchorLink>
             )}
@@ -493,10 +432,7 @@ export default function HomePage({ data }) {
       </StyledTraitBlock>
 
       {/* legal */}
-      <StyledLegalBlock
-        background="var(--clr-paradiso-blue)"
-        color="var(--clr-concrete-white)"
-      >
+      <StyledLegalBlock>
         <div>
           <h2>{legalHeading}</h2>
           {legalContentOne !== null ? (
@@ -523,10 +459,7 @@ export default function HomePage({ data }) {
       </StyledLegalBlock>
 
       {/* subcontractors */}
-      <StyledSubcontractorsBlock
-        background="var(--clr-dark-blue)"
-        color="var(--clr-concrete-white)"
-      >
+      <StyledSubcontractorsBlock>
         <div>
           <h2>{subcontractorHeading}</h2>
           <div className="twoByOneGrid">
@@ -558,7 +491,7 @@ export default function HomePage({ data }) {
               </AnchorLink>
             )}
             {subcontractorAlternateText && (
-              <Link to="/contact" className="btn alt">
+              <Link to="/contact" className="btn">
                 {subcontractorAlternateText}
               </Link>
             )}
@@ -567,10 +500,7 @@ export default function HomePage({ data }) {
       </StyledSubcontractorsBlock>
 
       {/* liability */}
-      <StyledLiabilityBlock
-        background="var(--clr-red-2)"
-        color="var(--clr-concrete-white)"
-      >
+      <StyledLiabilityBlock>
         <div id="risk">
           <h2>{liabilityHeading}</h2>
           <div className="twoByOneGrid">
@@ -603,7 +533,7 @@ export default function HomePage({ data }) {
               </AnchorLink>
             )}
             {liabilityAlternateText && (
-              <Link to="/contact" className="btn alt">
+              <Link to="/contact" className="btn">
                 {liabilityAlternateText}
               </Link>
             )}
@@ -691,7 +621,7 @@ export default function HomePage({ data }) {
             <div className="step">
               <h3>You</h3>
               <div className="icon">
-                <AiFillSafetyCertificate />
+                <AiOutlineSafetyCertificate />
               </div>
               {processContentFive !== null ? (
                 <div
@@ -707,127 +637,42 @@ export default function HomePage({ data }) {
       </StyledProcessBlock>
 
       {/* industry   */}
-      <StyledIndustryBlock
-        background="var(--clr-paradiso-blue)"
-        color="var(--clr-concrete-white)"
-      >
+      <StyledIndustryBlock>
         <div>
-          <h2>{industryHeading}</h2>
-          {industryContentOne !== null ? (
-            <div
-              className="content"
-              dangerouslySetInnerHTML={{
-                __html: industryContentOne.childMarkdownRemark.html,
-              }}
-            />
-          ) : undefined}
+          <h2>Industries Served</h2>
+          <h3>
+            <select value={industry} onChange={(e) => setIndustry(e.target.value)}>
+              {industries.map(({id, header}) => <option value={id}>{header}</option>)}
+            </select>
+          </h3>
+          {industries.filter(i => i.id === industry).map(({content, image, header, buttonText}) => (
+            <>
+              {/* <h3>{header}</h3> */}
+              <div className="twoByOneGrid">
+              <div className="box box1 content">
+                {content !== null ? (
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: content.childMarkdownRemark.html,
+                    }}
+                  />
+                ) : undefined}
+              </div>
+              <div className="box box2">
+                <Img fluid={image.fluid}></Img>
+              </div>
+            </div>
+            <div className="buttons">
+              {buttonText && (
+                <AnchorLink to="/#animation" className="btn">
+                  {buttonText}
+                </AnchorLink>
+              )}
+            </div>
+          </>
+          ))}
         </div>
       </StyledIndustryBlock>
-
-      {/* propertyManager */}
-      <StyledPropertyManagerBlock
-        background="var(--clr-dark-blue)"
-        color="var(--clr-concrete-white)"
-      >
-        <div>
-          <h2>{propertyHeading}</h2>
-
-          {propertyContentOne !== null ? (
-            <div
-              className="content"
-              dangerouslySetInnerHTML={{
-                __html: propertyContentOne.childMarkdownRemark.html,
-              }}
-            />
-          ) : undefined}
-          <div className="buttons">
-            {propertyButtonText && (
-              <button className="btn">{propertyButtonText}</button>
-            )}
-            {propertyAlternateText && (
-              <button className="btn">{propertyAlternateText}</button>
-            )}
-          </div>
-        </div>
-      </StyledPropertyManagerBlock>
-
-      {/* school */}
-      <StyledSchoolBlock
-        background="var(--clr-red-2)"
-        color="var(--clr-concrete-white)"
-      >
-        <div>
-          <h2>{schoolHeading}</h2>
-
-          {schoolContentOne !== null ? (
-            <div
-              className="content"
-              dangerouslySetInnerHTML={{
-                __html: schoolContentOne.childMarkdownRemark.html,
-              }}
-            />
-          ) : undefined}
-          <div className="buttons">
-            {schoolButtonText && (
-              <button className="btn alt">{schoolButtonText}</button>
-            )}
-            {schoolAlternateText && (
-              <button className="btn alt">{schoolAlternateText}</button>
-            )}
-          </div>
-        </div>
-      </StyledSchoolBlock>
-
-      {/* government */}
-      <StyledGovernmentBlock>
-        <div>
-          <h2>{governmentHeading}</h2>
-
-          {governmentContentOne !== null ? (
-            <div
-              className="content"
-              dangerouslySetInnerHTML={{
-                __html: governmentContentOne.childMarkdownRemark.html,
-              }}
-            />
-          ) : undefined}
-          <div className="buttons">
-            {governmentButtonText && (
-              <button className="btn">{governmentButtonText}</button>
-            )}
-            {governmentAlternateText && (
-              <button className="btn">{governmentAlternateText}</button>
-            )}
-          </div>
-        </div>
-      </StyledGovernmentBlock>
-
-      {/* corporate */}
-      <StyledCorporateBlock
-        background="var(--clr-dark-grey)"
-        color="var(--clr-concrete-white)"
-      >
-        <div>
-          <h2>{corporateHeading}</h2>
-
-          {corporateContentOne !== null ? (
-            <div
-              className="content"
-              dangerouslySetInnerHTML={{
-                __html: corporateContentOne.childMarkdownRemark.html,
-              }}
-            />
-          ) : undefined}
-          <div className="buttons">
-            {corporateButtonText && (
-              <button className="btn">{corporateButtonText}</button>
-            )}
-            {corporateAlternateText && (
-              <button className="btn">{corporateAlternateText}</button>
-            )}
-          </div>
-        </div>
-      </StyledCorporateBlock>
     </>
   );
 }
@@ -1096,69 +941,22 @@ export const query = graphql`
       header
     }
 
-    industry: contentfulNoImageBlock(
-      id: { eq: "b33b4465-d2e6-52b2-bbc3-1d90e5f2be1a" }
-    ) {
-      buttonText
-      contentOne {
-        childMarkdownRemark {
-          html
+    industries: allContentfulIndustryServed {
+      nodes {
+        id
+        content {
+          childMarkdownRemark {
+            html
+          }
         }
-      }
-      buttonAlternateText
-      heading
-    }
-
-    property: contentfulNoImageBlock(
-      id: { eq: "5b364b28-f87c-5d14-9424-98486816ecb9" }
-    ) {
-      buttonText
-      contentOne {
-        childMarkdownRemark {
-          html
+        header
+        image {
+          fluid {
+            ...GatsbyContentfulFluid
+          }
         }
+        buttonText
       }
-      buttonAlternateText
-      heading
-    }
-
-    school: contentfulNoImageBlock(
-      id: { eq: "0762869d-c549-52f3-98c1-429a2b318cea" }
-    ) {
-      buttonText
-      contentOne {
-        childMarkdownRemark {
-          html
-        }
-      }
-      buttonAlternateText
-      heading
-    }
-
-    government: contentfulNoImageBlock(
-      id: { eq: "ca6fd8e2-60b4-5f3d-a02f-150633099fcf" }
-    ) {
-      buttonText
-      contentOne {
-        childMarkdownRemark {
-          html
-        }
-      }
-      buttonAlternateText
-      heading
-    }
-
-    corporate: contentfulNoImageBlock(
-      id: { eq: "3ca8a19d-7de5-5824-aad9-d1411dd5e4c8" }
-    ) {
-      buttonText
-      contentOne {
-        childMarkdownRemark {
-          html
-        }
-      }
-      buttonAlternateText
-      heading
     }
   }
 `;
