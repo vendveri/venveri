@@ -416,27 +416,22 @@ export const StyledProcessBlock = styled(StyledBaseContentBlock)`
     }
   }
 `;
-export const StyledIndustryBlock = styled(StyledNoImageBlock)``;
-
-export const StyledIndustryPageBlock = styled(StyledGenericInfoBlock)`
-&:nth-child(odd) {
-  .box1 {
-    grid-column: 2 / span 1;
-    grid-row: 1 / span 1;
+export const StyledIndustryBlock = styled(StyledGenericInfoBlock)`
+h3 {
+  text-align: center;
+}
+select {
+  background: none;
+  border: 3px solid rgba(0, 0, 0, 0);
+  border-radius: .5rem;
+  color: var(--clr-concrete-white);
+  padding: .5rem;
+  option {
+    color: var(--clr-dark-grey);
   }
-  .box2 {
-    grid-column: 1 / span 1;
-    grid-row: 1 / span 1;
-  }
-  @media (max-width: 768px) {
-    .box1 {
-      grid-column: 1 / span 1;
-      grid-row: 1 / span 1;
-    }
-    .box2 {
-      grid-column: 1 / span 1;
-      grid-row: 2 / span 1;
-    }
+  &:hover, &:active, &:focus {
+    border: 3px solid var(--clr-concrete-white);
+    outline: none;
   }
 }
 `;

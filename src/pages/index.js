@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
@@ -42,8 +42,10 @@ export default function HomePage({ data }) {
     subcontractor,
     liability,
     process,
-    industry,
+    industries: {nodes: industries},
   } = data;
+
+  const [industry, setIndustry] = useState(industries[0].id || '');
 
   // hero
   const {
@@ -157,13 +159,6 @@ export default function HomePage({ data }) {
     step5: processContentFive,
   } = process;
 
-  // industry
-  const {
-    heading: industryHeading,
-    // buttonText: industryButtonText,
-    // buttonTextAlternate: industryAlternateText,
-    contentOne: industryContentOne,
-  } = industry;
   return (
     <>
       <SEO title="VendVeri"></SEO>
@@ -357,13 +352,21 @@ export default function HomePage({ data }) {
       <StyledHighRiskBlock>
         <div>
           <h2>{highRiskHeading}</h2>
-          <div className="twoByOneGrid">
-            <div className="box box1 content">
-              {highRiskContentOne !== null ? (
+          {highRiskContentOne !== null ? (
                 <div
                   className="base content"
                   dangerouslySetInnerHTML={{
                     __html: highRiskContentOne.childMarkdownRemark.html,
+                  }}
+                />
+              ) : undefined}
+          <div className="twoByOneGrid">
+            <div className="box box1 content">              
+              {highRiskContentTwo !== null ? (
+                <div
+                  className="content base"
+                  dangerouslySetInnerHTML={{
+                    __html: highRiskContentTwo.childMarkdownRemark.html,
                   }}
                 />
               ) : undefined}
@@ -372,14 +375,6 @@ export default function HomePage({ data }) {
               <Img fluid={highRiskImage.fluid}></Img>
             </div>
           </div>
-          {highRiskContentTwo !== null ? (
-            <div
-              className="content base"
-              dangerouslySetInnerHTML={{
-                __html: highRiskContentTwo.childMarkdownRemark.html,
-              }}
-            />
-          ) : undefined}
           <div className="buttons">
             {highRiskButtonText && (
               <AnchorLink className="btn" to="/#animation" title="Our team">
@@ -644,15 +639,38 @@ export default function HomePage({ data }) {
       {/* industry   */}
       <StyledIndustryBlock>
         <div>
-          <h2>{industryHeading}</h2>
-          {industryContentOne !== null ? (
-            <div
-              className="content"
-              dangerouslySetInnerHTML={{
-                __html: industryContentOne.childMarkdownRemark.html,
-              }}
-            />
-          ) : undefined}
+          <h2>Industries Served</h2>
+          <h3>
+            <select value={industry} onChange={(e) => setIndustry(e.target.value)}>
+              {industries.map(({id, header}) => <option value={id}>{header}</option>)}
+            </select>
+          </h3>
+          {industries.filter(i => i.id === industry).map(({content, image, header, buttonText}) => (
+            <>
+              {/* <h3>{header}</h3> */}
+              <div className="twoByOneGrid">
+              <div className="box box1 content">
+                {content !== null ? (
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: content.childMarkdownRemark.html,
+                    }}
+                  />
+                ) : undefined}
+              </div>
+              <div className="box box2">
+                <Img fluid={image.fluid}></Img>
+              </div>
+            </div>
+            <div className="buttons">
+              {buttonText && (
+                <AnchorLink to="/#animation" className="btn">
+                  {buttonText}
+                </AnchorLink>
+              )}
+            </div>
+          </>
+          ))}
         </div>
       </StyledIndustryBlock>
     </>
@@ -923,17 +941,22 @@ export const query = graphql`
       header
     }
 
-    industry: contentfulNoImageBlock(
-      id: { eq: "b33b4465-d2e6-52b2-bbc3-1d90e5f2be1a" }
-    ) {
-      buttonText
-      contentOne {
-        childMarkdownRemark {
-          html
+    industries: allContentfulIndustryServed {
+      nodes {
+        id
+        content {
+          childMarkdownRemark {
+            html
+          }
         }
+        header
+        image {
+          fluid {
+            ...GatsbyContentfulFluid
+          }
+        }
+        buttonText
       }
-      buttonAlternateText
-      heading
     }
   }
 `;
