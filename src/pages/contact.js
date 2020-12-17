@@ -1,20 +1,27 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { navigate } from 'gatsby';
+import { graphql, navigate } from 'gatsby';
 import SEO from '../components/SEO';
 
 const StyledContactPage = styled.section`
   display: grid;
   place-items: center;
   min-height: calc(100vh - 12rem);
+  background-color: rgba(255, 0, 0, 0.5);
+  background: ${({ background }) => {
+    return background ? background : 'var(--clr-red-2)';
+  }};
+  background-size: cover;
+  background-position: center;
   article {
+    margin: 2rem;
     background: var(--clr-concrete-white);
     border-radius: var(--radius);
     text-align: center;
     box-shadow: var(--light-shadow);
     transition: var(--transition);
     width: 90vw;
-    max-width: 35rem;
+    max-width: var(--max-width);
     &:hover {
       box-shadow: var(--dark-shadow);
     }
@@ -25,6 +32,11 @@ const StyledContactPage = styled.section`
     }
     .form-group {
       padding: 1rem 1.5rem;
+      /* display: flex;
+      flex-flow: row wrap;
+      gap: 2rem;
+      align-items: center;
+      justify-content: center; */
     }
     .form-control {
       display: block;
@@ -39,10 +51,13 @@ const StyledContactPage = styled.section`
       letter-spacing: var(--spacing);
       &::placeholder {
         font-family: var(--ff-primary);
-        color: var(--clr-jewel-green);
+        color: var(--clr-paradiso-blue);
         text-transform: uppercase;
         letter-spacing: var(--spacing);
       }
+    }
+    textarea {
+      resize: vertical;
     }
     .submit-btn {
       display: block;
@@ -52,11 +67,12 @@ const StyledContactPage = styled.section`
       border-bottom-right-radius: var(--radius);
       border-top-right-radius: 0;
       border-top-left-radius: 0;
+      background: var(--clr-dark-blue);
     }
   }
 `;
 
-const ContactPage = () => {
+const ContactPage = ({data: {hero: {background}}}) => {
   const [formState, setFormState] = useState({
     firstName: '',
     lastName: '',
@@ -102,7 +118,7 @@ const ContactPage = () => {
   return (
     <>
       <SEO title="VendVeri - Contact" />
-      <StyledContactPage className="page">
+      <StyledContactPage className="page" background={background ? `url(${background.fluid.src})` : null}>
         <article>
           <h3>Get in Touch!</h3>
           <p>
@@ -223,3 +239,14 @@ const ContactPage = () => {
 };
 
 export default ContactPage;
+export const query = graphql`
+{
+  hero: contentfulHero {
+    background {
+      fluid {
+        ...GatsbyContentfulFluid
+      }
+    }
+  }
+}
+`;

@@ -41,7 +41,7 @@ Variables
   --spacing: 0.1rem;
   --vertical-spacing: 4rem;
   --horizontal-spacing: 2rem;
-  --radius: 0.25rem;
+  --radius: 0.5rem;
   --max-width: 1280px;
   --fixed-width: 700px;
 }
@@ -185,12 +185,6 @@ padding: 2rem 1rem
 .btn:hover {
   /* color: var(--clr-primary-1); */
   background: var(--clr-red-1);
-}
-.btn.alt {
-  background: var(--clr-paradiso-blue);
-}
-.btn.alt:hover {
-  background: var(--clr-boston-blue);
 }
 
 .center-btn {

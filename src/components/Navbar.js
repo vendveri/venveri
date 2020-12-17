@@ -73,6 +73,9 @@ const StyledNav = styled.nav`
           p {
             border-bottom: 2px solid;
           }
+          p.accent {
+            border: inherit;
+          }
         }
         p {
           display: unset;
@@ -83,6 +86,17 @@ const StyledNav = styled.nav`
           border-bottom: 2px solid rgba(0, 0, 0, 0);
           text-transform: uppercase;
           font-size: 1.25rem;
+          font-weight: 500;
+        }
+        p.accent {
+          padding: 5px 10px;
+          color: var(--clr-concrete-white);
+          background: var(--clr-red-2);
+          border-radius: 5px;
+          font-size: 1.25rem;
+        }
+        p.accent:hover {
+          background: var(--clr-red-1);
         }
         &:hover {
           color: var(--clr-codgray-black);

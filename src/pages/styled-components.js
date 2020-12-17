@@ -1,14 +1,52 @@
 import styled from 'styled-components';
 
 const StyledBaseContentBlock = styled.section`
-  background: ${({ background }) => {
-    return background ? background : 'var(--clr-concrete-white)';
-  }};
-  background-size: cover;
-  background-position: center;
-  color: ${({ color }) => {
-    return color || 'inherit';
-  }};
+  &:nth-child(4n-2) {
+    background: ${({ background }) => {
+      return background ? background : 'var(--clr-paradiso-blue)';
+    }};
+    background-size: cover;
+    background-position: center;
+    color: ${({ color }) => {
+      return color || 'var(--clr-concrete-white)';
+    }};
+  }
+  &:nth-child(4n-1) {
+    background: ${({ background }) => {
+      return background ? background : 'var(--clr-dark-blue)';
+    }};
+    background-size: cover;
+    background-position: center;
+    color: ${({ color }) => {
+      return color || 'var(--clr-concrete-white)';
+    }};
+  }
+  &:nth-child(4n) {
+    background: ${({ background }) => {
+      return background ? background : 'var(--clr-concrete-white)';
+    }};
+    background-size: cover;
+    background-position: center;
+    color: ${({ color }) => {
+      return color || 'inherit';
+    }};
+  }
+  &:nth-child(4n-3) {
+    background: ${({ background }) => {
+      return background ? background : 'var(--clr-red-2)';
+    }};
+    background-size: cover;
+    background-position: center;
+    color: ${({ color }) => {
+      return color || 'var(--clr-concrete-white)';
+    }};
+    .btn {
+      background: var(--clr-paradiso-blue);
+    }
+    .btn:hover {
+      background: var(--clr-boston-blue);
+    }
+  }
   box-shadow: var(--dark-shadow);
   & > div {
     min-height: ${({ baseHeight }) => {
@@ -240,6 +278,9 @@ export const StyledFounderBlock = styled(StyledBaseContentBlock)`
     justify-content: center;
     align-items: flex-start;
   }
+  p {
+    text-align: center;
+  }
   .circle {
     height: 300px;
     width: 300px;
@@ -253,6 +294,7 @@ export const StyledFounderBlock = styled(StyledBaseContentBlock)`
     align-items: center;
     justify-content: flex-start;
     gap: 1rem;
+    max-width: 350px;
     /* override global image padding */
     img {
       padding: 0;
@@ -375,7 +417,26 @@ export const StyledProcessBlock = styled(StyledBaseContentBlock)`
   }
 `;
 export const StyledIndustryBlock = styled(StyledNoImageBlock)``;
-export const StyledPropertyManagerBlock = styled(StyledNoImageBlock)``;
-export const StyledSchoolBlock = styled(StyledNoImageBlock)``;
-export const StyledGovernmentBlock = styled(StyledNoImageBlock)``;
-export const StyledCorporateBlock = styled(StyledNoImageBlock)``;
+
+export const StyledIndustryPageBlock = styled(StyledGenericInfoBlock)`
+&:nth-child(odd) {
+  .box1 {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
+  }
+  .box2 {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+  }
+  @media (max-width: 768px) {
+    .box1 {
+      grid-column: 1 / span 1;
+      grid-row: 1 / span 1;
+    }
+    .box2 {
+      grid-column: 1 / span 1;
+      grid-row: 2 / span 1;
+    }
+  }
+}
+`;

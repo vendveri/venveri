@@ -10,8 +10,13 @@ const Links = ({ styleClass }) => {
         </Link>
       </li>
       <li>
+        <Link to="/industries" className="page-link">
+          <p>Industries</p>
+        </Link>
+      </li>
+      <li>
         <Link to="/contact" className="page-link">
-          <p>Contact</p>
+          <p class="accent">Contact Us</p>
         </Link>
       </li>
     </ul>
