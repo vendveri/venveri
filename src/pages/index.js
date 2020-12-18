@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
@@ -42,7 +42,7 @@ export default function HomePage({ data }) {
     subcontractor,
     liability,
     process,
-    industries: {nodes: industries},
+    industries: { nodes: industries },
   } = data;
 
   const [industry, setIndustry] = useState(industries[0].id || '');
@@ -70,7 +70,7 @@ export default function HomePage({ data }) {
     image1Text: founderText1,
     image2: founderImage2,
     image2Text: founderText2,
-    bottomImage: founderBottomImage
+    bottomImage: founderBottomImage,
   } = founder;
 
   // cert
@@ -359,13 +359,13 @@ export default function HomePage({ data }) {
         <div>
           <h2>{highRiskHeading}</h2>
           {highRiskContentOne !== null ? (
-                <div
-                  className="base content"
-                  dangerouslySetInnerHTML={{
-                    __html: highRiskContentOne.childMarkdownRemark.html,
-                  }}
-                />
-              ) : undefined}
+            <div
+              className="base content"
+              dangerouslySetInnerHTML={{
+                __html: highRiskContentOne.childMarkdownRemark.html,
+              }}
+            />
+          ) : undefined}
           <div className="twoByOneGrid">
             <div className="box box1 content">
               {highRiskContentTwo !== null ? (
@@ -383,7 +383,11 @@ export default function HomePage({ data }) {
           </div>
           <div className="buttons">
             {highRiskButtonText && (
-              <AnchorLink className="btn" to="/#animation" title="What is a High Risk Vendor">
+              <AnchorLink
+                className="btn"
+                to="/#animation"
+                title="What is a High Risk Vendor"
+              >
                 <span>{highRiskButtonText}</span>
               </AnchorLink>
             )}
@@ -424,7 +428,11 @@ export default function HomePage({ data }) {
           ) : undefined}
           <div className="buttons">
             {traitButtonText && (
-              <AnchorLink className="btn" to="/#animation" title="What is a High Risk Vendor">
+              <AnchorLink
+                className="btn"
+                to="/#animation"
+                title="What is a High Risk Vendor"
+              >
                 <span>{traitButtonText}</span>
               </AnchorLink>
             )}
@@ -643,7 +651,11 @@ export default function HomePage({ data }) {
           ) : undefined}
           <div className="buttons">
             {liabilityButtonText && (
-              <AnchorLink className="btn" to="/#animation" title="What is a High Risk Vendor">
+              <AnchorLink
+                className="btn"
+                to="/#animation"
+                title="What is a High Risk Vendor"
+              >
                 <span>{liabilityButtonText}</span>
               </AnchorLink>
             )}
@@ -661,36 +673,45 @@ export default function HomePage({ data }) {
         <div id="industries">
           <h2>Industries Served</h2>
           <h3>
-            <select value={industry} onChange={(e) => setIndustry(e.target.value)}>
-              {industries.map(({id, header}) => <option value={id}>{header}</option>)}
+            <select
+              value={industry}
+              onChange={(e) => setIndustry(e.target.value)}
+            >
+              {industries.map(({ id, header }) => (
+                <option key={id} value={id}>
+                  {header}
+                </option>
+              ))}
             </select>
           </h3>
-          {industries.filter(i => i.id === industry).map(({content, image, header, buttonText}) => (
-            <>
-              {/* <h3>{header}</h3> */}
-              <div className="twoByOneGrid">
-              <div className="box box1 content">
-                {content !== null ? (
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: content.childMarkdownRemark.html,
-                    }}
-                  />
-                ) : undefined}
-              </div>
-              <div className="box box2">
-                <Img fluid={image.fluid}></Img>
-              </div>
-            </div>
-            <div className="buttons">
-              {buttonText && (
-                <AnchorLink to="/#animation" className="btn">
-                  {buttonText}
-                </AnchorLink>
-              )}
-            </div>
-          </>
-          ))}
+          {industries
+            .filter((i) => i.id === industry)
+            .map(({ content, image, header, buttonText }, index) => (
+              <React.Fragment key={index}>
+                {/* <h3>{header}</h3> */}
+                <div className="twoByOneGrid">
+                  <div className="box box1 content">
+                    {content !== null ? (
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: content.childMarkdownRemark.html,
+                        }}
+                      />
+                    ) : undefined}
+                  </div>
+                  <div className="box box2">
+                    <Img fluid={image.fluid}></Img>
+                  </div>
+                </div>
+                <div className="buttons">
+                  {buttonText && (
+                    <AnchorLink to="/#animation" className="btn">
+                      {buttonText}
+                    </AnchorLink>
+                  )}
+                </div>
+              </React.Fragment>
+            ))}
         </div>
       </StyledIndustryBlock>
     </>
