@@ -209,14 +209,14 @@ export default function HomePage({ data }) {
           <h2>{founderQuestion}</h2>
           {founderAnswer !== null ? (
             <div
-              class="content"
+              className="content"
               dangerouslySetInnerHTML={{
                 __html: founderAnswer.childMarkdownRemark.html,
               }}
             />
           ) : undefined}
           <div className="twoByOneGrid">
-            <div class="founderDetails">
+            <div className="founderDetails">
               <div className="circle">
                 <Img fluid={founderImage1.fluid}></Img>
               </div>
@@ -228,7 +228,7 @@ export default function HomePage({ data }) {
                 />
               ) : undefined}
             </div>
-            <div class="founderDetails">
+            <div className="founderDetails">
               <div className="circle">
                 <Img fluid={founderImage2.fluid}></Img>
               </div>
@@ -367,7 +367,7 @@ export default function HomePage({ data }) {
                 />
               ) : undefined}
           <div className="twoByOneGrid">
-            <div className="box box1 content">              
+            <div className="box box1 content">
               {highRiskContentTwo !== null ? (
                 <div
                   className="content base"
@@ -491,7 +491,7 @@ export default function HomePage({ data }) {
             />
           ) : undefined}
           <div className="twoByOneGrid">
-            <div className="box box1 content">              
+            <div className="box box1 content">
               {subcontractorContentTwo !== null ? (
                 <div
                   dangerouslySetInnerHTML={{
@@ -531,7 +531,7 @@ export default function HomePage({ data }) {
               </div>
               {processContentOne !== null ? (
                 <div
-                  class="content"
+                  className="content"
                   dangerouslySetInnerHTML={{
                     __html: processContentOne.childMarkdownRemark.html,
                   }}
@@ -549,7 +549,7 @@ export default function HomePage({ data }) {
               </div>
               {processContentTwo !== null ? (
                 <div
-                  class="content"
+                  className="content"
                   dangerouslySetInnerHTML={{
                     __html: processContentTwo.childMarkdownRemark.html,
                   }}
@@ -567,7 +567,7 @@ export default function HomePage({ data }) {
               </div>
               {processContentThree !== null ? (
                 <div
-                  class="content"
+                  className="content"
                   dangerouslySetInnerHTML={{
                     __html: processContentThree.childMarkdownRemark.html,
                   }}
@@ -585,7 +585,7 @@ export default function HomePage({ data }) {
               </div>
               {processContentFour !== null ? (
                 <div
-                  class="content"
+                  className="content"
                   dangerouslySetInnerHTML={{
                     __html: processContentFour.childMarkdownRemark.html,
                   }}
@@ -603,7 +603,7 @@ export default function HomePage({ data }) {
               </div>
               {processContentFive !== null ? (
                 <div
-                  class="content"
+                  className="content"
                   dangerouslySetInnerHTML={{
                     __html: processContentFive.childMarkdownRemark.html,
                   }}
