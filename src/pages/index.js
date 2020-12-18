@@ -70,6 +70,7 @@ export default function HomePage({ data }) {
     image1Text: founderText1,
     image2: founderImage2,
     image2Text: founderText2,
+    bottomImage: founderBottomImage
   } = founder;
 
   // cert
@@ -127,6 +128,8 @@ export default function HomePage({ data }) {
     buttonText: legalButtonText,
     buttonTextAlternate: legalAlternateText,
     contentOne: legalContentOne,
+    contentTwo: legalContentTwo,
+    image: legalImage,
   } = legal;
 
   // subcontractor
@@ -204,6 +207,14 @@ export default function HomePage({ data }) {
       <StyledFounderBlock>
         <div>
           <h2>{founderQuestion}</h2>
+          {founderAnswer !== null ? (
+            <div
+              class="content"
+              dangerouslySetInnerHTML={{
+                __html: founderAnswer.childMarkdownRemark.html,
+              }}
+            />
+          ) : undefined}
           <div className="twoByOneGrid">
             <div class="founderDetails">
               <div className="circle">
@@ -230,14 +241,9 @@ export default function HomePage({ data }) {
               ) : undefined}
             </div>
           </div>
-          {founderAnswer !== null ? (
-            <div
-              class="content"
-              dangerouslySetInnerHTML={{
-                __html: founderAnswer.childMarkdownRemark.html,
-              }}
-            />
-          ) : undefined}
+          <div className="bottom">
+            <Img fluid={founderBottomImage.fluid}></Img>
+          </div>
         </div>
       </StyledFounderBlock>
 
@@ -377,12 +383,12 @@ export default function HomePage({ data }) {
           </div>
           <div className="buttons">
             {highRiskButtonText && (
-              <AnchorLink className="btn" to="/#animation" title="Our team">
+              <AnchorLink className="btn" to="/#animation" title="What is a High Risk Vendor">
                 <span>{highRiskButtonText}</span>
               </AnchorLink>
             )}
             {highRiskAlternateText && (
-              <AnchorLink className="btn" to="/#process" title="Our team">
+              <AnchorLink className="btn" to="/#process" title="Our process">
                 <span>{highRiskAlternateText}</span>
               </AnchorLink>
             )}
@@ -418,12 +424,12 @@ export default function HomePage({ data }) {
           ) : undefined}
           <div className="buttons">
             {traitButtonText && (
-              <AnchorLink className="btn" to="/#animation" title="Our team">
+              <AnchorLink className="btn" to="/#animation" title="What is a High Risk Vendor">
                 <span>{traitButtonText}</span>
               </AnchorLink>
             )}
             {traitAlternateText && (
-              <AnchorLink className="btn" to="/#process" title="Our team">
+              <AnchorLink className="btn" to="/#process" title="Our process">
                 <span>{traitButtonText}</span>
               </AnchorLink>
             )}
@@ -435,24 +441,38 @@ export default function HomePage({ data }) {
       <StyledLegalBlock>
         <div>
           <h2>{legalHeading}</h2>
-          {legalContentOne !== null ? (
+          <div className="twoByOneGrid">
+            <div className="box box1 content">
+              {legalContentOne !== null ? (
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: legalContentOne.childMarkdownRemark.html,
+                  }}
+                />
+              ) : undefined}
+            </div>
+            <div className="box box2">
+              <Img fluid={legalImage.fluid}></Img>
+            </div>
+          </div>
+          {legalContentTwo !== null ? (
             <div
-              className="content"
+              className="content base"
               dangerouslySetInnerHTML={{
-                __html: legalContentOne.childMarkdownRemark.html,
+                __html: legalContentTwo.childMarkdownRemark.html,
               }}
             />
           ) : undefined}
           <div className="buttons">
             {legalButtonText && (
-              <AnchorLink className="btn" to="/#process" title="Our team">
+              <AnchorLink className="btn" to="/#process" title="Our process">
                 <span>{legalButtonText}</span>
               </AnchorLink>
             )}
             {legalAlternateText && (
-              <AnchorLink className="btn" to="/#process" title="Our team">
-                <span>{legalAlternateText}</span>
-              </AnchorLink>
+              <Link className="btn" to="/contact">
+                <span>{legalButtonText}</span>
+              </Link>
             )}
           </div>
         </div>
@@ -498,48 +518,6 @@ export default function HomePage({ data }) {
           </div>
         </div>
       </StyledSubcontractorsBlock>
-
-      {/* liability */}
-      <StyledLiabilityBlock>
-        <div id="risk">
-          <h2>{liabilityHeading}</h2>
-          <div className="twoByOneGrid">
-            <div className="box box1 content">
-              {liabilityContentOne !== null ? (
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: liabilityContentOne.childMarkdownRemark.html,
-                  }}
-                />
-              ) : undefined}
-            </div>
-            <div className="box box2">
-              <Img fluid={liabilityImage.fluid}></Img>
-            </div>
-          </div>
-
-          {liabilityContentTwo !== null ? (
-            <div
-              className="content base"
-              dangerouslySetInnerHTML={{
-                __html: liabilityContentTwo.childMarkdownRemark.html,
-              }}
-            />
-          ) : undefined}
-          <div className="buttons">
-            {liabilityButtonText && (
-              <AnchorLink className="btn" to="/#animation" title="Our team">
-                <span>{liabilityButtonText}</span>
-              </AnchorLink>
-            )}
-            {liabilityAlternateText && (
-              <Link to="/contact" className="btn">
-                {liabilityAlternateText}
-              </Link>
-            )}
-          </div>
-        </div>
-      </StyledLiabilityBlock>
 
       {/* process */}
       <StyledProcessBlock>
@@ -636,6 +614,48 @@ export default function HomePage({ data }) {
         </div>
       </StyledProcessBlock>
 
+      {/* liability */}
+      <StyledLiabilityBlock>
+        <div id="risk">
+          <h2>{liabilityHeading}</h2>
+          <div className="twoByOneGrid">
+            <div className="box box1 content">
+              {liabilityContentOne !== null ? (
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: liabilityContentOne.childMarkdownRemark.html,
+                  }}
+                />
+              ) : undefined}
+            </div>
+            <div className="box box2">
+              <Img fluid={liabilityImage.fluid}></Img>
+            </div>
+          </div>
+
+          {liabilityContentTwo !== null ? (
+            <div
+              className="content base"
+              dangerouslySetInnerHTML={{
+                __html: liabilityContentTwo.childMarkdownRemark.html,
+              }}
+            />
+          ) : undefined}
+          <div className="buttons">
+            {liabilityButtonText && (
+              <AnchorLink className="btn" to="/#animation" title="What is a High Risk Vendor">
+                <span>{liabilityButtonText}</span>
+              </AnchorLink>
+            )}
+            {liabilityAlternateText && (
+              <Link to="/contact" className="btn">
+                {liabilityAlternateText}
+              </Link>
+            )}
+          </div>
+        </div>
+      </StyledLiabilityBlock>
+
       {/* industry   */}
       <StyledIndustryBlock>
         <div id="industries">
@@ -719,6 +739,11 @@ export const query = graphql`
         }
       }
       header
+      bottomImage {
+        fluid {
+          ...GatsbyContentfulFluid
+        }
+      }
     }
 
     audit: contentfulQuestionsBlock(
@@ -851,17 +876,27 @@ export const query = graphql`
       buttonTextAlternate
     }
 
-    legal: contentfulNoImageBlock(
-      id: { eq: "1d0d5602-161e-5bf7-af64-f3defb64e1d0" }
+    legal: contentfulGenericInfoBlock(
+      id: { eq: "159ff438-f0e4-5d0c-b685-bc27ddedffdf" }
     ) {
-      buttonText
+      heading
       contentOne {
         childMarkdownRemark {
           html
         }
       }
-      buttonAlternateText
-      heading
+      contentTwo {
+        childMarkdownRemark {
+          html
+        }
+      }
+      image {
+        fluid {
+          ...GatsbyContentfulFluid
+        }
+      }
+      buttonText
+      buttonTextAlternate
     }
 
     subcontractor: contentfulGenericInfoBlock(
