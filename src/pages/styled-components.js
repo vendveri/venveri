@@ -128,16 +128,16 @@ const StyledTwoImageBlock = styled(StyledBaseContentBlock)`
     }
   }
   .box1 {
-    grid-column: 1 / span 1;
-    grid-row: 2 / span 1;
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
   }
   .box2 {
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
   }
   .box3 {
-    grid-column: 2 / span 1;
-    grid-row: 1 / span 1;
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
   }
   .box4 {
     grid-column: 2 / span 1;
@@ -193,10 +193,9 @@ const StyledGenericInfoBlock = styled(StyledBaseContentBlock)`
   }
   .base {
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
     flex-flow: column;
     p {
-      text-align: left;
       font-size: 2.5rem;
     }
     ul {
@@ -281,6 +280,11 @@ export const StyledFounderBlock = styled(StyledBaseContentBlock)`
   p {
     text-align: center;
   }
+  .bottom {
+    width: calc(700px + var(--horizontal-spacing));
+    max-width: 100%;
+    margin: 0 auto;
+  }
   .circle {
     height: 300px;
     width: 300px;
@@ -342,7 +346,25 @@ export const StyledHighRiskBlock = styled(StyledGenericInfoBlock)`
   }
 `;
 export const StyledTraitBlock = styled(StyledGenericInfoBlock)``;
-export const StyledLegalBlock = styled(StyledNoImageBlock)``;
+export const StyledLegalBlock = styled(StyledGenericInfoBlock)`
+.box1 {
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 1;
+}
+.box2 {
+  grid-column: 1 / span 1;
+  grid-row: 1 / span 1;
+}
+@media (max-width: 768px) {
+  .box1 {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+  }
+  .box2 {
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+  }
+}`;
 export const StyledSubcontractorsBlock = styled(StyledGenericInfoBlock)``;
 export const StyledLiabilityBlock = styled(StyledGenericInfoBlock)`
   .box1 {
