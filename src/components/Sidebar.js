@@ -4,13 +4,18 @@ import { FaTimes } from 'react-icons/fa';
 import Links from '../constants/links';
 import { StyledSidebar } from './SidebarStyles';
 
-const Sidebar = ({ toggleSidebar, isOpen }) => (
+const Sidebar = ({ toggleSidebar, isOpen, pageActive, setPageActive }) => (
   <StyledSidebar className={`${isOpen ? 'show-sidebar' : ''} `}>
     <button type="button" className="close-btn" onClick={toggleSidebar}>
       <FaTimes />
     </button>
     <div className="side-container">
-      <Links styleClass={`${isOpen ? 'sidebar-links' : ''}`} />
+      <Links
+        styleClass={`${isOpen ? 'sidebar-links' : ''}`}
+        toggleSidebar={toggleSidebar}
+        pageActive={pageActive}
+        setPageActive={setPageActive}
+      />
       {/* <SocialLinks styleClass={`${isOpen ? 'sidebar-icons' : ''} `} /> */}
     </div>
   </StyledSidebar>

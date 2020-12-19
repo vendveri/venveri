@@ -25,6 +25,7 @@ const Navbar = ({
         styleClass="nav-links"
         pageActive={pageActive}
         setPageActive={setPageActive}
+        toggleSidebar={toggleSidebar}
       />
     </div>
   </StyledNav>

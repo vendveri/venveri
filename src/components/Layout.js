@@ -40,7 +40,12 @@ const Layout = ({ children, location }) => {
         pageActive={pageActive}
         setPageActive={setPageActive}
       />
-      <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
+      <Sidebar
+        isOpen={isOpen}
+        toggleSidebar={toggleSidebar}
+        pageActive={pageActive}
+        setPageActive={setPageActive}
+      />
       <main>{children}</main>
       <Footer />
     </>
