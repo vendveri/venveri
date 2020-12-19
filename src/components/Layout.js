@@ -7,8 +7,10 @@ import Footer from './Footer';
 import 'normalize.css';
 
 let timeout;
-const Layout = ({ children }) => {
+const Layout = ({ children, location }) => {
   const [isOpen, setIsOpen] = React.useState(false);
+  const [pageActive, setPageActive] = useState('home');
+
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
@@ -22,6 +24,7 @@ const Layout = ({ children }) => {
     });
   };
   useEffect(() => {
+    setPageActive('home');
     setScrollPosition(window.scrollY);
     window.addEventListener('scroll', scrollHandler);
     return () => window.removeEventListener('scroll', scrollHandler);
@@ -30,7 +33,13 @@ const Layout = ({ children }) => {
   return (
     <>
       <GlobalStyles />
-      <Navbar toggleSidebar={toggleSidebar} scrollPosition={scrollPosition} />
+      <Navbar
+        location={location}
+        toggleSidebar={toggleSidebar}
+        scrollPosition={scrollPosition}
+        pageActive={pageActive}
+        setPageActive={setPageActive}
+      />
       <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
       <main>{children}</main>
       <Footer />
