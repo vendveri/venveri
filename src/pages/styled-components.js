@@ -283,6 +283,7 @@ export const StyledFounderBlock = styled(StyledBaseContentBlock)`
     max-width: 350px;
     p {
       font-size: 1.3rem;
+      font-style: italic;
     }
     /* override global image padding */
     img {
@@ -368,6 +369,21 @@ export const StyledLiabilityBlock = styled(StyledGenericInfoBlock)`
       grid-row: 2 / span 1;
     }
   }
+`;
+export const StyledFinalMessageBlock = styled(StyledBaseContentBlock)`
+.image {
+  width: 700px;
+  max-width: 100%;
+  margin: 0 auto;
+  img {
+    margin: calc(-0.5 * var(--vertical-spacing)) 0 var(--vertical-spacing) 0;
+  }
+}
+.content {
+  font-style: italic;
+  text-align: center;
+  margin-bottom: var(--vertical-spacing);
+}
 `;
 export const StyledProcessBlock = styled(StyledBaseContentBlock)`
   .steps {

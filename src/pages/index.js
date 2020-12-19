@@ -26,6 +26,7 @@ import {
   StyledProtectBlock,
   StyledSubcontractorsBlock,
   StyledTraitBlock,
+  StyledFinalMessageBlock,
 } from './styled-components';
 import SEO from '../components/SEO';
 
@@ -44,6 +45,7 @@ export default function HomePage({ data }) {
     liability,
     process,
     industries: { nodes: industries },
+    finalMessage
   } = data;
 
   const [industry, setIndustry] = useState(industries[0].id || '');
@@ -70,8 +72,7 @@ export default function HomePage({ data }) {
     image1: founderImage1,
     image1Text: founderText1,
     image2: founderImage2,
-    image2Text: founderText2,
-    bottomImage: founderBottomImage,
+    image2Text: founderText2
   } = founder;
 
   // cert
@@ -163,6 +164,15 @@ export default function HomePage({ data }) {
     step5: processContentFive,
   } = process;
 
+  const {
+    heading: finalMessageHeading,
+    buttonText: finalMessageButtonText,
+    buttonTextAlternate: finalMessageAlternateText,
+    contentOne: finalMessageContentOne,
+    contentTwo: finalMessageContentTwo,
+    image: finalMessageImage
+  } = finalMessage
+
   return (
     <>
       <SEO title="VendVeri" />
@@ -240,9 +250,6 @@ export default function HomePage({ data }) {
                 />
               ) : undefined}
             </div>
-          </div>
-          <div className="bottom">
-            <Img fluid={founderBottomImage.fluid} />
           </div>
         </div>
       </StyledFounderBlock>
@@ -665,6 +672,47 @@ export default function HomePage({ data }) {
         </div>
       </StyledLiabilityBlock>
 
+      {/* final message */}
+      <StyledFinalMessageBlock>
+        <div id="risk">
+          <h2>{finalMessageHeading}</h2>
+          <div className="twoByOneGrid">
+            <div className="image">
+              <Img fluid={finalMessageImage.fluid}></Img>
+            </div>
+            <div className="content">
+              {finalMessageContentOne !== null ? (
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: finalMessageContentOne.childMarkdownRemark.html,
+                  }}
+                />
+              ) : undefined}
+              {finalMessageContentTwo !== null ? (
+                <div
+                  className="content base"
+                  dangerouslySetInnerHTML={{
+                    __html: finalMessageContentTwo.childMarkdownRemark.html,
+                  }}
+                />
+              ) : undefined}
+            </div>
+          </div>
+          <div className="buttons">
+            {finalMessageButtonText && (
+              <Link className="btn" to="/contact">
+                <span>{finalMessageButtonText}</span>
+              </Link>
+            )}
+            {finalMessageAlternateText && (
+              <Link to="/contact" className="btn">
+                {finalMessageAlternateText}
+              </Link>
+            )}
+          </div>
+        </div>
+      </StyledFinalMessageBlock>
+
       {/* industry   */}
       <StyledIndustryBlock>
         <div id="industries">
@@ -756,11 +804,6 @@ export const query = graphql`
         }
       }
       header
-      bottomImage {
-        fluid {
-          ...GatsbyContentfulFluid
-        }
-      }
     }
 
     audit: contentfulQuestionsBlock(
@@ -941,6 +984,29 @@ export const query = graphql`
 
     liability: contentfulGenericInfoBlock(
       id: { eq: "a92d5122-aa2d-5e88-9d4b-25c854b14ff5" }
+    ) {
+      heading
+      contentOne {
+        childMarkdownRemark {
+          html
+        }
+      }
+      contentTwo {
+        childMarkdownRemark {
+          html
+        }
+      }
+      image {
+        fluid {
+          ...GatsbyContentfulFluid
+        }
+      }
+      buttonText
+      buttonTextAlternate
+    }
+
+    finalMessage: contentfulGenericInfoBlock(
+      id: { eq: "52144fb7-157f-5990-a373-eaba92053e54" }
     ) {
       heading
       contentOne {
