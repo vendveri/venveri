@@ -371,19 +371,19 @@ export const StyledLiabilityBlock = styled(StyledGenericInfoBlock)`
   }
 `;
 export const StyledFinalMessageBlock = styled(StyledBaseContentBlock)`
-.image {
-  width: 700px;
-  max-width: 100%;
-  margin: 0 auto;
-  img {
-    margin: calc(-0.5 * var(--vertical-spacing)) 0 var(--vertical-spacing) 0;
+  .image {
+    width: 700px;
+    max-width: 100%;
+    margin: 0 auto;
+    img {
+      margin: calc(-0.5 * var(--vertical-spacing)) 0 var(--vertical-spacing) 0;
+    }
   }
-}
-.content {
-  font-style: italic;
-  text-align: center;
-  margin-bottom: var(--vertical-spacing);
-}
+  .content {
+    font-style: italic;
+    text-align: center;
+    margin-bottom: var(--vertical-spacing);
+  }
 `;
 export const StyledProcessBlock = styled(StyledBaseContentBlock)`
   .steps {

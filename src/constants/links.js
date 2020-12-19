@@ -1,21 +1,20 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { AnchorLink } from 'gatsby-plugin-anchor-links';
 
 const Links = ({ styleClass }) => (
   <ul className={styleClass}>
     <li>
-      <Link to="/" className="page-link">
+      <Link to="/#top" className="page-link" activeClassName="active">
         <p>Home</p>
       </Link>
     </li>
     <li>
-      <AnchorLink className="page-link" to="/#industries" title="Industries">
+      <Link to="/#industries" className="page-link" activeClassName="active">
         <p>Industries</p>
-      </AnchorLink>
+      </Link>
     </li>
     <li>
-      <Link to="/contact" className="page-link">
+      <Link to="/contact" className="page-link" activeClassName="active">
         <p className="accent">Contact Us</p>
       </Link>
     </li>

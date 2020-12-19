@@ -45,7 +45,7 @@ export default function HomePage({ data }) {
     liability,
     process,
     industries: { nodes: industries },
-    finalMessage
+    finalMessage,
   } = data;
 
   const [industry, setIndustry] = useState(industries[0].id || '');
@@ -72,7 +72,7 @@ export default function HomePage({ data }) {
     image1: founderImage1,
     image1Text: founderText1,
     image2: founderImage2,
-    image2Text: founderText2
+    image2Text: founderText2,
   } = founder;
 
   // cert
@@ -170,8 +170,8 @@ export default function HomePage({ data }) {
     buttonTextAlternate: finalMessageAlternateText,
     contentOne: finalMessageContentOne,
     contentTwo: finalMessageContentTwo,
-    image: finalMessageImage
-  } = finalMessage
+    image: finalMessageImage,
+  } = finalMessage;
 
   return (
     <>
@@ -181,7 +181,7 @@ export default function HomePage({ data }) {
         background={heroBackground ? `url(${heroBackground.fluid.src})` : null}
         color="var(--clr-concrete-white)"
         baseHeight={100}>
-        <div>
+        <div id="top">
           <h1>{heroTitle}</h1>
           <h2>{heroSubtitle}</h2>
         </div>
@@ -678,7 +678,7 @@ export default function HomePage({ data }) {
           <h2>{finalMessageHeading}</h2>
           <div className="twoByOneGrid">
             <div className="image">
-              <Img fluid={finalMessageImage.fluid}></Img>
+              <Img fluid={finalMessageImage.fluid} />
             </div>
             <div className="content">
               {finalMessageContentOne !== null ? (
