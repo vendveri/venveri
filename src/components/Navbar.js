@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import logo from '../assets/images/logo.svg';
 import { FaAlignRight } from 'react-icons/fa';
 import styled from 'styled-components';
+import logo from '../assets/images/logo.svg';
 import PageLinks from '../constants/links';
 
 const StyledNav = styled.nav`
@@ -112,22 +112,20 @@ const StyledNav = styled.nav`
   }
 `;
 
-const Navbar = ({ toggleSidebar, scrollPosition }, props) => {
-  return (
-    <StyledNav scrollPosition={scrollPosition}>
-      <div className="nav-center">
-        <div className="nav-header">
-          <Link to="/">
-            <img src={logo} alt="logo" />
-          </Link>
-          <button type="button" className="toggle-btn" onClick={toggleSidebar}>
-            <FaAlignRight></FaAlignRight>
-          </button>
-        </div>
-        <PageLinks styleClass="nav-links"></PageLinks>
+const Navbar = ({ toggleSidebar, scrollPosition }) => (
+  <StyledNav scrollPosition={scrollPosition}>
+    <div className="nav-center">
+      <div className="nav-header">
+        <Link to="/">
+          <img src={logo} alt="logo" />
+        </Link>
+        <button type="button" className="toggle-btn" onClick={toggleSidebar}>
+          <FaAlignRight />
+        </button>
       </div>
-    </StyledNav>
-  );
-};
+      <PageLinks styleClass="nav-links" />
+    </div>
+  </StyledNav>
+);
 
 export default Navbar;

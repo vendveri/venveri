@@ -8,9 +8,7 @@ const StyledContactPage = styled.section`
   place-items: center;
   min-height: calc(100vh - 12rem);
   background-color: rgba(255, 0, 0, 0.5);
-  background: ${({ background }) => {
-    return background ? background : 'var(--clr-red-2)';
-  }};
+  background: ${({ background }) => background || 'var(--clr-red-2)'};
   background-size: cover;
   background-position: center;
   article {
@@ -72,7 +70,11 @@ const StyledContactPage = styled.section`
   }
 `;
 
-const ContactPage = ({data: {hero: {background}}}) => {
+const ContactPage = ({
+  data: {
+    hero: { background },
+  },
+}) => {
   const [formState, setFormState] = useState({
     firstName: '',
     lastName: '',
@@ -85,13 +87,12 @@ const ContactPage = ({data: {hero: {background}}}) => {
 
   // encodes the captured form data in the format that Netlify's backend requires
   // example: form-name=contact&firstName=a&lastName=b&jobTitle=a&companyName=a&phone=3&email=me%40you.com&message=tes
-  const encode = (data) => {
-    return Object.keys(data)
+  const encode = (data) =>
+    Object.keys(data)
       .map(
-        (key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])
+        (key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
       )
       .join('&');
-  };
 
   const handleChange = (event) => {
     setFormState({
@@ -112,19 +113,23 @@ const ContactPage = ({data: {hero: {background}}}) => {
       }),
     })
       .then(() => navigate(form.getAttribute('action')))
+      /*eslint-disable */
       .catch((error) => alert(error));
+    /* eslint-enable */
   };
 
   return (
     <>
       <SEO title="VendVeri - Contact" />
-      <StyledContactPage className="page" background={background ? `url(${background.fluid.src})` : null}>
+      <StyledContactPage
+        className="page"
+        background={background ? `url(${background.fluid.src})` : null}>
         <article>
           <h3>Get in Touch!</h3>
           <p>
-            For a more in-depth look at our protection services and rates call us
-            at 1-800-Get-Safe or fill out the form below! A representative will
-            be in touch shortly.
+            For a more in-depth look at our protection services and rates call
+            us at 1-800-Get-Safe or fill out the form below! A representative
+            will be in touch shortly.
           </p>
           <form
             name="contact"
@@ -132,8 +137,7 @@ const ContactPage = ({data: {hero: {background}}}) => {
             data-netlify="true"
             data-netlify-honeypot="bot-field"
             action="/thank-you"
-            onSubmit={handleSubmit}
-          >
+            onSubmit={handleSubmit}>
             <input type="hidden" name="form-name" value="contact" />
             <div className="form-group">
               <label htmlFor="first-name" className="sr-only">
@@ -224,7 +228,7 @@ const ContactPage = ({data: {hero: {background}}}) => {
                 required
                 onChange={handleChange}
                 value={formState.message}
-              ></textarea>
+              />
             </div>
             <button type="submit" className="submit-btn btn">
               Submit
@@ -240,13 +244,13 @@ const ContactPage = ({data: {hero: {background}}}) => {
 
 export default ContactPage;
 export const query = graphql`
-{
-  hero: contentfulHero {
-    background {
-      fluid {
-        ...GatsbyContentfulFluid
+  {
+    hero: contentfulHero {
+      background {
+        fluid {
+          ...GatsbyContentfulFluid
+        }
       }
     }
   }
-}
 `;

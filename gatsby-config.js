@@ -33,6 +33,7 @@ Decrease property and employee liabilities, theft, and health risk
         // add any options here
       },
     },
+    `gatsby-plugin-eslint`,
     {
       resolve: `gatsby-source-contentful`,
       options: {

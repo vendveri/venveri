@@ -39,13 +39,11 @@ const StyledFooter = styled.footer`
   }
 `;
 
-const Footer = () => {
-  return (
-    <StyledFooter>
-      <SocialLinks />
-      <p>&copy; {new Date().getFullYear()} VendVeri All rights reserved</p>
-    </StyledFooter>
-  );
-};
+const Footer = () => (
+  <StyledFooter>
+    <SocialLinks />
+    <p>&copy; {new Date().getFullYear()} VendVeri All rights reserved</p>
+  </StyledFooter>
+);
 
 export default Footer;

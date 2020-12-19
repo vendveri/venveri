@@ -4,6 +4,7 @@ import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
 import { FaLongArrowAltRight, FaLongArrowAltDown } from 'react-icons/fa';
 import { BsBuilding } from 'react-icons/bs';
+import uuid from 'react-uuid';
 import {
   AiOutlineAudit,
   AiOutlineFileSearch,
@@ -164,13 +165,12 @@ export default function HomePage({ data }) {
 
   return (
     <>
-      <SEO title="VendVeri"></SEO>
+      <SEO title="VendVeri" />
       {/* hero */}
       <StyledHeroBlock
         background={heroBackground ? `url(${heroBackground.fluid.src})` : null}
         color="var(--clr-concrete-white)"
-        baseHeight={100}
-      >
+        baseHeight={100}>
         <div>
           <h1>{heroTitle}</h1>
           <h2>{heroSubtitle}</h2>
@@ -197,7 +197,7 @@ export default function HomePage({ data }) {
               )}
             </div>
             <div className="image">
-              <Img fluid={auditImage.fluid}></Img>
+              <Img fluid={auditImage.fluid} />
             </div>
           </div>
         </div>
@@ -218,7 +218,7 @@ export default function HomePage({ data }) {
           <div className="twoByOneGrid">
             <div className="founderDetails">
               <div className="circle">
-                <Img fluid={founderImage1.fluid}></Img>
+                <Img fluid={founderImage1.fluid} />
               </div>
               {founderText1 !== null ? (
                 <div
@@ -230,7 +230,7 @@ export default function HomePage({ data }) {
             </div>
             <div className="founderDetails">
               <div className="circle">
-                <Img fluid={founderImage2.fluid}></Img>
+                <Img fluid={founderImage2.fluid} />
               </div>
               {founderText2 !== null ? (
                 <div
@@ -242,7 +242,7 @@ export default function HomePage({ data }) {
             </div>
           </div>
           <div className="bottom">
-            <Img fluid={founderBottomImage.fluid}></Img>
+            <Img fluid={founderBottomImage.fluid} />
           </div>
         </div>
       </StyledFounderBlock>
@@ -267,7 +267,7 @@ export default function HomePage({ data }) {
               )}
             </div>
             <div className="image">
-              <Img fluid={certImage.fluid}></Img>
+              <Img fluid={certImage.fluid} />
             </div>
           </div>
         </div>
@@ -279,7 +279,7 @@ export default function HomePage({ data }) {
           <h2>{protectHeading}</h2>
           <div className="twoByTwoGrid">
             <div className="box box1">
-              <Img fluid={protectImageOne.fluid}></Img>
+              <Img fluid={protectImageOne.fluid} />
             </div>
             <div className="box box2 content">
               {protectContentOne !== null ? (
@@ -291,7 +291,7 @@ export default function HomePage({ data }) {
               ) : undefined}
             </div>
             <div className="box box3">
-              <Img fluid={protectImageTwo.fluid}></Img>
+              <Img fluid={protectImageTwo.fluid} />
             </div>
             <div className="box box4 content">
               {protectContentTwo !== null ? (
@@ -328,7 +328,7 @@ export default function HomePage({ data }) {
               ) : undefined}
             </div>
             <div className="box box2">
-              <Img fluid={healthImage.fluid}></Img>
+              <Img fluid={healthImage.fluid} />
             </div>
           </div>
           {healthContentTwo !== null ? (
@@ -378,7 +378,7 @@ export default function HomePage({ data }) {
               ) : undefined}
             </div>
             <div className="box box2">
-              <Img fluid={highRiskImage.fluid}></Img>
+              <Img fluid={highRiskImage.fluid} />
             </div>
           </div>
           <div className="buttons">
@@ -386,8 +386,7 @@ export default function HomePage({ data }) {
               <AnchorLink
                 className="btn"
                 to="/#animation"
-                title="What is a High Risk Vendor"
-              >
+                title="What is a High Risk Vendor">
                 <span>{highRiskButtonText}</span>
               </AnchorLink>
             )}
@@ -415,7 +414,7 @@ export default function HomePage({ data }) {
               ) : undefined}
             </div>
             <div className="box box2">
-              <Img fluid={traitImage.fluid}></Img>
+              <Img fluid={traitImage.fluid} />
             </div>
           </div>
           {traitContentTwo !== null ? (
@@ -431,8 +430,7 @@ export default function HomePage({ data }) {
               <AnchorLink
                 className="btn"
                 to="/#animation"
-                title="What is a High Risk Vendor"
-              >
+                title="What is a High Risk Vendor">
                 <span>{traitButtonText}</span>
               </AnchorLink>
             )}
@@ -460,7 +458,7 @@ export default function HomePage({ data }) {
               ) : undefined}
             </div>
             <div className="box box2">
-              <Img fluid={legalImage.fluid}></Img>
+              <Img fluid={legalImage.fluid} />
             </div>
           </div>
           {legalContentTwo !== null ? (
@@ -509,7 +507,7 @@ export default function HomePage({ data }) {
               ) : undefined}
             </div>
             <div className="box box2">
-              <Img fluid={subcontractorImage.fluid}></Img>
+              <Img fluid={subcontractorImage.fluid} />
             </div>
           </div>
           <div className="buttons">
@@ -637,7 +635,7 @@ export default function HomePage({ data }) {
               ) : undefined}
             </div>
             <div className="box box2">
-              <Img fluid={liabilityImage.fluid}></Img>
+              <Img fluid={liabilityImage.fluid} />
             </div>
           </div>
 
@@ -654,8 +652,7 @@ export default function HomePage({ data }) {
               <AnchorLink
                 className="btn"
                 to="/#animation"
-                title="What is a High Risk Vendor"
-              >
+                title="What is a High Risk Vendor">
                 <span>{liabilityButtonText}</span>
               </AnchorLink>
             )}
@@ -675,8 +672,7 @@ export default function HomePage({ data }) {
           <h3>
             <select
               value={industry}
-              onChange={(e) => setIndustry(e.target.value)}
-            >
+              onChange={(e) => setIndustry(e.target.value)}>
               {industries.map(({ id, header }) => (
                 <option key={id} value={id}>
                   {header}
@@ -686,8 +682,8 @@ export default function HomePage({ data }) {
           </h3>
           {industries
             .filter((i) => i.id === industry)
-            .map(({ content, image, header, buttonText }, index) => (
-              <React.Fragment key={index}>
+            .map(({ content, image, buttonText }) => (
+              <React.Fragment key={uuid()}>
                 {/* <h3>{header}</h3> */}
                 <div className="twoByOneGrid">
                   <div className="box box1 content">
@@ -700,7 +696,7 @@ export default function HomePage({ data }) {
                     ) : undefined}
                   </div>
                   <div className="box box2">
-                    <Img fluid={image.fluid}></Img>
+                    <Img fluid={image.fluid} />
                   </div>
                 </div>
                 <div className="buttons">

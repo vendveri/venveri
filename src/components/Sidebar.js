@@ -1,8 +1,8 @@
 import React from 'react';
-import Links from '../constants/links';
 // import SocialLinks from '../constants/socialLinks';
 import { FaTimes } from 'react-icons/fa';
 import styled from 'styled-components';
+import Links from '../constants/links';
 
 const StyledSidebar = styled.aside`
   background: var(--clr-concrete-white);
@@ -114,18 +114,16 @@ const StyledSidebar = styled.aside`
   }
 `;
 
-const Sidebar = ({ toggleSidebar, isOpen }) => {
-  return (
-    <StyledSidebar className={`${isOpen ? 'show-sidebar' : ''} `}>
-      <button className="close-btn" onClick={toggleSidebar}>
-        <FaTimes />
-      </button>
-      <div className="side-container">
-        <Links styleClass={`${isOpen ? 'sidebar-links' : ''}`} />
-        {/* <SocialLinks styleClass={`${isOpen ? 'sidebar-icons' : ''} `} /> */}
-      </div>
-    </StyledSidebar>
-  );
-};
+const Sidebar = ({ toggleSidebar, isOpen }) => (
+  <StyledSidebar className={`${isOpen ? 'show-sidebar' : ''} `}>
+    <button type="button" className="close-btn" onClick={toggleSidebar}>
+      <FaTimes />
+    </button>
+    <div className="side-container">
+      <Links styleClass={`${isOpen ? 'sidebar-links' : ''}`} />
+      {/* <SocialLinks styleClass={`${isOpen ? 'sidebar-icons' : ''} `} /> */}
+    </div>
+  </StyledSidebar>
+);
 
 export default Sidebar;

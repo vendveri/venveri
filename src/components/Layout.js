@@ -17,7 +17,7 @@ const Layout = ({ children }) => {
     if (timeout) {
       window.cancelAnimationFrame(timeout);
     }
-    timeout = window.requestAnimationFrame(function () {
+    timeout = window.requestAnimationFrame(() => {
       setScrollPosition(window.scrollY);
     });
   };

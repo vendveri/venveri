@@ -2,44 +2,29 @@ import styled from 'styled-components';
 
 const StyledBaseContentBlock = styled.section`
   &:nth-child(4n-2) {
-    background: ${({ background }) => {
-      return background ? background : 'var(--clr-paradiso-blue)';
-    }};
+    background: ${({ background }) => background || 'var(--clr-paradiso-blue)'};
     background-size: cover;
     background-position: center;
-    color: ${({ color }) => {
-      return color || 'var(--clr-concrete-white)';
-    }};
+    color: ${({ color }) => color || 'var(--clr-concrete-white)'};
   }
   &:nth-child(4n-1) {
-    background: ${({ background }) => {
-      return background ? background : 'var(--clr-dark-blue)';
-    }};
+    background: ${({ background }) => background || 'var(--clr-dark-blue)'};
     background-size: cover;
     background-position: center;
-    color: ${({ color }) => {
-      return color || 'var(--clr-concrete-white)';
-    }};
+    color: ${({ color }) => color || 'var(--clr-concrete-white)'};
   }
   &:nth-child(4n) {
-    background: ${({ background }) => {
-      return background ? background : 'var(--clr-concrete-white)';
-    }};
+    background: ${({ background }) =>
+      background || 'var(--clr-concrete-white)'};
     background-size: cover;
     background-position: center;
-    color: ${({ color }) => {
-      return color || 'inherit';
-    }};
+    color: ${({ color }) => color || 'inherit'};
   }
   &:nth-child(4n-3) {
-    background: ${({ background }) => {
-      return background ? background : 'var(--clr-red-2)';
-    }};
+    background: ${({ background }) => background || 'var(--clr-red-2)'};
     background-size: cover;
     background-position: center;
-    color: ${({ color }) => {
-      return color || 'var(--clr-concrete-white)';
-    }};
+    color: ${({ color }) => color || 'var(--clr-concrete-white)'};
     .btn {
       background: var(--clr-paradiso-blue);
     }
@@ -49,18 +34,15 @@ const StyledBaseContentBlock = styled.section`
   }
   box-shadow: var(--dark-shadow);
   & > div {
-    min-height: ${({ baseHeight }) => {
-      return baseHeight ? `${baseHeight}vh` : '10vh';
-    }};
+    min-height: ${({ baseHeight }) =>
+      baseHeight ? `${baseHeight}vh` : '10vh'};
     padding: var(--vertical-spacing) 2rem;
     margin: 0 auto;
     max-width: var(--max-width);
   }
   &:first-of-type {
     & > div {
-      min-height: ${({ baseHeight }) => {
-        return `calc(${baseHeight || '50'}vh - 5rem)`;
-      }};
+      min-height: ${({ baseHeight }) => `calc(${baseHeight || '50'}vh - 5rem)`};
     }
   }
   img {
@@ -226,28 +208,28 @@ const StyledGenericInfoBlock = styled(StyledBaseContentBlock)`
   }
 `;
 
-const StyledNoImageBlock = styled(StyledBaseContentBlock)`
-  .content {
-    img {
-      float: left;
-      max-width: calc(50% - 2rem);
-      margin-right: 2rem;
-    }
-    &::after {
-      content: '';
-      clear: both;
-      display: table;
-    }
-  }
-  @media (max-width: 768px) {
-    .content {
-      img {
-        float: none;
-        max-width: 100%;
-      }
-    }
-  }
-`;
+// const StyledNoImageBlock = styled(StyledBaseContentBlock)`
+//   .content {
+//     img {
+//       float: left;
+//       max-width: calc(50% - 2rem);
+//       margin-right: 2rem;
+//     }
+//     &::after {
+//       content: '';
+//       clear: both;
+//       display: table;
+//     }
+//   }
+//   @media (max-width: 768px) {
+//     .content {
+//       img {
+//         float: none;
+//         max-width: 100%;
+//       }
+//     }
+//   }
+// `;
 
 export const StyledHeroBlock = styled(StyledBaseContentBlock)`
   & > div {
@@ -347,24 +329,25 @@ export const StyledHighRiskBlock = styled(StyledGenericInfoBlock)`
 `;
 export const StyledTraitBlock = styled(StyledGenericInfoBlock)``;
 export const StyledLegalBlock = styled(StyledGenericInfoBlock)`
-.box1 {
-  grid-column: 2 / span 1;
-  grid-row: 1 / span 1;
-}
-.box2 {
-  grid-column: 1 / span 1;
-  grid-row: 1 / span 1;
-}
-@media (max-width: 768px) {
   .box1 {
-    grid-column: 1 / span 1;
+    grid-column: 2 / span 1;
     grid-row: 1 / span 1;
   }
   .box2 {
     grid-column: 1 / span 1;
-    grid-row: 2 / span 1;
+    grid-row: 1 / span 1;
   }
-}`;
+  @media (max-width: 768px) {
+    .box1 {
+      grid-column: 1 / span 1;
+      grid-row: 1 / span 1;
+    }
+    .box2 {
+      grid-column: 1 / span 1;
+      grid-row: 2 / span 1;
+    }
+  }
+`;
 export const StyledSubcontractorsBlock = styled(StyledGenericInfoBlock)``;
 export const StyledLiabilityBlock = styled(StyledGenericInfoBlock)`
   .box1 {
@@ -444,21 +427,23 @@ export const StyledProcessBlock = styled(StyledBaseContentBlock)`
   }
 `;
 export const StyledIndustryBlock = styled(StyledGenericInfoBlock)`
-h3 {
-  text-align: center;
-}
-select {
-  background: none;
-  border: 3px solid rgba(0, 0, 0, 0);
-  border-radius: .5rem;
-  color: var(--clr-concrete-white);
-  padding: .5rem;
-  option {
-    color: var(--clr-dark-grey);
+  h3 {
+    text-align: center;
   }
-  &:hover, &:active, &:focus {
-    border: 3px solid var(--clr-concrete-white);
-    outline: none;
+  select {
+    background: none;
+    border: 3px solid rgba(0, 0, 0, 0);
+    border-radius: 0.5rem;
+    color: var(--clr-concrete-white);
+    padding: 0.5rem;
+    option {
+      color: var(--clr-dark-grey);
+    }
+    &:hover,
+    &:active,
+    &:focus {
+      border: 3px solid var(--clr-concrete-white);
+      outline: none;
+    }
   }
-}
 `;
