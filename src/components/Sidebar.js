@@ -4,7 +4,7 @@ import { FaTimes } from 'react-icons/fa';
 import Links from '../constants/links';
 import { StyledSidebar } from './SidebarStyles';
 
-const Sidebar = ({ toggleSidebar, isOpen, pageActive, setPageActive }) => (
+const Sidebar = ({ toggleSidebar, isOpen }) => (
   <StyledSidebar className={`${isOpen ? 'show-sidebar' : ''} `}>
     <button type="button" className="close-btn" onClick={toggleSidebar}>
       <FaTimes />
@@ -13,8 +13,6 @@ const Sidebar = ({ toggleSidebar, isOpen, pageActive, setPageActive }) => (
       <Links
         styleClass={`${isOpen ? 'sidebar-links' : ''}`}
         toggleSidebar={toggleSidebar}
-        pageActive={pageActive}
-        setPageActive={setPageActive}
       />
       {/* <SocialLinks styleClass={`${isOpen ? 'sidebar-icons' : ''} `} /> */}
     </div>

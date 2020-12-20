@@ -5,28 +5,18 @@ import logo from '../assets/images/logo.svg';
 import PageLinks from '../constants/links';
 import { StyledNav } from './NavbarStyles';
 
-const Navbar = ({
-  toggleSidebar,
-  scrollPosition,
-  pageActive,
-  setPageActive,
-}) => (
+const Navbar = ({ toggleSidebar, scrollPosition }) => (
   <StyledNav scrollPosition={scrollPosition}>
     <div className="nav-center">
       <div className="nav-header">
-        <Link to="/">
+        <Link to="/#top">
           <img src={logo} alt="logo" />
         </Link>
         <button type="button" className="toggle-btn" onClick={toggleSidebar}>
           <FaAlignRight />
         </button>
       </div>
-      <PageLinks
-        styleClass="nav-links"
-        pageActive={pageActive}
-        setPageActive={setPageActive}
-        toggleSidebar={toggleSidebar}
-      />
+      <PageLinks styleClass="nav-links" toggleSidebar={toggleSidebar} />
     </div>
   </StyledNav>
 );
