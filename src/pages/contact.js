@@ -123,8 +123,7 @@ const ContactPage = ({
       <SEO title="VendVeri - Contact" />
       <StyledContactPage
         className="page"
-        background={background ? `url(${background.fluid.src})` : null}
-      >
+        background={background ? `url(${background.fluid.src})` : null}>
         <article>
           <h3>Get in Touch!</h3>
           <p>
@@ -138,8 +137,7 @@ const ContactPage = ({
             data-netlify="true"
             data-netlify-honeypot="bot-field"
             action="/thank-you"
-            onSubmit={handleSubmit}
-          >
+            onSubmit={handleSubmit}>
             <input type="hidden" name="form-name" value="contact" />
             <div className="form-group">
               <label htmlFor="first-name" className="sr-only">
