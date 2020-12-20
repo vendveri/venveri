@@ -16,7 +16,7 @@ const Navbar = ({ toggleSidebar, scrollPosition }) => (
           <FaAlignRight />
         </button>
       </div>
-      <PageLinks styleClass="nav-links" toggleSidebar={toggleSidebar} />
+      <PageLinks styleClass="nav-links" />
     </div>
   </StyledNav>
 );

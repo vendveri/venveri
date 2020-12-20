@@ -49,34 +49,32 @@ export default ({ styleClass }) => {
   const data = [
     {
       id: 1,
-      icon: <FaFacebookSquare className="social-icon"></FaFacebookSquare>,
+      icon: <FaFacebookSquare className="social-icon" />,
       url: facebook,
     },
     {
       id: 2,
-      icon: <FaLinkedin className="social-icon"></FaLinkedin>,
+      icon: <FaLinkedin className="social-icon" />,
       url: linkedin,
     },
     {
       id: 3,
-      icon: <FaTwitterSquare className="social-icon"></FaTwitterSquare>,
+      icon: <FaTwitterSquare className="social-icon" />,
       url: twitter,
     },
   ];
 
   return (
-    <ul className={`social-links ${styleClass ? styleClass : ''}`}>
+    <ul className={`social-links ${styleClass || ''}`}>
       {data
         .filter((l) => l && l.url && l.url.startsWith('http'))
-        .map((link) => {
-          return (
-            <li key={link.id}>
-              <a href={link.url} className="social-link">
-                {link.icon}
-              </a>
-            </li>
-          );
-        })}
+        .map((link) => (
+          <li key={link.id}>
+            <a href={link.url} className="social-link">
+              {link.icon}
+            </a>
+          </li>
+        ))}
     </ul>
   );
 };
