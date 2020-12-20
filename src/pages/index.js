@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
 import { FaLongArrowAltRight, FaLongArrowAltDown } from 'react-icons/fa';
 import { BsBuilding } from 'react-icons/bs';
+import uuid from 'react-uuid';
 import {
   AiOutlineAudit,
   AiOutlineFileSearch,
@@ -43,8 +44,8 @@ export default function HomePage({ data }) {
     subcontractor,
     liability,
     process,
-    industries: {nodes: industries},
-    finalMessage
+    industries: { nodes: industries },
+    finalMessage,
   } = data;
 
   const [industry, setIndustry] = useState(industries[0].id || '');
@@ -71,7 +72,7 @@ export default function HomePage({ data }) {
     image1: founderImage1,
     image1Text: founderText1,
     image2: founderImage2,
-    image2Text: founderText2
+    image2Text: founderText2,
   } = founder;
 
   // cert
@@ -169,19 +170,18 @@ export default function HomePage({ data }) {
     buttonTextAlternate: finalMessageAlternateText,
     contentOne: finalMessageContentOne,
     contentTwo: finalMessageContentTwo,
-    image: finalMessageImage
-  } = finalMessage
+    image: finalMessageImage,
+  } = finalMessage;
 
   return (
     <>
-      <SEO title="VendVeri"></SEO>
+      <SEO title="VendVeri" />
       {/* hero */}
       <StyledHeroBlock
         background={heroBackground ? `url(${heroBackground.fluid.src})` : null}
         color="var(--clr-concrete-white)"
-        baseHeight={100}
-      >
-        <div>
+        baseHeight={100}>
+        <div id="top">
           <h1>{heroTitle}</h1>
           <h2>{heroSubtitle}</h2>
         </div>
@@ -207,7 +207,7 @@ export default function HomePage({ data }) {
               )}
             </div>
             <div className="image">
-              <Img fluid={auditImage.fluid}></Img>
+              <Img fluid={auditImage.fluid} />
             </div>
           </div>
         </div>
@@ -219,16 +219,16 @@ export default function HomePage({ data }) {
           <h2>{founderQuestion}</h2>
           {founderAnswer !== null ? (
             <div
-              class="content"
+              className="content"
               dangerouslySetInnerHTML={{
                 __html: founderAnswer.childMarkdownRemark.html,
               }}
             />
           ) : undefined}
           <div className="twoByOneGrid">
-            <div class="founderDetails">
+            <div className="founderDetails">
               <div className="circle">
-                <Img fluid={founderImage1.fluid}></Img>
+                <Img fluid={founderImage1.fluid} />
               </div>
               {founderText1 !== null ? (
                 <div
@@ -238,9 +238,9 @@ export default function HomePage({ data }) {
                 />
               ) : undefined}
             </div>
-            <div class="founderDetails">
+            <div className="founderDetails">
               <div className="circle">
-                <Img fluid={founderImage2.fluid}></Img>
+                <Img fluid={founderImage2.fluid} />
               </div>
               {founderText2 !== null ? (
                 <div
@@ -274,7 +274,7 @@ export default function HomePage({ data }) {
               )}
             </div>
             <div className="image">
-              <Img fluid={certImage.fluid}></Img>
+              <Img fluid={certImage.fluid} />
             </div>
           </div>
         </div>
@@ -286,7 +286,7 @@ export default function HomePage({ data }) {
           <h2>{protectHeading}</h2>
           <div className="twoByTwoGrid">
             <div className="box box1">
-              <Img fluid={protectImageOne.fluid}></Img>
+              <Img fluid={protectImageOne.fluid} />
             </div>
             <div className="box box2 content">
               {protectContentOne !== null ? (
@@ -298,7 +298,7 @@ export default function HomePage({ data }) {
               ) : undefined}
             </div>
             <div className="box box3">
-              <Img fluid={protectImageTwo.fluid}></Img>
+              <Img fluid={protectImageTwo.fluid} />
             </div>
             <div className="box box4 content">
               {protectContentTwo !== null ? (
@@ -335,7 +335,7 @@ export default function HomePage({ data }) {
               ) : undefined}
             </div>
             <div className="box box2">
-              <Img fluid={healthImage.fluid}></Img>
+              <Img fluid={healthImage.fluid} />
             </div>
           </div>
           {healthContentTwo !== null ? (
@@ -366,15 +366,15 @@ export default function HomePage({ data }) {
         <div>
           <h2>{highRiskHeading}</h2>
           {highRiskContentOne !== null ? (
-                <div
-                  className="base content"
-                  dangerouslySetInnerHTML={{
-                    __html: highRiskContentOne.childMarkdownRemark.html,
-                  }}
-                />
-              ) : undefined}
+            <div
+              className="base content"
+              dangerouslySetInnerHTML={{
+                __html: highRiskContentOne.childMarkdownRemark.html,
+              }}
+            />
+          ) : undefined}
           <div className="twoByOneGrid">
-            <div className="box box1 content">              
+            <div className="box box1 content">
               {highRiskContentTwo !== null ? (
                 <div
                   className="content base"
@@ -385,12 +385,15 @@ export default function HomePage({ data }) {
               ) : undefined}
             </div>
             <div className="box box2">
-              <Img fluid={highRiskImage.fluid}></Img>
+              <Img fluid={highRiskImage.fluid} />
             </div>
           </div>
           <div className="buttons">
             {highRiskButtonText && (
-              <AnchorLink className="btn" to="/#animation" title="What is a High Risk Vendor">
+              <AnchorLink
+                className="btn"
+                to="/#animation"
+                title="What is a High Risk Vendor">
                 <span>{highRiskButtonText}</span>
               </AnchorLink>
             )}
@@ -418,7 +421,7 @@ export default function HomePage({ data }) {
               ) : undefined}
             </div>
             <div className="box box2">
-              <Img fluid={traitImage.fluid}></Img>
+              <Img fluid={traitImage.fluid} />
             </div>
           </div>
           {traitContentTwo !== null ? (
@@ -431,7 +434,10 @@ export default function HomePage({ data }) {
           ) : undefined}
           <div className="buttons">
             {traitButtonText && (
-              <AnchorLink className="btn" to="/#animation" title="What is a High Risk Vendor">
+              <AnchorLink
+                className="btn"
+                to="/#animation"
+                title="What is a High Risk Vendor">
                 <span>{traitButtonText}</span>
               </AnchorLink>
             )}
@@ -459,7 +465,7 @@ export default function HomePage({ data }) {
               ) : undefined}
             </div>
             <div className="box box2">
-              <Img fluid={legalImage.fluid}></Img>
+              <Img fluid={legalImage.fluid} />
             </div>
           </div>
           {legalContentTwo !== null ? (
@@ -498,7 +504,7 @@ export default function HomePage({ data }) {
             />
           ) : undefined}
           <div className="twoByOneGrid">
-            <div className="box box1 content">              
+            <div className="box box1 content">
               {subcontractorContentTwo !== null ? (
                 <div
                   dangerouslySetInnerHTML={{
@@ -508,7 +514,7 @@ export default function HomePage({ data }) {
               ) : undefined}
             </div>
             <div className="box box2">
-              <Img fluid={subcontractorImage.fluid}></Img>
+              <Img fluid={subcontractorImage.fluid} />
             </div>
           </div>
           <div className="buttons">
@@ -538,7 +544,7 @@ export default function HomePage({ data }) {
               </div>
               {processContentOne !== null ? (
                 <div
-                  class="content"
+                  className="content"
                   dangerouslySetInnerHTML={{
                     __html: processContentOne.childMarkdownRemark.html,
                   }}
@@ -556,7 +562,7 @@ export default function HomePage({ data }) {
               </div>
               {processContentTwo !== null ? (
                 <div
-                  class="content"
+                  className="content"
                   dangerouslySetInnerHTML={{
                     __html: processContentTwo.childMarkdownRemark.html,
                   }}
@@ -574,7 +580,7 @@ export default function HomePage({ data }) {
               </div>
               {processContentThree !== null ? (
                 <div
-                  class="content"
+                  className="content"
                   dangerouslySetInnerHTML={{
                     __html: processContentThree.childMarkdownRemark.html,
                   }}
@@ -592,7 +598,7 @@ export default function HomePage({ data }) {
               </div>
               {processContentFour !== null ? (
                 <div
-                  class="content"
+                  className="content"
                   dangerouslySetInnerHTML={{
                     __html: processContentFour.childMarkdownRemark.html,
                   }}
@@ -610,7 +616,7 @@ export default function HomePage({ data }) {
               </div>
               {processContentFive !== null ? (
                 <div
-                  class="content"
+                  className="content"
                   dangerouslySetInnerHTML={{
                     __html: processContentFive.childMarkdownRemark.html,
                   }}
@@ -636,7 +642,7 @@ export default function HomePage({ data }) {
               ) : undefined}
             </div>
             <div className="box box2">
-              <Img fluid={liabilityImage.fluid}></Img>
+              <Img fluid={liabilityImage.fluid} />
             </div>
           </div>
 
@@ -650,7 +656,10 @@ export default function HomePage({ data }) {
           ) : undefined}
           <div className="buttons">
             {liabilityButtonText && (
-              <AnchorLink className="btn" to="/#animation" title="What is a High Risk Vendor">
+              <AnchorLink
+                className="btn"
+                to="/#animation"
+                title="What is a High Risk Vendor">
                 <span>{liabilityButtonText}</span>
               </AnchorLink>
             )}
@@ -669,7 +678,7 @@ export default function HomePage({ data }) {
           <h2>{finalMessageHeading}</h2>
           <div className="twoByOneGrid">
             <div className="image">
-              <Img fluid={finalMessageImage.fluid}></Img>
+              <Img fluid={finalMessageImage.fluid} />
             </div>
             <div className="content">
               {finalMessageContentOne !== null ? (
@@ -709,36 +718,44 @@ export default function HomePage({ data }) {
         <div id="industries">
           <h2>Industries Served</h2>
           <h3>
-            <select value={industry} onChange={(e) => setIndustry(e.target.value)}>
-              {industries.map(({id, header}) => <option value={id}>{header}</option>)}
+            <select
+              value={industry}
+              onChange={(e) => setIndustry(e.target.value)}>
+              {industries.map(({ id, header }) => (
+                <option key={id} value={id}>
+                  {header}
+                </option>
+              ))}
             </select>
           </h3>
-          {industries.filter(i => i.id === industry).map(({content, image, header, buttonText}) => (
-            <>
-              {/* <h3>{header}</h3> */}
-              <div className="twoByOneGrid">
-              <div className="box box1 content">
-                {content !== null ? (
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: content.childMarkdownRemark.html,
-                    }}
-                  />
-                ) : undefined}
-              </div>
-              <div className="box box2">
-                <Img fluid={image.fluid}></Img>
-              </div>
-            </div>
-            <div className="buttons">
-              {buttonText && (
-                <AnchorLink to="/#animation" className="btn">
-                  {buttonText}
-                </AnchorLink>
-              )}
-            </div>
-          </>
-          ))}
+          {industries
+            .filter((i) => i.id === industry)
+            .map(({ content, image, buttonText }) => (
+              <React.Fragment key={uuid()}>
+                {/* <h3>{header}</h3> */}
+                <div className="twoByOneGrid">
+                  <div className="box box1 content">
+                    {content !== null ? (
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: content.childMarkdownRemark.html,
+                        }}
+                      />
+                    ) : undefined}
+                  </div>
+                  <div className="box box2">
+                    <Img fluid={image.fluid} />
+                  </div>
+                </div>
+                <div className="buttons">
+                  {buttonText && (
+                    <AnchorLink to="/#animation" className="btn">
+                      {buttonText}
+                    </AnchorLink>
+                  )}
+                </div>
+              </React.Fragment>
+            ))}
         </div>
       </StyledIndustryBlock>
     </>

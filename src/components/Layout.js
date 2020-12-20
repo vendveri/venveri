@@ -9,6 +9,7 @@ import 'normalize.css';
 let timeout;
 const Layout = ({ children }) => {
   const [isOpen, setIsOpen] = React.useState(false);
+
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
@@ -17,7 +18,7 @@ const Layout = ({ children }) => {
     if (timeout) {
       window.cancelAnimationFrame(timeout);
     }
-    timeout = window.requestAnimationFrame(function () {
+    timeout = window.requestAnimationFrame(() => {
       setScrollPosition(window.scrollY);
     });
   };
