@@ -4,7 +4,7 @@ import video from '../assets/videos/animation.mp4';
 
 export const Video = () => (
   <RegVideoWrapper>
-    <video controls autoPlay muted loop>
+    <video controls>
       <source src={video} type="video/mp4" />
     </video>
   </RegVideoWrapper>
