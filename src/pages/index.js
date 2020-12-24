@@ -11,7 +11,7 @@ import {
   AiOutlineSafetyCertificate,
 } from 'react-icons/ai';
 import { BiMailSend } from 'react-icons/bi';
-
+import { Video } from '../components/Video';
 import {
   StyledHeroBlock,
   StyledFounderBlock,
@@ -62,7 +62,7 @@ export default function HomePage({ data }) {
     question: auditQuestion,
     buttonText: auditButtonText,
     answer: auditAnswer,
-    image: auditImage,
+    // image: auditImage,
   } = audit;
 
   // founder
@@ -207,7 +207,8 @@ export default function HomePage({ data }) {
               )}
             </div>
             <div className="image">
-              <Img fluid={auditImage.fluid} />
+              {/* <Img fluid={auditImage.fluid} /> */}
+              <Video />
             </div>
           </div>
         </div>
