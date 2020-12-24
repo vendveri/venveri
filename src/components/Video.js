@@ -11,9 +11,9 @@ export const Video = () => (
 );
 
 const RegVideoWrapper = styled.div`
-  width: 90vw;
+  width: 100vw;
   max-width: 700px;
-  height: 30vh;
+  height: 60vh;
   position: relative;
   margin-bottom: 2rem;
   video {
