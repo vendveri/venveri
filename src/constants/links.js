@@ -18,6 +18,14 @@ const Links = ({ styleClass, toggleSidebar }) => (
         <p id="contact-page">Contact Us</p>
       </Link>
     </li>
+    <li>
+      <a
+        href="tel:1-800-438-7233"
+        className="phone-link"
+        onClick={toggleSidebar}>
+        <p id="phone">1-800-GET-SAFE</p>
+      </a>
+    </li>
   </ul>
 );
 

@@ -208,29 +208,6 @@ const StyledGenericInfoBlock = styled(StyledBaseContentBlock)`
   }
 `;
 
-// const StyledNoImageBlock = styled(StyledBaseContentBlock)`
-//   .content {
-//     img {
-//       float: left;
-//       max-width: calc(50% - 2rem);
-//       margin-right: 2rem;
-//     }
-//     &::after {
-//       content: '';
-//       clear: both;
-//       display: table;
-//     }
-//   }
-//   @media (max-width: 768px) {
-//     .content {
-//       img {
-//         float: none;
-//         max-width: 100%;
-//       }
-//     }
-//   }
-// `;
-
 export const StyledHeroBlock = styled(StyledBaseContentBlock)`
   & > div {
     display: flex;
@@ -243,6 +220,8 @@ export const StyledHeroBlock = styled(StyledBaseContentBlock)`
     text-shadow: 1px 1px 4px #000;
     font-weight: 300;
     text-align: initial;
+    background: #1c37665e;
+    padding: 0.5rem;
   }
   h1 {
     /* font-size: 6rem; */
@@ -250,6 +229,10 @@ export const StyledHeroBlock = styled(StyledBaseContentBlock)`
   h2 {
     /* font-size: 3rem; */
   }
+  /* .contents {
+    background: #1c37665e;
+    padding: 0.5rem;
+  } */
 `;
 export const StyledFounderBlock = styled(StyledBaseContentBlock)`
   .twoByOneGrid {
@@ -461,5 +444,26 @@ export const StyledIndustryBlock = styled(StyledGenericInfoBlock)`
       border: 3px solid var(--clr-concrete-white);
       outline: none;
     }
+  }
+`;
+
+export const StyledSubtitleBlock = styled.section`
+  padding: 0 2rem;
+  position: sticky;
+  top: 50px;
+  display: block;
+  z-index: 1000;
+  background: var(--clr-concrete-white);
+  margin-top: -1rem;
+  p {
+    max-width: var(--max-width);
+    font-size: 1.25rem;
+    font-style: italic;
+    margin: 0;
+    padding: 0;
+    transition: none;
+  }
+  @media screen and (min-width: 1050px) {
+    display: none;
   }
 `;

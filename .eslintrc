@@ -19,6 +19,7 @@
       "singleQuote": true,
       "trailingComma": "es5",
       "jsxBracketSameLine": true,
+      "endOfLine": "auto"
     }],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "comma-dangle": ["error", "only-multiline"],
