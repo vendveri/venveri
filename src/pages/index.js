@@ -182,8 +182,10 @@ export default function HomePage({ data }) {
         color="var(--clr-concrete-white)"
         baseHeight={100}>
         <div id="top">
-          <h1>{heroTitle}</h1>
-          <h2>{heroSubtitle}</h2>
+          <div className="contents">
+            <h1>{heroTitle}</h1>
+            <h2>{heroSubtitle}</h2>
+          </div>
         </div>
       </StyledHeroBlock>
 

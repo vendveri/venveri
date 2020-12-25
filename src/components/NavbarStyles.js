@@ -24,8 +24,13 @@ export const StyledNav = styled.nav`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
     img {
-      height: 3.5rem;
+      max-height: 3.5rem;
     }
   }
   .toggle-btn {
@@ -40,6 +45,13 @@ export const StyledNav = styled.nav`
     }
   }
   .nav-links {
+    display: none;
+  }
+  .subtext {
+    font-size: 1.25rem;
+    font-style: italic;
+    margin: 0;
+    padding: 0;
     display: none;
   }
   @media screen and (min-width: 768px) {
@@ -103,6 +115,11 @@ export const StyledNav = styled.nav`
           } */
         }
       }
+    }
+  }
+  @media screen and (min-width: 1050px) {
+    .subtext {
+      display: block;
     }
   }
 `;
