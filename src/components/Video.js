@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import video from '../assets/videos/animation.mp4';
+import videoPoster from '../assets/images/youtube-poster.png';
 
 export const Video = () => (
   <RegVideoWrapper>
-    <video controls>
+    <video controls poster={videoPoster}>
       <source src={video} type="video/mp4" />
     </video>
   </RegVideoWrapper>
@@ -16,6 +17,7 @@ const RegVideoWrapper = styled.div`
   height: 60vh;
   position: relative;
   margin-bottom: 2rem;
+  padding-bottom: 20%;
   video {
     position: absolute;
     top: 0;
