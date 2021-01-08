@@ -86,6 +86,11 @@ body {
 ul {
   list-style-type: none;
 }
+
+/* all paragraphs following a ul */
+ul+p {
+padding: 2rem 0;
+}
 a {
   text-decoration: none;
 }
