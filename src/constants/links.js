@@ -20,10 +20,10 @@ const Links = ({ styleClass, toggleSidebar }) => (
     </li>
     <li>
       <a
-        href="tel:1-800-438-7233"
+        href="tel:1-800-203-7010"
         className="phone-link"
         onClick={toggleSidebar}>
-        <p id="phone">1-800-GET-SAFE</p>
+        <p id="phone">1-800-203-7010</p>
       </a>
     </li>
   </ul>
