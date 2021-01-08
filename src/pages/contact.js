@@ -128,7 +128,7 @@ const ContactPage = ({
           <h3>Get in Touch!</h3>
           <p>
             For a more in-depth look at our protection services and rates call
-            us at 1-800-Get-Safe or fill out the form below! A representative
+            us at 1-800-203-7010 or fill out the form below! A representative
             will be in touch shortly.
           </p>
           <form
