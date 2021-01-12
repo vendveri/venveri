@@ -123,12 +123,13 @@ const ContactPage = ({
       <SEO title="VendVeri - Contact" />
       <StyledContactPage
         className="page"
-        background={background ? `url(${background.fluid.src})` : null}>
+        background={background ? `url(${background.fluid.src})` : null}
+      >
         <article>
           <h3>Get in Touch!</h3>
           <p>
             For a more in-depth look at our protection services and rates call
-            us at 1-800-203-7010 or fill out the form below! A representative
+            us at 1 (800) 929-0849 or fill out the form below! A representative
             will be in touch shortly.
           </p>
           <form
@@ -137,7 +138,8 @@ const ContactPage = ({
             data-netlify="true"
             data-netlify-honeypot="bot-field"
             action="/thank-you"
-            onSubmit={handleSubmit}>
+            onSubmit={handleSubmit}
+          >
             <input type="hidden" name="form-name" value="contact" />
             <div className="form-group">
               <label htmlFor="first-name" className="sr-only">
